@@ -2,8 +2,8 @@
 git add * 을 하기전에!
 1. vim .gitignore
 2. 아래 두 줄을 추가
-build/
-node_modules/
+- build/
+- node_modules/
 
 [실행법]
 1. npm install -g firebase-tools
