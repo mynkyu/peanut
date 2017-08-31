@@ -1,11 +1,15 @@
 import React from 'react';
 import FBLogIn from './FBLogIn'
+import Kakao from './Kakao'
 
 class App extends React.Component {
 
   render(){
     return (
-      <FBLogIn/>
+      <div>
+        <FBLogIn/>
+        <Kakao/>
+      </div>
     );
   }
 }

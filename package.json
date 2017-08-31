@@ -18,12 +18,11 @@
   "bugs": {
     "url": "https://github.com/mynkyu/peanut/issues"
   },
-  "homepage": "https://github.com/mynkyu/peanut#readme",
+  "homepage": "https://peanut-5b51b.firebaseapp.com/",
   "dependencies": {
     "firebase": "^4.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-facebook-login": "^3.6.2",
     "react-scripts": "1.0.12"
   },
   "devDependencies": {
