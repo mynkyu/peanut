@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase'
+import FacebookLogin from 'react-facebook-login';
 
 class FBLogIn extends React.Component {
   constructor(props){
@@ -73,7 +74,6 @@ class FBLogIn extends React.Component {
 
     var uploader = document.getElementById('uploader')
     var fileButton = document.getElementById('fileButton')
-    console.log("h")
 
     fileButton.addEventListener('change', function(e) {
       var file = e.target.files[0];
@@ -92,7 +92,7 @@ class FBLogIn extends React.Component {
         function complete() {
 
         }
-      );
+      )
     })
 
     var bigOne = document.getElementById('bigOne')
@@ -100,9 +100,19 @@ class FBLogIn extends React.Component {
     dbRef.on('value', snap => bigOne.innerText = snap.val());
   }
 
+  responseFacebook(response) {
+    console.log(response);
+  };
+
   render(){
     return (
-      <h1></h1>
+      <div>
+        <FacebookLogin
+        appId="114048632608756"
+        autoLoad={true}
+        fields="name,email,picture"
+        callback={this.responseFacebook} />
+      </div>
     );
   }
 }
