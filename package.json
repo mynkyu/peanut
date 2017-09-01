@@ -20,9 +20,11 @@
   },
   "homepage": "https://peanut-5b51b.firebaseapp.com/",
   "dependencies": {
+    "croppie": "^2.5.0",
     "firebase": "^4.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.12"
   },
   "devDependencies": {
