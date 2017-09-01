@@ -9,6 +9,7 @@ git add * 을 하기전에!
 1. npm install -g firebase-tools
 2. brew install yarn
 3. yarn init
-4. yarn start
-5. yarn build
-6. firebase deploy
+4. yarn install
+5. yarn start
+6. yarn build
+7. firebase deploy
