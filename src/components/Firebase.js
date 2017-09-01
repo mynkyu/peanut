@@ -1,5 +1,10 @@
 import React from 'react';
-import * as firebase from 'firebase'
+import ReactDOM from 'react-dom';
+import * as firebase from 'firebase';
+import Croppie from 'croppie'
+import croppieStyle from 'croppie/croppie.css'
+
+import facebook from './facebook.png'
 
 class Firebase extends React.Component {
   constructor(props){
@@ -7,6 +12,7 @@ class Firebase extends React.Component {
   }
 
   componentDidMount(){
+
     /*
     const preObject = document.getElementById('object');
     const dbRefObject = firebase.database().ref().child('object');
@@ -69,12 +75,10 @@ class Firebase extends React.Component {
         console.log('not logged in');
       }
     });
+    */
 
-    var uploader = document.getElementById('uploader')
-    var fileButton = document.getElementById('fileButton')
-
-    fileButton.addEventListener('change', function(e) {
-      var file = e.target.files[0];
+    function uploadFB(blob) {
+      var file = blob;
 
       var storageRef = firebase.storage().ref('test/' + file.name)
       var task = storageRef.put(file)
@@ -91,13 +95,53 @@ class Firebase extends React.Component {
 
         }
       )
+    }
+
+    var uploader = document.getElementById('uploader')
+    var fileButton = document.getElementById('fileButton')
+
+    function upload(imageUrl) {
+      var el = document.getElementById('upload');
+      var upload = new Croppie(el, {
+        viewport: { width: 100, height: 100 },
+        boundary: { width: 300, height: 300 },
+        showZoomer: true,
+        enableOrientation: true,
+        enableExif: true
+      });
+      upload.bind({
+        url: imageUrl,
+      });
+
+      document.getElementById('uploadBtn').addEventListener('click', function(ev) {
+        upload.result('blob').then(function(blob) {
+          uploadFB(blob)
+        });
+      })
+    }
+
+    fileButton.addEventListener('change', function(e) {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e2) => {
+          upload(e2.target.result)
+        }
+
+        reader.readAsDataURL(e.target.files[0]);
+      }
+      else {
+        console.log("upload fail")
+      }
     })
-    */
   }
 
   render(){
     return (
       <div>
+        <div id="upload" className="croppie-container"/>
+        <progress value ="0" max="100" id="uploader">0%</progress>
+        <input type="file" value="upload" id="fileButton"/>
+        <button id="uploadBtn"> 업로드버튼 </button>
       </div>
     );
   }
