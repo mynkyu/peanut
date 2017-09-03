@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class About extends Component {
+class Challenge extends Component {
     render() {
         return (
             <div>
-                {this.props.match.params.username} 소개
+                과연 당신의 일치율은?
             </div>
         );
     }
 }
 
-export default About;
+export default Challenge;

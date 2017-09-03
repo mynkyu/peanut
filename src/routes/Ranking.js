@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class About extends Component {
+class Ranking extends Component {
     render() {
         return (
             <div>
-                {this.props.match.params.username} 소개
+                실시간 투표 현황
             </div>
         );
     }
 }
 
-export default About;
+export default Ranking;

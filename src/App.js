@@ -1,21 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+import Header from './Header';
 
 import Home from './routes/Home';
-import About from './routes/About';
+import Ranking from './routes/Ranking';
+import Challenge from './routes/Challenge';
+import NotFound from './routes/NotFound'
 
-import Header from './components/Header';
-
-const App = () => {
-  return (
-    <Router>
-      <div>
+class App extends Component {
+  render() {
+    return (  
+      <Router>
+        <div>
         <Header/>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-      </div>
-    </Router>
-  );
-};
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/home" component={Home}/>
+              <Route path="/ranking" component={Ranking}/>
+              <Route path="/challenge" component={Challenge}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    );
+  }
+}
 
 export default App;
