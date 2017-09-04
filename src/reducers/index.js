@@ -1,40 +1,23 @@
-import { INCREMENT, DECREMENT, SET_DIFF } from '../actions';
+import { SET_CROP_IMG } from '../actions';
 import { combineReducers } from 'redux';
 
-const counterInitialState = {
-    value: 0,
-    diff: 1
+const cropInitialState = {
+    blob: null
 };
 
-const counter = (state = counterInitialState, action) => {
+const crop = (state = cropInitialState, action) => {
     switch(action.type) {
-        case INCREMENT:
+        case SET_CROP_IMG:
             return Object.assign({}, state, {
-                value: state.value + state.diff
-            });
-        case DECREMENT:
-            return Object.assign({}, state, {
-                value: state.value - state.diff
-            });
-        case SET_DIFF:
-            return Object.assign({}, state, {
-                diff: action.diff
+                blob: action.blob
             });
         default:
             return state;
     }
 };
 
-const extra = (state = { value: 'this_is_extra_reducer' }, action) => {
-    switch(action.type) {
-        default:
-            return state;
-    }
-}
-
-const counterApp = combineReducers({
-    counter,
-    extra
+const reduxApp = combineReducers({
+    crop
 });
 
-export default counterApp;
+export default reduxApp;

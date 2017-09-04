@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as firebase from 'firebase'
+import { createStore } from 'redux';
+import { Provider  } from 'react-redux';
+import reduxApp from './reducers';
+
+const store = createStore(reduxApp);
 
 const config = {
   apiKey: "AIzaSyBjI2D6kStfw3wotgW4u09GXkluHbJVxe0",
@@ -14,4 +19,8 @@ const config = {
 firebase.initializeApp(config);
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store = {store}>
+    <App />
+  </Provider>, 
+  rootElement);

@@ -1,22 +1,12 @@
+export const SET_CROP_IMG = 'SET_CROP_IMG';
+
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const SET_DIFF = 'SET_DIFF';
 
-export function increment() {
+export function setCropImg(blob) {
     return {
-        type: INCREMENT
-    };
-}
-
-export function decrement() {
-    return {
-        type: DECREMENT
-    };
-}
-
-export function setDiff(value) {
-    return {
-        type: SET_DIFF,
-        diff: value
+        type: SET_CROP_IMG,
+        blob: blob
     };
 }
