@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as firebase from 'firebase';
 
 class Process extends Component {
@@ -8,7 +8,7 @@ class Process extends Component {
         super(props)
         this.state = {
             profile : null,
-            result : null
+            response : null
         }
 
         this.uploadImage = this.uploadImage.bind(this)
@@ -40,20 +40,20 @@ class Process extends Component {
         function error(err) {},
         function complete() {
             instance.setState({
-                result: "성공성공"
+                response: 100
             })
-        }
-        )
+        })
     }
 
     render() {
-        if (this.state.result) {
+        if (this.state.response) {
+            var path = "/challenge/response/" + this.state.response
+
             if(this.state.profile) {
-                console.log(this.props.profile)    
-            } else {
-                const path = "/challenge/result/" + this.state.result
-                return <Redirect push to= {path}/>;
+                path = "/challenge/result"
             }
+
+            return <Redirect push to= {path}/>;
         }
 
         return (
