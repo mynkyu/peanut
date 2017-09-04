@@ -9,8 +9,12 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
+                <div id = "dummy"></div>
+                
                 <NavLink exact to="/" className="item"> <p className="content">facelink</p> </NavLink>
+                
                 <Profile/>
+
             </div>
         );
     }

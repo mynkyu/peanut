@@ -7,9 +7,8 @@
 
 .item {
     display: inline-table;
-    width: 4rem;
-    height:4rem;
-    border: 0.1rem solid #f38048;
+    width  : 4rem;
+    height : 4rem;
     font-size: 1.1rem;
     text-decoration: none;
     color: #f38048
@@ -23,6 +22,12 @@
 
 .profile {
     float: right;
+}
+
+#dummy {
+    width  : 4rem;
+    height : 4rem;
+    float  : left; 
 }
 
 /* .header {

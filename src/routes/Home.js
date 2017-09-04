@@ -19,7 +19,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div className="announcement"> 그 분과 내 얼굴의 일치율을 확인해 보세요!</div>
+                <div className="announcement"> tlqkjfaslkd그 분과 내 얼굴의 일치율을 확인해 보세요!</div>
                 <Top/>
                 <Challenge/>
                 {/* <button onClick={()=>{this.props.history.push('/posts')}} > 포스트 </button> */}
