@@ -1,6 +1,8 @@
 import React from 'react';
 import * as firebase from 'firebase'
 import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions';
 
 import '../Header.css'
 
@@ -63,12 +65,14 @@ class Profile extends React.Component {
         // [START_EXCLUDE]
         console.log("signIn")
         this.updateUser(true)
+        this.props.onSignIn(user)
         //document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
         //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
         // [END_EXCLUDE]
       } else {
         console.log("signOut")
         this.updateUser(false)
+        this.props.onSignOut()
         // User is signed out.
         // [START_EXCLUDE]
         //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
@@ -121,5 +125,14 @@ class Profile extends React.Component {
     );
   }
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+      onSignIn: (profile) => dispatch(signIn(profile)),
+      onSignOut: () => dispatch(signOut())
+  }
+}
+
+Profile = connect(undefined, mapDispatchToProps)(Profile);
 
 export default Profile;

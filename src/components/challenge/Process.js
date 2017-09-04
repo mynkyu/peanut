@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import * as firebase from 'firebase';
 
 class Process extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            profile : null,
+            result : null
+        }
+
+        this.uploadImage = this.uploadImage.bind(this)
+    }
 
     componentWillReceiveProps(props) {
+        if (props.profile) {
+            this.setState({
+                profile : props.profile 
+            })
+        }
+
         if (props.blob) {
             this.uploadImage(props.blob)
         }
@@ -13,6 +29,7 @@ class Process extends Component {
     uploadImage(blob) {
         if(!blob) {return}
 
+        const instance = this
         var file = blob;
         var storageRef = firebase.storage().ref('test/' + file.name)
         var task = storageRef.put(file)
@@ -21,11 +38,24 @@ class Process extends Component {
             console.log("업로드 : " + percentage)
         },
         function error(err) {},
-        function complete() {}
+        function complete() {
+            instance.setState({
+                result: "성공성공"
+            })
+        }
         )
     }
 
     render() {
+        if (this.state.result) {
+            if(this.state.profile) {
+                console.log(this.props.profile)    
+            } else {
+                const path = "/challenge/result/" + this.state.result
+                return <Redirect push to= {path}/>;
+            }
+        }
+
         return (
             <div>
                 <div>에드센스</div>
@@ -38,7 +68,8 @@ class Process extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        blob: state.crop.blob
+        profile: state.profile.profile,
+        blob: state.crop.cropImg
     };
 }
 
