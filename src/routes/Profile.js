@@ -115,7 +115,8 @@ class Profile extends React.Component {
       profile = <img id="profile_img" src={userOnImg}/>
       {/* <button onClick={this.facebookShare}> 공유 </button> */}
     } else {
-      profile = <img id="profile_img" src={userOffImg} onClick={this.facebookLogin} />
+      
+      profile = <img id="profile_img" src={userOffImg} onClick={this.facebookLogin} style = {{height : 50}} />
     }
 
     return (

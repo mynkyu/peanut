@@ -1,4 +1,7 @@
 .announcement {
-    color: #f38048
+    color: #f38048;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
