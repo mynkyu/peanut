@@ -51,7 +51,7 @@ class Crop extends Component {
 
     render() {
         if (this.state.imageBlob) {
-            return <Redirect push to="/challenge/process"/>;
+            return <Redirect to="/challenge/process"/>;
         }
 
         return (
