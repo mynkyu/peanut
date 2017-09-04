@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import Photo from '../components/challenge/Photo'
 import Crop from '../components/challenge/Crop'
 import Process from '../components/challenge/Process'
-import Result from '../components/challenge/Result'
+import Response from '../components/challenge/Response'
 
 class Challenge extends Component {
     render() {
@@ -13,7 +13,7 @@ class Challenge extends Component {
                 <Route exact path="/challenge" component={Photo}/>
                 <Route path="/challenge/crop" component={Crop}/>
                 <Route path="/challenge/process" component={Process}/>
-                <Route path="/challenge/result/:result" component={Result}/>
+                <Route path="/challenge/response/:response" component={Response}/>
             </div>
         );
     }
