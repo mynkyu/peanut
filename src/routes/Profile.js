@@ -98,6 +98,10 @@ class Profile extends React.Component {
     firebase.auth().signInWithRedirect(provider);
   }
 
+  facebookLogout() {
+    firebase.auth().signOut()
+  }
+
   facebookShare() {
     window.FB.ui({
       method: 'share_open_graph',
@@ -112,7 +116,7 @@ class Profile extends React.Component {
     let profile = null
 
     if (this.state.userOn) {
-      profile = <img id="profile_img" src={userOnImg}/>
+      profile = <img id="profile_img" src={userOnImg} onClick={this.facebookLogout}/>
       {/* <button onClick={this.facebookShare}> 공유 </button> */}
     } else {
       

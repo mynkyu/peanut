@@ -34,11 +34,11 @@ class Response extends Component {
     }
 
     render() {
-        if (this.props.match.params.response == 100 && this.props.profile) {
+        if (this.props.match.params.response === 100 && this.props.profile) {
             return <Redirect push to='challenge/result'/>;
         } 
 
-        if (this.props.match.params.response == 100) {
+        if (this.props.match.params.response === 100) {
             return (
                 <div>
                     <div><a id='response'></a></div>
