@@ -4,9 +4,10 @@ import {Redirect} from 'react-router-dom';
 import * as firebase from 'firebase';
 
 class Process extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
+            profile : null,
             result : null
         }
 
@@ -14,6 +15,12 @@ class Process extends Component {
     }
 
     componentWillReceiveProps(props) {
+        if (props.profile) {
+            this.setState({
+                profile : props.profile 
+            })
+        }
+
         if (props.blob) {
             this.uploadImage(props.blob)
         }
@@ -41,8 +48,12 @@ class Process extends Component {
 
     render() {
         if (this.state.result) {
-            const path = "/challenge/result/" + this.state.result
-            return <Redirect push to= {path}/>;
+            if(this.state.profile) {
+                console.log(this.props.profile)    
+            } else {
+                const path = "/challenge/result/" + this.state.result
+                return <Redirect push to= {path}/>;
+            }
         }
 
         return (
@@ -57,6 +68,7 @@ class Process extends Component {
 
 let mapStateToProps = (state) => {
     return {
+        profile: state.profile.profile,
         blob: state.crop.cropImg
     };
 }

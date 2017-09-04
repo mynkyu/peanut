@@ -1,9 +1,28 @@
-import { SET_IMG, SET_CROP_IMG } from '../actions';
+import { SIGN_IN, SIGN_OUT, SET_IMG, SET_CROP_IMG } from '../actions';
 import { combineReducers } from 'redux';
+
+const profileInitialState = {
+    profile: null
+};
 
 const cropInitialState = {
     img: null,
     cropImg: null
+};
+
+const profile = (state = profileInitialState, action) => {
+    switch(action.type) {
+        case SIGN_IN:
+            return Object.assign({}, state, {
+                profile: action.profile
+            });
+        case SIGN_OUT:
+            return Object.assign({}, state, {
+                profile: null
+            });
+        default:
+            return state;
+    }
 };
 
 const crop = (state = cropInitialState, action) => {
@@ -22,6 +41,7 @@ const crop = (state = cropInitialState, action) => {
 };
 
 const reduxApp = combineReducers({
+    profile,
     crop
 });
 
