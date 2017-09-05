@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import contestImg from '../../contestImg.png'
-import userOnImg from '../../userOnImg.png'
 
 class Result extends Component {
+    /*
+    constructor(props) {
+        super(props)
+        this.state = {
+            cropImg : null
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        if (props.profile) {
+            this.setState({
+                profile : props.profile 
+            })
+        }
+    }
+    */
+
     componentDidMount() {
         window.Kakao.Link.createDefaultButton({
             container: '#kakao-link-btn',
@@ -39,7 +56,7 @@ class Result extends Component {
                 }
               }
             ]
-          });
+        });
     }
 
     facebookShare() {
@@ -53,16 +70,19 @@ class Result extends Component {
     }
 
     render() {
+        if(!this.props.blob) { return <div></div> } 
+        const imgSrc = URL.createObjectURL(this.props.blob)
+        
         return (
             <div>
                 <div>
                     <img src={contestImg}/>
-                    <img src={userOnImg}/>
+                    <img src={imgSrc}/>
                 </div>
                 <div>이 분과 당신의 일치율은...</div>
                 <div>97%</div>
                 <div>이쯤되면 무서운데요?</div>
-                <div> <button>컨테스트 응모 자격 획득!</button> </div>
+                <div><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>
                 <div>
                     <Link to="/challenge">다른 사진으로 재도전</Link>
                     <button onClick={this.facebookShare}>페이스북 공유</button>
@@ -77,5 +97,13 @@ class Result extends Component {
         );
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        blob: state.crop.cropImg
+    };
+}
+
+Result = connect(mapStateToProps)(Result);
 
 export default Result;

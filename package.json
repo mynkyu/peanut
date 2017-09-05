@@ -20,6 +20,7 @@
   },
   "homepage": "https://peanut-5b51b.firebaseapp.com/",
   "dependencies": {
+    "axios": "^0.16.2",
     "croppie": "^2.5.0",
     "firebase": "^4.3.0",
     "react": "^15.6.1",

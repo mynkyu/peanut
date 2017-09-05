@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as firebase from 'firebase';
 
+import * as facelink from '../../api/FaceLink';
+
 class Process extends Component {
     constructor(props) {
         super(props)
@@ -38,11 +40,22 @@ class Process extends Component {
             console.log("업로드 : " + percentage)
         },
         function error(err) {},
-        function complete() {
-            instance.setState({
-                response: 100
-            })
+        function complete() {    
+            //instance.setState({ response: 100 })
+            var downloadURL = task.snapshot.downloadURL;
+            instance.fetchSimilarity(downloadURL);
         })
+    }
+
+    fetchSimilarity = async (imageUri) => {
+        const result = await facelink.getSimilarity(imageUri);
+        console.log(result);
+
+        /*
+        this.setState({
+            response: 100
+        })
+        */
     }
 
     render() {
