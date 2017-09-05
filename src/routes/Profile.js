@@ -111,11 +111,10 @@ class Profile extends React.Component {
     let profile = null
 
     if (this.state.userOn) {
-      profile = <img id="profile_img" src={userOnImg} onClick={this.facebookLogout}/>
+      profile = <img id="profile_img" className = "afterLogin"  src={userOnImg} onClick={this.facebookLogout} style = {{height : 50, mode : 'fit'}} />
       {/* <button onClick={this.facebookShare}> 공유 </button> */}
     } else {
-      
-      profile = <img id="profile_img" src={userOffImg} onClick={this.facebookLogin} style = {{height : 50}} />
+      profile = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} style = {{height : 50, mode : 'fit'}}  />
     }
 
     return (
