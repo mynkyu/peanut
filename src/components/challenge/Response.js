@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
-import * as firebase from 'firebase';
+import { Link, Redirect } from 'react-router-dom';
+import * as firebase from 'firebase'
 
 class Response extends Component {
     constructor() {
@@ -9,11 +9,6 @@ class Response extends Component {
         this.state = {
             profile : null
         }
-    }
-
-    componentDidMount() {
-         const response = this.props.match.params.response
-         document.getElementById('response').innerText = response
     }
 
     componentWillReceiveProps(props) {
@@ -24,25 +19,32 @@ class Response extends Component {
         }
     }
 
+    componentDidMount() {
+         const response = this.props.match.params.response
+         document.getElementById('response').innerText = response
+    }
+
     facebookLogin() {
         const provider = new firebase.auth.FacebookAuthProvider();
         provider.addScope('email');
         provider.addScope('public_profile');
         provider.addScope('user_friends');
     
-        firebase.auth().signInWithRedirect(provider);
+        firebase.auth().signInWithPopup(provider);
+        //firebase.auth().signInWithRedirect(provider);
     }
 
     render() {
-        if (this.props.match.params.response === 100 && this.props.profile) {
-            return <Redirect push to='challenge/result'/>;
-        } 
+        if (this.props.match.params.response == 100) {
+            if(this.state.profile) {
+                return <Redirect to="/challenge/result"/>
+            }
 
-        if (this.props.match.params.response === 100) {
             return (
                 <div>
                     <div><a id='response'></a></div>
-                    <div>로그인</div>
+                    <div><button onClick={this.facebookLogin}>페이스북 로그인</button></div>
+                    {/* <div><Link to="/challenge/result">로그인</Link></div> */}
                 </div>
             );
         } 

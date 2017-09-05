@@ -44,7 +44,7 @@ class Photo extends Component {
 
     render() {
         if (this.state.imageBlob) {
-            return <Redirect push to="/challenge/crop"/>;
+            return <Redirect to="/challenge/crop"/>;
         }
 
         return (

@@ -53,7 +53,7 @@ class Process extends Component {
                 path = "/challenge/result"
             }
 
-            return <Redirect push to= {path}/>;
+            return <Redirect to={path}/>;
         }
 
         return (
