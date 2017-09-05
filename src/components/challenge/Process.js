@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { setSimilarity } from '../../actions';
 import * as firebase from 'firebase';
 
 import * as facelink from '../../api/FaceLink';
@@ -10,7 +11,8 @@ class Process extends Component {
         super(props)
         this.state = {
             profile : null,
-            response : null
+            response : null,
+            similarity : null
         }
 
         this.uploadImage = this.uploadImage.bind(this)
@@ -49,17 +51,23 @@ class Process extends Component {
 
     fetchSimilarity = async (imageUri) => {
         const result = await facelink.getSimilarity(imageUri);
-        console.log(result);
 
-        /*
-        this.setState({
-            response: 100
-        })
-        */
+        if (result.data && result.data.response) {
+            const response = result.data.response
+            this.setState({ response : response })
+        } else {
+            return
+        }
+
+        if (result.data.result && result.data.result.similarity) {
+            const similarity = result.data.result.similarity
+            this.setState({ similarity : similarity })
+            this.props.onSetSimilarity(similarity)
+        }
     }
 
     render() {
-        if (this.state.response) {
+        if (this.state.response && this.state.similarity) {
             var path = "/challenge/response/" + this.state.response
 
             if(this.state.profile) {
@@ -82,10 +90,16 @@ class Process extends Component {
 let mapStateToProps = (state) => {
     return {
         profile: state.profile.profile,
-        blob: state.crop.cropImg
+        blob: state.challenge.cropImg
     };
 }
 
-Process = connect(mapStateToProps)(Process);
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onSetSimilarity: (similarity) => dispatch(setSimilarity(similarity))
+    }
+}
+
+Process = connect(mapStateToProps, mapDispatchToProps)(Process);
 
 export default Process;

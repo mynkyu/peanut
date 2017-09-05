@@ -32,7 +32,7 @@ class Apply extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        blob: state.crop.cropImg
+        blob: state.challenge.cropImg
     };
 }
 

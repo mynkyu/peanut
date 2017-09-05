@@ -70,8 +70,9 @@ class Result extends Component {
     }
 
     render() {
-        if(!this.props.blob) { return <div></div> } 
+        if(!this.props.blob && !this.props.similarity) { return <div></div> } 
         const imgSrc = URL.createObjectURL(this.props.blob)
+        const similarity = this.props.similarity
         
         return (
             <div>
@@ -80,7 +81,7 @@ class Result extends Component {
                     <img src={imgSrc}/>
                 </div>
                 <div>이 분과 당신의 일치율은...</div>
-                <div>97%</div>
+                <div>{similarity}%</div>
                 <div>이쯤되면 무서운데요?</div>
                 <div><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>
                 <div>
@@ -100,7 +101,8 @@ class Result extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        blob: state.crop.cropImg
+        blob : state.challenge.cropImg,
+        similarity : state.challenge.similarity
     };
 }
 
