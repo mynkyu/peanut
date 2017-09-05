@@ -51,6 +51,7 @@ class Process extends Component {
     }
 
     fetchSimilarity = async (imageURL) => {
+        const test = document.getElementById('test')
         const result = await facelink.getSimilarity(imageURL);
 
         if (result.data && result.data.response) {
@@ -81,6 +82,7 @@ class Process extends Component {
         return (
             <div>
                 <div>에드센스</div>
+                <div id='test'></div>
                 <div>계산 중입니다</div>
                 <div>에드센스</div>
             </div>

@@ -60,7 +60,7 @@ class Apply extends Component {
                     <img src={imgSrc}/>
                 </div>
                 <div>그 분과 {similarity}% 닮은 꼴!</div>
-                <div>박나래 님!</div>
+                <div>{profile.name} 님!</div>
                 <div>
                     <input id='commentText' type="text"></input>
                 </div>
