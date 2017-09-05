@@ -1,13 +1,15 @@
-import { SIGN_IN, SIGN_OUT, SET_IMG, SET_CROP_IMG } from '../actions';
+import { SIGN_IN, SIGN_OUT } from '../actions';
+import { SET_IMG, SET_CROP_IMG, SET_SIMILARITY } from '../actions';
 import { combineReducers } from 'redux';
 
 const profileInitialState = {
     profile: null
 };
 
-const cropInitialState = {
+const challengeInitialState = {
     img: null,
-    cropImg: null
+    cropImg: null,
+    similarity: null
 };
 
 const profile = (state = profileInitialState, action) => {
@@ -25,7 +27,7 @@ const profile = (state = profileInitialState, action) => {
     }
 };
 
-const crop = (state = cropInitialState, action) => {
+const challenge = (state = challengeInitialState, action) => {
     switch(action.type) {
         case SET_IMG:
             return Object.assign({}, state, {
@@ -35,6 +37,10 @@ const crop = (state = cropInitialState, action) => {
             return Object.assign({}, state, {
                 cropImg: action.cropImg
             });
+        case SET_SIMILARITY:
+            return Object.assign({}, state, {
+                similarity: action.similarity
+            });
         default:
             return state;
     }
@@ -42,7 +48,7 @@ const crop = (state = cropInitialState, action) => {
 
 const reduxApp = combineReducers({
     profile,
-    crop
+    challenge
 });
 
 export default reduxApp;

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import * as firebase from 'firebase'
 
+import * as facelink from '../../api/FaceLink';
+
 class Response extends Component {
     constructor() {
         super()
@@ -20,8 +22,8 @@ class Response extends Component {
     }
 
     componentDidMount() {
-         const response = this.props.match.params.response
-         document.getElementById('response').innerText = response
+        const response = facelink.getResponse(parseInt(this.props.match.params.response))
+        document.getElementById('response').innerText = response
     }
 
     facebookLogin() {
@@ -35,7 +37,7 @@ class Response extends Component {
     }
 
     render() {
-        if (this.props.match.params.response == 100) {
+        if (this.props.match.params.response == 200) {
             if(this.state.profile) {
                 return <Redirect to="/challenge/result"/>
             }
@@ -60,7 +62,7 @@ class Response extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.profile.profile,
+        profile: state.profile.profile
     };
 }
 

@@ -69,7 +69,7 @@ class Crop extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        blob: state.crop.img
+        blob: state.challenge.img
     };
 }
 
