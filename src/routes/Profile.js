@@ -21,8 +21,13 @@ class Profile extends React.Component {
   }
 
   componentDidMount(){
+    this.initKakaoSDK();
     this.initFacebookSDK();
     this.initFirebaseAuth();
+  }
+
+  initKakaoSDK() {
+    window.Kakao.init('5e4a7d39b65f9a80825719fe59523f9e');
   }
 
   initFacebookSDK() {
@@ -100,16 +105,6 @@ class Profile extends React.Component {
 
   facebookLogout() {
     firebase.auth().signOut()
-  }
-
-  facebookShare() {
-    window.FB.ui({
-      method: 'share_open_graph',
-      action_type: 'og.likes',
-      action_properties: JSON.stringify({
-        object:'https://developers.facebook.com/docs/',
-      })
-    }, response => {});
   }
 
   render(){
