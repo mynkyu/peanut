@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import contestImg from '../../contestImg.png'
 import userOnImg from '../../userOnImg.png'
 
+import './Top.css';
+
 class Top extends Component {
     constructor() {
         super()
@@ -47,12 +49,15 @@ class Top extends Component {
     render() {
         return (
             <div>
-                <div> 
-                    <a>컨테스트 실시간 1위</a> 
-                    <a>D-{this.state.dday}</a>
-                </div>
-                <div><Link to="/ranking">순위확인</Link></div>
                 <div>
+                    <div className = "topHeadLine" >
+                        <p className = "rankNumberOneNow">컨테스트 실시간 1위
+                            <span> D-{this.state.dday}</span>   
+                        </p> 
+                        <Link to="/ranking" className = "rankCheck">순위확인</Link>
+                    </div>
+
+
                     <img src={contestImg}/>
                     <img src={userOnImg}/>
                     <div>1위 멘트</div>
