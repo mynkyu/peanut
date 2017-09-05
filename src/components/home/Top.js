@@ -5,6 +5,11 @@ import * as firebase from 'firebase';
 import contestImg from '../../contestImg.png'
 import userOnImg from '../../userOnImg.png'
 import heartImg from '../../main_contest_heart_icon.png'
+import imgContainer from '../../main_contest_2rings.png'
+
+import sample1 from '../../sample1.jpg'
+import sample2 from '../../sample2.jpg'
+
 
 import './Top.css';
 
@@ -56,13 +61,15 @@ class Top extends Component {
                     <p className = "rankNumberOneNow">컨테스트 실시간 1위
                         <span className = "rankNumberOneNowSpan"> D-{this.state.dday}</span>   
                     </p> 
-                    <Link to="/ranking" className = "rankCheck">순위확인</Link>
+                    <Link to="/ranking" className = "rankCheck">순위확인>></Link>
                 </div>
 
-
-                <img src={contestImg}/>
-                <img src={userOnImg}/>
-                <div>1위 멘트</div>
+                <div className = "contestContainer">
+                    <img src = {imgContainer} className = "imgContainer"/>
+                    <img src = {sample1} className = "myImg"/>
+                    <img src = {sample2} className = "contestImg"/>
+                </div>
+                
             </div>
         );
     }
