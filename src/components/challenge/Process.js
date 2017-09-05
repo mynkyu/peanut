@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { setChallengeResult } from '../../actions';
 import * as firebase from 'firebase';
 
+import * as firebaseApi from '../../api/Firebase';
 import * as facelink from '../../api/FaceLink';
 
 class Process extends Component {
@@ -35,7 +36,7 @@ class Process extends Component {
 
         const instance = this
         var file = blob;
-        var storageRef = firebase.storage().ref('test/' + file.name)
+        var storageRef = firebase.storage().ref(firebaseApi.getStorageFileName())
         var task = storageRef.put(file)
         task.on('state_changed', function progress(snapshot) {
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100

@@ -17,6 +17,18 @@ export function updateProfile(user) {
     return profile
 }
 
+export function getStorageFileName() {
+    function d() {
+        const date = new Date()
+        return date.getTime()
+    }
+
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    return event.getEventName() + "/" + s4() + s4() + s4() + s4() + s4() + d() ;
+}
+
 export var apply = function (profile, comment, imageURL, similarity) {
     return new Promise(function (resolve, reject) {
         const onComplete = function(error) {
