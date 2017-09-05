@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setSimilarity } from '../../actions';
+import { setChallengeResult } from '../../actions';
 import * as firebase from 'firebase';
 
 import * as facelink from '../../api/FaceLink';
@@ -49,8 +49,8 @@ class Process extends Component {
         })
     }
 
-    fetchSimilarity = async (imageUri) => {
-        const result = await facelink.getSimilarity(imageUri);
+    fetchSimilarity = async (imageURL) => {
+        const result = await facelink.getSimilarity(imageURL);
 
         if (result.data && result.data.response) {
             const response = result.data.response
@@ -62,7 +62,7 @@ class Process extends Component {
         if (result.data.result && result.data.result.similarity) {
             const similarity = result.data.result.similarity
             this.setState({ similarity : similarity })
-            this.props.onSetSimilarity(similarity)
+            this.props.onSetChallengeResult(imageURL, similarity)
         }
     }
 
@@ -96,7 +96,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        onSetSimilarity: (similarity) => dispatch(setSimilarity(similarity))
+        onSetChallengeResult: (imageURL, similarity) => dispatch(setChallengeResult(imageURL, similarity))
     }
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import * as firebase from 'firebase'
 
+import * as facebook from '../../api/Facebook';
 import * as facelink from '../../api/FaceLink';
 
 class Response extends Component {
@@ -27,13 +27,7 @@ class Response extends Component {
     }
 
     facebookLogin() {
-        const provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('email');
-        provider.addScope('public_profile');
-        provider.addScope('user_friends');
-    
-        firebase.auth().signInWithPopup(provider);
-        //firebase.auth().signInWithRedirect(provider);
+        facebook.signInWithPopup()
     }
 
     render() {

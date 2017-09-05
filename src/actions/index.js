@@ -3,7 +3,9 @@ export const SIGN_OUT = 'SIGN_OUT';
 
 export const SET_IMG = 'SET_IMG';
 export const SET_CROP_IMG = 'SET_CROP_IMG';
-export const SET_SIMILARITY = 'SET_SIMILARITY';
+export const SET_CHALLENGE_RESULT = 'SET_CHALLENGE_RESULT';
+export const SET_COMMENT = 'SET_COMMENT';
+export const RESET_CHALLENGE = 'RESET_CHALLENGE';
 
 export function signIn(profile) {
     return {
@@ -32,9 +34,23 @@ export function setCropImg(blob) {
     };
 }
 
-export function setSimilarity(similarity) {
+export function setChallengeResult(imageURL, similarity) {
     return {
-        type: SET_SIMILARITY,
+        type: SET_CHALLENGE_RESULT,
+        imageURL: imageURL,
         similarity : similarity
+    };
+}
+
+export function setComment(comment) {
+    return {
+        type: SET_COMMENT,
+        comment : comment
+    };
+}
+
+export function resetChallenge() {
+    return {
+        type: RESET_CHALLENGE
     };
 }

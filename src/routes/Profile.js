@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase'
+import * as firebaseApi from '../api/Firebase';
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
@@ -10,15 +11,6 @@ import userOnImg from '../userOnImg.png'
 import userOffImg from '../userOffImg.png'
 
 class Profile extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      userOn : false
-    }
-
-    this.updateUser = this.updateUser.bind(this)
-  }
 
   componentDidMount(){
     this.initKakaoSDK();
@@ -60,23 +52,22 @@ class Profile extends React.Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in.
-        const displayName = user.displayName;
-        const email = user.email;
-        const emailVerified = user.emailVerified;
-        const photoURL = user.photoURL;
-        const isAnonymous = user.isAnonymous;
-        const uid = user.uid;
-        const providerData = user.providerData;
+        // const displayName = user.displayName;
+        // const email = user.email;
+        // const emailVerified = user.emailVerified;
+        // const photoURL = user.photoURL;
+        // const isAnonymous = user.isAnonymous;
+        // const uid = user.uid;
+        // const providerData = user.providerData;
         // [START_EXCLUDE]
         console.log("signIn")
-        this.updateUser(true)
-        this.props.onSignIn(user)
+        const profile = firebaseApi.updateProfile(user)
+        this.props.onSignIn(profile)
         //document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
         //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
         // [END_EXCLUDE]
       } else {
         console.log("signOut")
-        this.updateUser(false)
         this.props.onSignOut()
         // User is signed out.
         // [START_EXCLUDE]
@@ -86,12 +77,6 @@ class Profile extends React.Component {
       }
     });
     // [END authstatelistener]
-  }
-
-  updateUser(userOn){
-    this.setState({
-      userOn : userOn
-    })
   }
 
   facebookLogin() {
@@ -108,21 +93,27 @@ class Profile extends React.Component {
   }
 
   render(){
-    let profile = null
-
-    if (this.state.userOn) {
-      profile = <img id="profile_img" className = "afterLogin"  src={userOnImg} onClick={this.facebookLogout} style = {{height : 50, mode : 'fit'}} />
+    const profile = this.props.profile
+    var item = null
+    if (profile) {
+      item = <img id="profile_img" className = "afterLogin"  src={profile.photoURL} onClick={this.facebookLogout} style = {{height : 50, mode : 'fit'}} />
       {/* <button onClick={this.facebookShare}> 공유 </button> */}
     } else {
-      profile = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} style = {{height : 50, mode : 'fit'}}  />
+      item = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} style = {{height : 50, mode : 'fit'}}  />
     }
 
     return (
       <div  className="item profile">
-        {profile}
+        {item}
       </div>
     );
   }
+}
+
+let mapStateToProps = (state) => {
+  return {
+      profile : state.profile.profile
+  };
 }
 
 let mapDispatchToProps = (dispatch) => {
@@ -132,6 +123,6 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-Profile = connect(undefined, mapDispatchToProps)(Profile);
+Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 export default Profile;
