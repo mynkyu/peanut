@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setSimilarity } from '../../actions';
+import { setChallengeResult } from '../../actions';
 import * as firebase from 'firebase';
 
+import * as firebaseApi from '../../api/Firebase';
 import * as facelink from '../../api/FaceLink';
 
 class Process extends Component {
@@ -35,7 +36,7 @@ class Process extends Component {
 
         const instance = this
         var file = blob;
-        var storageRef = firebase.storage().ref('test/' + file.name)
+        var storageRef = firebase.storage().ref(firebaseApi.getStorageFileName())
         var task = storageRef.put(file)
         task.on('state_changed', function progress(snapshot) {
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -49,8 +50,9 @@ class Process extends Component {
         })
     }
 
-    fetchSimilarity = async (imageUri) => {
-        const result = await facelink.getSimilarity(imageUri);
+    fetchSimilarity = async (imageURL) => {
+        const test = document.getElementById('test')
+        const result = await facelink.getSimilarity(imageURL);
 
         if (result.data && result.data.response) {
             const response = result.data.response
@@ -62,7 +64,7 @@ class Process extends Component {
         if (result.data.result && result.data.result.similarity) {
             const similarity = result.data.result.similarity
             this.setState({ similarity : similarity })
-            this.props.onSetSimilarity(similarity)
+            this.props.onSetChallengeResult(imageURL, similarity)
         }
     }
 
@@ -80,6 +82,7 @@ class Process extends Component {
         return (
             <div>
                 <div>에드센스</div>
+                <div id='test'></div>
                 <div>계산 중입니다</div>
                 <div>에드센스</div>
             </div>
@@ -96,7 +99,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        onSetSimilarity: (similarity) => dispatch(setSimilarity(similarity))
+        onSetChallengeResult: (imageURL, similarity) => dispatch(setChallengeResult(imageURL, similarity))
     }
 }
 

@@ -1,5 +1,5 @@
 import { SIGN_IN, SIGN_OUT } from '../actions';
-import { SET_IMG, SET_CROP_IMG, SET_SIMILARITY } from '../actions';
+import { SET_IMG, SET_CROP_IMG, SET_CHALLENGE_RESULT, SET_COMMENT, RESET_CHALLENGE } from '../actions';
 import { combineReducers } from 'redux';
 
 const profileInitialState = {
@@ -9,8 +9,12 @@ const profileInitialState = {
 const challengeInitialState = {
     img: null,
     cropImg: null,
-    similarity: null
+    similarity: null,
+    imageURL: null,
+    comment: null
 };
+
+
 
 const profile = (state = profileInitialState, action) => {
     switch(action.type) {
@@ -37,10 +41,17 @@ const challenge = (state = challengeInitialState, action) => {
             return Object.assign({}, state, {
                 cropImg: action.cropImg
             });
-        case SET_SIMILARITY:
+        case SET_CHALLENGE_RESULT:
             return Object.assign({}, state, {
+                imageURL: action.imageURL,
                 similarity: action.similarity
             });
+        case SET_COMMENT:
+            return Object.assign({}, state, {
+                comment: action.comment
+            });
+        case RESET_CHALLENGE:
+            return Object.assign({}, state, challengeInitialState);
         default:
             return state;
     }
