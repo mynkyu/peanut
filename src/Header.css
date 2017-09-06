@@ -8,7 +8,7 @@
 
 .item {
     display: inline-table;
-    width  : 6rem;
+    width  : 8rem;
     height : 4rem;
     font-size: 1.1rem;
     text-decoration: none;
@@ -18,7 +18,7 @@
 
 .logoImage{
     width: 100%;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
 }
 
 .profile {
