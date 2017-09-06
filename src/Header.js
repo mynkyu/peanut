@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 
 import Profile from './routes/Profile'
-
+import peanutLogo from './peanut-logo.png'
 import './Header.css';
 
 class Header extends Component {
@@ -11,7 +11,9 @@ class Header extends Component {
             <div className="header">
                 <div id = "dummy"></div>
                 
-                <NavLink exact to="/" className="item"> <p className="content">facelink</p> </NavLink>
+                <NavLink exact to="/" className="item"> 
+                    <img src = {peanutLogo} className = "logoImage"></img>
+                </NavLink>
                 
                 <Profile/>
 

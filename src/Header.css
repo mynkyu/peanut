@@ -1,4 +1,5 @@
 .header {
+    
     width: 100%;
     height: 4rem;
     text-align: center;
@@ -7,26 +8,27 @@
 
 .item {
     display: inline-table;
-    width  : 3rem;
-    height : 3rem;
+    width  : 6rem;
+    height : 4rem;
     font-size: 1.1rem;
     text-decoration: none;
     color: #f38048;
-    margin-top: 0.5rem;
+    
 }
 
-.content {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
+.logoImage{
+    width: 100%;
+    margin-top: 1.25rem;
 }
 
 .profile {
+    width: 3rem;
+    margin-top: 0.5rem;
     float: right;
 }
 
 #dummy {
-    width  : 4rem;
+    width  : 3rem;
     height : 4rem;
     float  : left; 
 }

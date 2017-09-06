@@ -1,0 +1,91 @@
+div.challengeDiv{
+    position: relative;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.contestLabel{
+    position: relative;
+    color: #7d7d77;
+    text-align: center;
+    top: 14px;
+}
+
+.separator{
+    height: 2px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 5%;
+    background-color: #7d7d7d
+}
+
+
+.firstContext{
+    color: #7d7d77;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.secondContext{
+    color: #f38048;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.ringImage{
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.ringImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.personForChallenge{
+    position: absolute;
+    width: 86%;
+    top: 7.4%;
+    left: 7%;
+}
+
+.personForChallenge img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.startLink{
+    border-radius: 8px;
+    width: 70%;
+    height : 45px;
+    background-color: #f38048;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4%;
+    
+}
+
+.startLinkLabel{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;  
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 34%;
+    
+}
+
+.startLinkLabel :visited{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
