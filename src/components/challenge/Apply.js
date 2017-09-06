@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { resetChallenge } from '../../actions';
 
 import * as firebase from '../../api/Firebase';
@@ -13,10 +13,16 @@ class Apply extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            targetUid : null
+        }
+
         this.apply = this.apply.bind(this)
+        this.onApplySuccess = this.onApplySuccess.bind(this)
     }
 
     apply() {
+        const instance = this
         const comment = document.getElementById('commentText').value
 
         if (!comment || comment == '') {return}
@@ -29,6 +35,7 @@ class Apply extends Component {
             firebase.apply(this.props.profile, comment, this.props.imageURL, this.props.similarity).then(function(result) {
                 // 성공시
                 console.log(result);
+                instance.onApplySuccess()
             }, function (error) {
                 // 실패시 
                 console.error(error);
@@ -37,10 +44,18 @@ class Apply extends Component {
     }
 
     onApplySuccess() {
+        if(!this.props.profile || !this.props.profile.uid) {return}
+        const uid = this.props.profile.uid
+        this.setState({ targetUid : uid })
         this.props.onResetChallenge()
     }
 
     render() {
+        if(this.state.targetUid) {
+            const path = "challenger/" + this.state.targetUid
+            return <Redirect to={path}/>;
+        }
+
         if(!this.props.profile && !this.props.blob && !this.props.similarity) { 
             return <div></div> 
         }
@@ -90,6 +105,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-Apply = connect(mapStateToProps)(Apply);
+Apply = connect(mapStateToProps, mapDispatchToProps)(Apply);
 
 export default Apply;

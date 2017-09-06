@@ -1,5 +1,8 @@
 import React from 'react';
 import * as firebase from 'firebase'
+
+import * as kakao from '../api/Kakao';
+import * as facebook from '../api/Facebook';
 import * as firebaseApi from '../api/Firebase';
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -13,32 +16,9 @@ import userOffImg from '../userOffImg.png'
 class Profile extends React.Component {
 
   componentDidMount(){
-    this.initKakaoSDK();
-    this.initFacebookSDK();
+    kakao.init(window);
+    facebook.init(window);
     this.initFirebaseAuth();
-  }
-
-  initKakaoSDK() {
-    window.Kakao.init('5e4a7d39b65f9a80825719fe59523f9e');
-  }
-
-  initFacebookSDK() {
-    window.fbAsyncInit = function() {
-      window.FB.init({
-        appId      : '114048632608756',
-        xfbml      : true,
-        version    : 'v2.10'
-      });
-      window.FB.AppEvents.logPageView();
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
   }
 
   /**
@@ -80,12 +60,7 @@ class Profile extends React.Component {
   }
 
   facebookLogin() {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('email');
-    provider.addScope('public_profile');
-    provider.addScope('user_friends');
-
-    firebase.auth().signInWithRedirect(provider);
+    facebook.signInWithRedirect()
   }
 
   facebookLogout() {
