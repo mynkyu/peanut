@@ -1,4 +1,5 @@
 .topHeadLine{
+    
     height: 1rem;
     margin-bottom: 1rem;
 }
@@ -8,6 +9,7 @@
     float : right;
     vertical-align: middle;
     margin-right: 10px;
+    margin-left: 10px;
     margin-top: 5px;
     text-decoration: none;
     font-size: 12px;
@@ -32,11 +34,15 @@
 }
 
 div.topContainer{
-    position: relative;
+    
+    
     border-radius: 8px;
     background-color: #E8E8E8;
     margin-left: 7.5%;
     margin-right: 7.5%;
+    width: 85%;
+    min-width : 226px;
+    overflow: auto;
     
 }
 
@@ -50,32 +56,56 @@ div.topContainer{
 
 div.contestContainer{
     position: relative;
-    height: 7rem;
-    
-    overflow: auto;
-    margin-top: 1px;
+    margin-bottom: 4%;
+    margin-top: 4%;
     
 }
 
 .imgContainer{
-    position: absolute;
-    width: 72%;
-    margin-left: 4%;
-    margin-right: 34%;
+   
+    position: relative;
+    width: 54%;
+    
+    margin-left: 6%;
+    
+}
+
+.imgContainer img{
+    width: 100%;
+    height: 100%;
 }
 
 .myImg{
-    position: absolute;
-    border-radius: 50%;
-    margin-left: 43.7%;
-    margin-top: 3.1%;
-    width:29.5%
-}
-.contestImg{
-    position: absolute;
-    border-radius: 50%;
-    margin-left: 7.1%;
-    margin-top: 3.1%;
-    width:29.5%
     
+    position: absolute;
+    
+    
+    top: 9%;
+    left: 55.5%;
+    width: 40%;
+    
+    
+}
+
+.myImg img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.contestImg{
+    
+    position: absolute;
+    
+    top: 9%;
+    left : 5%;
+    width: 40%;
+
+    
+}
+
+.contestImg img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
 }

@@ -65,9 +65,18 @@ class Top extends Component {
                 </div>
 
                 <div className = "contestContainer">
-                    <img src = {imgContainer} className = "imgContainer"/>
-                    <img src = {sample1} className = "myImg"/>
-                    <img src = {sample2} className = "contestImg"/>
+                    <div className = "imgContainer">
+                        <img src = {imgContainer}/>
+
+                        <div className = "myImg">
+                            <img src = {sample1}/>
+                        </div>
+                        <div className = "contestImg">
+                            <img src = {sample2}/>
+                        </div>
+                    
+                    </div>
+                    
                 </div>
                 
             </div>

@@ -22,8 +22,10 @@ class Home extends Component {
             <div>
                 <div className="announcement">그 분과 내 얼굴의 일치율을 확인해 보세요!</div>
                 <Top/>
+                
                 <Challenge/>
-                <Vote/>
+                <Vote/> 
+                
                 {/* <button onClick={()=>{this.props.history.push('/posts')}} > 포스트 </button> */}
             </div>
         );
