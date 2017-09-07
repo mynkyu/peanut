@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 
 import '../Header.css'
+import './Profile.css'
 
 import userOnImg from '../userOnImg.png'
 import userOffImg from '../userOffImg.png'

@@ -29,11 +29,7 @@
     color: #7d7d7d
 }
 
-.rankNumberOneNowSpan{
-    color: #f38048;
-}
-
-div.topContainer{
+.topContainer{
     
     
     border-radius: 8px;
@@ -43,7 +39,7 @@ div.topContainer{
     width: 85%;
     min-width : 226px;
     overflow: auto;
-    
+    padding-bottom: 4%;
 }
 
 .heartImg{
@@ -54,58 +50,91 @@ div.topContainer{
 }
 
 
-div.contestContainer{
-    position: relative;
-    margin-bottom: 4%;
-    margin-top: 4%;
-    
-}
-
 .imgContainer{
-   
-    position: relative;
-    width: 54%;
     
-    margin-left: 6%;
+    position: relative;
+    width: 23%;
+    margin-left: 7%;
     
 }
 
 .imgContainer img{
+    vertical-align: middle;
     width: 100%;
     height: 100%;
+    
 }
 
-.myImg{
+.imgContainer p{
+    font-size: 13px;
+    text-align: center;
+    color: #9b9b9b;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.firstContainer{
     
+    float: left;
+    
+}
+
+.secondContainer{
+    float: left;
+}
+
+.thirdContainer{
+    float: left;
+    
+}
+
+.firstPrize{
     position: absolute;
+    width: 16vw;
+    height: 16vw;
     
-    
-    top: 9%;
-    left: 55.5%;
-    width: 40%;
-    
-    
+    top: 7.6%;
+    left: 9.3%;
 }
 
-.myImg img{
+.firstPrize img{
     border-radius: 50%;
-    width: 100%;
+    width : 100%;
     height: 100%;
 }
 
-.contestImg{
-    
+.secondPrize{
     position: absolute;
-    
-    top: 9%;
-    left : 5%;
-    width: 40%;
-
-    
+    width: 16vw;
+    height: 16vw;
+    object-fit: cover;
+    top: 7.6%;
+    left: 9.3%;
 }
 
-.contestImg img{
+.secondPrize img{
     border-radius: 50%;
-    width: 100%;
+    width : 100%;
     height: 100%;
+    
 }
+
+.thirdPrize{    
+    position: absolute;
+    width: 16vw;
+    height: 16vw;
+    
+    top: 7.6%;
+    left: 9.3%;
+}
+
+.thirdPrize img{
+    border-radius: 50%;
+    width : 100%;
+    height: 100%;
+    
+    
+}
+
+
+

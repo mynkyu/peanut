@@ -1,7 +1,15 @@
 .afterlogin{
+   
+}
 
+.afterlogin img {
+    border-radius: 50%;
 }
 
 .beforeLogin{
-    height : 50;
+   
+}
+
+.beforeLogin img{
+    border-radius: 50%;
 }

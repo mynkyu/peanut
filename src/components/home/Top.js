@@ -5,11 +5,11 @@ import * as firebase from 'firebase';
 import contestImg from '../../contestImg.png'
 import userOnImg from '../../userOnImg.png'
 import heartImg from '../../main_contest_heart_icon.png'
-import imgContainer from '../../main_contest_2rings.png'
+import imgContainer from '../../main_contest_ring.png'
 
 import sample1 from '../../sample1.jpg'
 import sample2 from '../../sample2.jpg'
-
+import sample3 from '../../sample3.jpg'
 
 import './Top.css';
 
@@ -58,26 +58,45 @@ class Top extends Component {
                 <img src = {heartImg} className = "heartImg"/>
                 
                 <div className = "topHeadLine" >
-                    <p className = "rankNumberOneNow">컨테스트 실시간 1위
-                        <span className = "rankNumberOneNowSpan"> D-{this.state.dday}</span>   
+                    <p className = "rankNumberOneNow">컨테스트 컨테스트 순위
+                          
                     </p> 
                     <Link to="/ranking" className = "rankCheck">순위확인>></Link>
                 </div>
 
-                <div className = "contestContainer">
-                    <div className = "imgContainer">
+                
+                    
+                    <div className = "imgContainer firstContainer">
                         <img src = {imgContainer}/>
 
-                        <div className = "myImg">
+                        <div className = "firstPrize">
                             <img src = {sample1}/>
                         </div>
-                        <div className = "contestImg">
-                            <img src = {sample2}/>
-                        </div>
-                    
+
+                        <p>3340231 표</p>
                     </div>
                     
-                </div>
+                    <div className = "imgContainer secondContainer">
+                        <img src = {imgContainer}/>
+
+                        <div className = "secondPrize">
+                            <img src = {sample2}/>
+                        </div>
+                        <p>1265136 표</p>
+                    </div>
+
+                    <div className = "imgContainer thirdContainer">
+                        <img src = {imgContainer}/>
+
+                        <div className = "thirdPrize">
+                            <img src = {sample3}/>
+                        </div>
+                        <p>552452 표</p>
+                    </div>
+
+                
+
+
                 
             </div>
         );
