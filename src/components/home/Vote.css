@@ -1,0 +1,35 @@
+.voteSituationLink{
+    width: 38.75%;
+    margin-left: 7.5%;
+    margin-right: 53.75%;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    padding-top: 6%;
+    padding-bottom: 6%;
+}
+
+.voteSituationLink a{
+    color: #7d7d7d;
+    text-decoration: none;
+}
+
+.voteSituationLink a :visited{
+    text-decoration: none;
+    color: #7d7d7d;
+}
+
+.voteSituationLink a p{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.heartImage{
+    margin-left: 35%;
+    width: 30%;
+}
+
+.heartImage img{
+    width: 100%;
+}

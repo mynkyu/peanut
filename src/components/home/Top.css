@@ -93,8 +93,8 @@
     width: 16vw;
     height: 16vw;
     
-    top: 7.6%;
-    left: 9.3%;
+    top: 1.8vw;
+    left: 1.8vw;
 }
 
 .firstPrize img{
@@ -108,8 +108,8 @@
     width: 16vw;
     height: 16vw;
     object-fit: cover;
-    top: 7.6%;
-    left: 9.3%;
+    top: 1.8vw;
+    left: 1.8vw;
 }
 
 .secondPrize img{
@@ -123,9 +123,8 @@
     position: absolute;
     width: 16vw;
     height: 16vw;
-    
-    top: 7.6%;
-    left: 9.3%;
+    top: 1.8vw;
+    left: 1.8vw;
 }
 
 .thirdPrize img{
