@@ -14,8 +14,6 @@ const challengeInitialState = {
     comment: null
 };
 
-
-
 const profile = (state = profileInitialState, action) => {
     switch(action.type) {
         case SIGN_IN:

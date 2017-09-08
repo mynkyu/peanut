@@ -26,7 +26,7 @@ class Response extends Component {
                     {/* <div><Link to="/challenge/result">로그인</Link></div> */}
                 </div>
             );
-        } 
+        }
         
         return (
             <div>
