@@ -9,9 +9,6 @@ import './Photo.css';
 class Photo extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            imageBlob : null
-        }
 
         this.setButton = this.setButton.bind(this)
     }
@@ -45,7 +42,7 @@ class Photo extends Component {
     }
 
     render() {
-        if (this.state.imageBlob) {
+        if (this.props.blob) {
             return <Redirect to="/challenge/crop"/>;
         }
 
@@ -69,12 +66,18 @@ class Photo extends Component {
     }
 }
 
+let mapStateToProps = (state) => {
+    return {
+        blob: state.challenge.img
+    };
+}
+
 let mapDispatchToProps = (dispatch) => {
     return {
         onSetImg: (blob) => dispatch(setImg(blob))
     }
 }
 
-Photo = connect(undefined, mapDispatchToProps)(Photo);
+Photo = connect(mapStateToProps, mapDispatchToProps)(Photo);
 
 export default Photo;
