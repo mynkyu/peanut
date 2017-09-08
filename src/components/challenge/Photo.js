@@ -9,11 +9,9 @@ import './Photo.css';
 class Photo extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            imageBlob : null
-        }
 
         this.setButton = this.setButton.bind(this)
+        // this.getFacebookPhoto = this.getFacebookPhoto.bind(this)
     }
 
     componentDidMount() {
@@ -23,7 +21,6 @@ class Photo extends Component {
     setButton() {
         const instance = this
         function setImg(blob) {
-            instance.setState({ imageBlob: blob });
             instance.props.onSetImg(blob)
         }
 
@@ -44,8 +41,23 @@ class Photo extends Component {
         })
     }
 
+    // getFacebookPhoto() {
+    //     const profile = this.props.profile
+
+    //     if(profile && profile.photoURL) {
+    //         console.log(profile.photoURL)
+            
+    //         const reader = new FileReader();
+    //         reader.onload = (e2) => {
+    //             setImg(e2.target.result)
+    //         }
+            
+    //         reader.readAsDataURL(profile.photoURL);
+    //     }
+    // }
+
     render() {
-        if (this.state.imageBlob) {
+        if (this.props.blob) {
             return <Redirect to="/challenge/crop"/>;
         }
 
@@ -54,12 +66,19 @@ class Photo extends Component {
                 <div>과연 당신의 일치율은?</div>
                 <img src={contestImg}/>
                 <div>
-                    <div> <input type="file" id="imageBtn"/> </div>
+                    <div> <input type="file" id="imageBtn" accept="image/*"/> </div>
+                    {/* <div> <button onClick={this.getFacebookPhoto}>페이스북 프로필 이미지</button> </div> */}
                 </div>
                 <div>에드센스</div>
             </div>
         );
     }
+}
+
+let mapStateToProps = (state) => {
+    return {
+        blob : state.challenge.img
+    };
 }
 
 let mapDispatchToProps = (dispatch) => {
@@ -68,6 +87,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-Photo = connect(undefined, mapDispatchToProps)(Photo);
+Photo = connect(mapStateToProps, mapDispatchToProps)(Photo);
 
 export default Photo;

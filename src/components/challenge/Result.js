@@ -8,25 +8,8 @@ import * as facebook from '../../api/Facebook';
 import contestImg from '../../contestImg.png'
 
 class Result extends Component {
-    /*
-    constructor(props) {
-        super(props)
-        this.state = {
-            cropImg : null
-        }
-    }
-
-    componentWillReceiveProps(props) {
-        if (props.profile) {
-            this.setState({
-                profile : props.profile 
-            })
-        }
-    }
-    */
-
     componentDidMount() {
-        kakao.sharePeanut(window)
+        kakao.sharePeanut()
     }
 
     facebookShare() {

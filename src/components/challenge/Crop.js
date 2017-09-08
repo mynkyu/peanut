@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setCropImg } from '../../actions';
+import { setImg, setCropImg } from '../../actions';
 import Croppie from 'croppie'
 import croppieStyle from 'croppie/croppie.css'
 
@@ -16,18 +16,19 @@ class Crop extends Component {
         this.setCrop = this.setCrop.bind(this)
     }
 
-    componentWillReceiveProps(props) {
-        if (props.blob) {
-            this.setCrop(props.blob)
-        }
+    componentDidMount() {
+        this.setCrop(this.props.blob)
     }
 
     setCrop(image) {
+        if(!image) {return}
+
         const instance = this
         
         function setCropImg(blob) {
             instance.setState({ imageBlob: blob });
             instance.props.onSetCropImg(blob)
+            instance.props.removeImg()
         }
 
         var el = document.getElementById('cropImage');
@@ -45,7 +46,7 @@ class Crop extends Component {
         document.getElementById('uploadBtn').addEventListener('click', function(ev) {
             crop.result('blob').then(function(blob) {
                 setCropImg(blob)
-            });  
+            });
         })
     }
 
@@ -75,6 +76,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
+        removeImg : () => dispatch(setImg(null)),
         onSetCropImg: (blob) => dispatch(setCropImg(blob))
     }
 }
