@@ -51,24 +51,20 @@ class Process extends Component {
     }
 
     fetchSimilarity = async (imageURL) => {
-        const test = await facelink.getSimilarity(imageURL);
-        console.log('test : ' + test)
+        const result = await facelink.getSimilarity(imageURL);
 
-        // const test = document.getElementById('test')
-        // const result = await facelink.getSimilarity(imageURL);
+        if (result.data && result.data.response) {
+            const response = result.data.response
+            this.setState({ response : response })
+        } else {
+            return
+        }
 
-        // if (result.data && result.data.response) {
-        //     const response = result.data.response
-        //     this.setState({ response : response })
-        // } else {
-        //     return
-        // }
-
-        // if (result.data.result && result.data.result.similarity) {
-        //     const similarity = result.data.result.similarity
-        //     this.setState({ similarity : similarity })
-        //     this.props.onSetChallengeResult(imageURL, similarity)
-        // }
+        if (result.data.result && result.data.result.similarity) {
+            const similarity = result.data.result.similarity
+            this.setState({ similarity : similarity })
+            this.props.onSetChallengeResult(imageURL, similarity)
+        }
     }
 
     render() {
