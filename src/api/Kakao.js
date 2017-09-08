@@ -39,9 +39,9 @@ export function sharePeanut() {
   });
 }
 
-export function shareChallenger() {
+export function shareChallenger(window) {
     window.Kakao.Link.createDefaultButton({
-        container: '#kakao-link-btn',
+        container: '#kakao-share-challenger',
         objectType: 'feed',
         content: {
           title: '피넛',

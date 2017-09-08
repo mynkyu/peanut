@@ -27,8 +27,7 @@ class ChallengerContainer extends Component {
         }, function(error) {
 
         })
-
-        kakao.shareChallenger()
+        kakao.shareChallenger(window)
     }
 
     facebookShare() {
@@ -51,7 +50,7 @@ class ChallengerContainer extends Component {
                 </div>
                 <div>
                     <p> 지인에게 공유해서 표 얻자 </p>
-                    <a id="kakao-link-btn" href="javascript:sendLink()">
+                    <a id="kakao-share-challenger" href="javascript:sendLink()">
                         <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
                     </a>
                     <button onClick={this.facebookShare}>페이스북 공유</button>

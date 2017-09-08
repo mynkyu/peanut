@@ -17,7 +17,7 @@ import userOffImg from '../userOffImg.png'
 class Profile extends React.Component {
 
   componentDidMount(){
-    kakao.init();
+    kakao.init()
     facebook.init();
     this.initFirebaseAuth();
   }
