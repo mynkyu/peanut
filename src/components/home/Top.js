@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import * as firebase from 'firebase';
 
+import TopItem from './TopItem'
+
 import contestImg from '../../contestImg.png'
 import userOnImg from '../../userOnImg.png'
 import heartImg from '../../main_contest_heart_icon.png'
@@ -13,94 +15,60 @@ import sample3 from '../../sample3.jpg'
 
 import './Top.css';
 
-class Top extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            dday : 0
-        }
-    }
-
-    componentDidMount() {
-        /*
-        var date = new Date(Date.UTC(2017, 9, 30, 24, 0, 0));
-        console.log(date)
-
-        firebase.database().ref().child('Event').child('test').set({
-            due : date.getTime(),
-            imageUri : "imageUri"
-        })
-        */
+const Top = ({challengers}) => {
+    const first = <TopItem challenger={challengers[0]}/>
+    const second = <TopItem challenger={challengers[1]}/>
+    const third = <TopItem challenger={challengers[2]}/>
     
-        var dueDate = new Date("2017-09-30T24:00:00");
-        var currDate = new Date();
-        var timeDiff = Math.abs(dueDate.getTime() - currDate.getTime());
-        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-
-        this.setState({
-            dday : diffDays
-        })
-        const contestDDay = document.getElementById('contestDDay')
-
-        /*
-        const contestDDay = document.getElementById('contestDDay')
-        const dbRefObject = firebase.database().ref().child('event/curr');
-        dbRefObject.on('value', snap => {
-            contestDDay.innerText = JSON.stringify(snap.val(), null, 3);
-        });
-        */
-    }
-
-    render() {
-        return (
-            <div className = "topContainer" >
-                <img src = {heartImg} className = "heartImg"/>
+    return (
+        <div className = "topContainer" >
+            <img src = {heartImg} className = "heartImg"/>
+            
+            <div className = "topHeadLine" >
+                <p className = "rankNumberOneNow">컨테스트 컨테스트 순위
+                        
+                </p> 
+                <Link to="/ranking" className = "rankCheck">순위확인>></Link>
+            </div>
+                {first}
+                {second}
+                {third}
+{/*             
                 
-                <div className = "topHeadLine" >
-                    <p className = "rankNumberOneNow">컨테스트 컨테스트 순위
-                          
-                    </p> 
-                    <Link to="/ranking" className = "rankCheck">순위확인>></Link>
+                <div className = "imgContainer firstContainer">
+                    <img src = {imgContainer}/>
+
+                    <div className = "firstPrize">
+                        <img src = {sample1}/>
+                    </div>
+
+                    <p>3340231 표</p>
+                </div>
+                
+                <div className = "imgContainer secondContainer">
+                    <img src = {imgContainer}/>
+
+                    <div className = "secondPrize">
+                        <img src = {sample2}/>
+                    </div>
+                    <p>1265136 표</p>
                 </div>
 
-                
-                    
-                    <div className = "imgContainer firstContainer">
-                        <img src = {imgContainer}/>
+                <div className = "imgContainer thirdContainer">
+                    <img src = {imgContainer}/>
 
-                        <div className = "firstPrize">
-                            <img src = {sample1}/>
-                        </div>
-
-                        <p>3340231 표</p>
+                    <div className = "thirdPrize">
+                        <img src = {sample3}/>
                     </div>
-                    
-                    <div className = "imgContainer secondContainer">
-                        <img src = {imgContainer}/>
+                    <p>552452 표</p>
+                </div>
 
-                        <div className = "secondPrize">
-                            <img src = {sample2}/>
-                        </div>
-                        <p>1265136 표</p>
-                    </div>
-
-                    <div className = "imgContainer thirdContainer">
-                        <img src = {imgContainer}/>
-
-                        <div className = "thirdPrize">
-                            <img src = {sample3}/>
-                        </div>
-                        <p>552452 표</p>
-                    </div>
-
-                
+            
 
 
-                
-            </div>
-        );
-    }
-}
+             */}
+        </div>
+    );
+};
 
 export default Top;

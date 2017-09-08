@@ -7,7 +7,9 @@ admin.initializeApp(functions.config().firebase);
 
 exports.calSimilarity = functions.https.onRequest((req, res) => {
   if (req.method === 'PUT') {
-    res.status(403).send('Forbidden!');
+    cors(req, res, () => {
+      res.status(403).send('Forbidden!');
+    });
   }
 
   cors(req, res, () => {

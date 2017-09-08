@@ -11,7 +11,6 @@ class Process extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            profile : null,
             response : null,
             similarity : null
         }
@@ -20,12 +19,6 @@ class Process extends Component {
     }
 
     componentWillReceiveProps(props) {
-        if (props.profile) {
-            this.setState({
-                profile : props.profile 
-            })
-        }
-
         if (props.blob) {
             this.uploadImage(props.blob)
         }
@@ -52,6 +45,7 @@ class Process extends Component {
 
     fetchSimilarity = async (imageURL) => {
         const result = await facelink.getSimilarity(imageURL);
+        console.log(result)
 
         if (result.data && result.data.response) {
             const response = result.data.response
@@ -68,10 +62,10 @@ class Process extends Component {
     }
 
     render() {
-        if (this.state.response && this.state.similarity) {
+        if (this.state.response) {
             var path = "/challenge/response/" + this.state.response
 
-            if(this.state.profile) {
+            if(this.props.profile && this.state.similarity) {
                 path = "/challenge/result"
             }
 
@@ -80,6 +74,9 @@ class Process extends Component {
 
         return (
             <div>
+                <div>에드센스</div>
+                <div>에드센스</div>
+                <div>에드센스</div>
                 <div>에드센스</div>
                 <div id='test'></div>
                 <div>계산 중입니다</div>

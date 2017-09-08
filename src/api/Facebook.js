@@ -1,7 +1,7 @@
 import * as firebase from 'firebase'
 import * as app from './App'
 
-export function init(window) {
+export function init() {
     window.fbAsyncInit = function() {
         window.FB.init({
           appId      : '114048632608756',
