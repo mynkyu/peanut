@@ -10,6 +10,10 @@
       "storage.rules",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    //파이어베이스 펑션 호스팅
+    "rewrites": [ {
+      "source": "/addMessage", "function": "addMessage"
+    } ]
   }
 }
