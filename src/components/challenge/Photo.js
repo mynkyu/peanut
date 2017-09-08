@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { setImg } from '../../actions';
 import contestImg from '../../contestImg.png'
 
+import './Photo.css';
+
 class Photo extends Component {
     constructor(props) {
         super(props)
@@ -48,7 +50,7 @@ class Photo extends Component {
         }
 
         return (
-            <div>
+            <div className = "bigDiv">
                 <div>과연 당신의 일치율은?</div>
                 <img src={contestImg}/>
                 <div>
