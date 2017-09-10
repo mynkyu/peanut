@@ -2,6 +2,10 @@ import React from 'react';
 
 
 const Challenger = ({challenger}) => {
+    if (!challenger) {
+        return <div></div> 
+    }
+
     return (
         <div>
             <img src={challenger.imageURL}/>

@@ -4,6 +4,7 @@ import * as firebase from 'firebase'
 import * as kakao from '../api/Kakao';
 import * as facebook from '../api/Facebook';
 import * as firebaseApi from '../api/Firebase';
+
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
@@ -19,7 +20,7 @@ class Profile extends React.Component {
   componentDidMount(){
     kakao.init()
     facebook.init();
-    this.initFirebaseAuth();
+    this.initFirebaseAuth();    
   }
 
   /**

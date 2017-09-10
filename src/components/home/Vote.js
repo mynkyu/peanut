@@ -11,7 +11,8 @@ class Vote extends Component {
             
             
             <div className = "voteSituationLink" >
-                <Link to="/ranking">
+                <Link to="/feed">
+                {/* <Link to="/ranking"> */}
                     <div className = "heartImage">
                         <div>
                             <img src = {heartImg} /> 

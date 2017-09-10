@@ -50,6 +50,7 @@ export function sharePeanut() {
 
 export function shareChallenger(uid) {
     const path = app.getURL() + "ranking/challenger/" + uid
+    console.log('facebook: ' + path)
     window.FB.ui({
         method: 'share_open_graph',
         action_type: 'og.likes',

@@ -1,3 +1,5 @@
+import * as app from './App'
+
 export function init() {
     window.Kakao.init('5e4a7d39b65f9a80825719fe59523f9e');
 }
@@ -39,17 +41,19 @@ export function sharePeanut() {
   });
 }
 
-export function shareChallenger() {
+export function shareChallenger(challenger) {
+  const path = app.getURL() + "ranking/challenger/" + challenger.uid
+  console.log('kako: ' + challenger.imageURL)
   window.Kakao.Link.createDefaultButton({
     container: '#kakao-share-challenger',
     objectType: 'feed',
     content: {
       title: '피넛',
-      description: '공유 테스트 입니당',
-      imageUrl: 'http://img.ezmember.co.kr/cache/board/2013/03/18/85c137cf1df080c680d70e457e38f3ba.jpg',
+      description: '공유 테스트',
+      imageUrl: challenger.imageURL,
       link: {
-        mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-        webUrl: 'https://peanut-5b51b.firebaseapp.com/'
+        mobileWebUrl: path,
+        webUrl: path
       }
     },
     social: {
@@ -61,15 +65,8 @@ export function shareChallenger() {
       {
         title: '웹으로 보기',
         link: {
-          mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-          webUrl: 'https://peanut-5b51b.firebaseapp.com/'
-        }
-      },
-      {
-        title: '앱으로 보기',
-        link: {
-          mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-          webUrl: 'https://peanut-5b51b.firebaseapp.com/'
+          mobileWebUrl: path,
+          webUrl: path
         }
       }
     ]
