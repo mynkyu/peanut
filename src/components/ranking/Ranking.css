@@ -59,3 +59,45 @@
     margin : 0;
 
 }
+
+.medal{
+    position: absolute;
+    width: 13vw;
+    left: 35.6vw;
+    top: 2vw;
+}
+
+.medal img{
+    width: 100%;
+    height: 100%;
+}
+
+.medal p{
+    position: absolute;
+    font-size: 4.7vw;
+    left: 3.68vw;
+    top: 2.6vw;
+    margin: 0;
+}
+
+.smallLabel{
+    font-size: 3.9vw;
+    margin-left: 0.2vw;
+}
+
+.challengerRankingSubComponent{
+    width: 26%;
+    float: left;
+    margin-left: 5.5%;
+    margin-bottom: 5.5%;
+}
+
+.subImageContainer{
+    width: 100%;
+}
+
+.subImageContainer img{
+    width: 100%;
+    border-radius: 50%;
+}
+
