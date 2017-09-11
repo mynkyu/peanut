@@ -60,9 +60,32 @@
 }
 
 .challengersContainer{
-    margin-top: 2rem;
+    margin-top: 0;
     width: 100%;
-    max-height: 50vh;
+    max-height: 61vh;
     overflow-y: scroll;
     list-style: none;
+}
+
+.titleDiv{
+    position: relative;
+    overflow: hidden;
+    margin-top: 5%;
+
+}
+
+.titleDiv p{
+    width: 100%;
+    text-align: center;
+    color: #f38048;
+    margin: 0;
+    font-size: 6vw;
+    line-height: 13vw;
+}
+
+.titleDiv img{
+    position: absolute;
+    width: 10%;
+    top: 1vw;
+    left: 20vw;
 }
