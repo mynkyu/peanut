@@ -9,6 +9,10 @@ import * as facebook from '../../api/Facebook';
 import * as event from '../../api/Event';
 
 import contestImage from '../../image/contestImage.jpeg'
+import contest2ring from '../../main_contest_big2rings.png'
+import trophy from '../../contest_trophy.png'
+
+import './Apply.css'
 
 class Apply extends Component {
     constructor(props) {
@@ -75,14 +79,36 @@ class Apply extends Component {
 
         return (
             <div>
-                <div>컨테스트 응모하기</div>
-                <div>컨테스트 우승자에게는 10만원 상당의 상금을 드립니다!</div>
-                <div>D-{this.state.dday}</div>
-                <div>
-                    <img src={contestImage}/>
-                    <img src={contestImage}/>
-                    {/* <img src={imgSrc}/> */}
+                <div className = "applyContestLabel">컨테스트 응모하기</div>
+                <div className = "rewardLabel">컨테스트 우승자에게는 <br/>10만원 상당의 상금을 드립니다!</div>
+                
+                <div className="timerContainer"> 
+                    <img src={trophy} className = "left cup"/>
+                    <Timer
+                        id='timerLeft'
+                        text=''
+                    />
+                    <img src={trophy} className = "right cup"/>
                 </div>
+
+                
+                <div className="contestBigContainer" >
+                    <div className="contestImageContainer">
+                        <img src={contest2ring}/>
+                        <div className = "contestingImage">
+                            <img src={contestImage}/>
+                        </div>
+                        <div className = "applyingImage">
+                            <img src={contestImage}/>
+                        </div>
+                    </div>
+                    <p> </p>
+
+
+                </div>
+
+                
+
                 <div>그 분과 12.1234% 닮은 꼴!</div>
                 {/* <div>그 분과 {similarity}% 닮은 꼴!</div> */}
                 <div>방가방가 님!</div>
@@ -96,7 +122,7 @@ class Apply extends Component {
                         콘테스트 응모하기
                     </button>
                 </div>
-                <Timer/>
+                
             </div>
         );
     }
