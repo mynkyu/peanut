@@ -12,6 +12,8 @@ import ChallengerContainer from '../ranking/ChallengerContainer';
 import Timer from '../../components/challenge/Timer';
 import Feed from '../../components/feed/Feed';
 
+import personImg from '../../person_img.png'
+
 import './FeedContainer.css'
 
 class FeedContainer extends Component {
@@ -71,7 +73,12 @@ class FeedContainer extends Component {
             id='leftTimeLabel'
             text='결과 발표까지'/>
         </div>
-                
+        
+        <div className = "titleDiv">
+          <p>실시간 후보 현황</p>
+          <img src = {personImg} ></img>
+        </div>
+
         {/* <div className = "peopleNumberDiv">
           <p>지금까지 도전자 수</p>
           <p id = "peopleNumberLabel" >345,421명!</p>
