@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import Timer from './Timer'
+
 import { setImg } from '../../actions';
 import contestImg from '../../contestImg.png'
 
@@ -48,6 +51,7 @@ class Photo extends Component {
 
         return (
             <div>
+                
                 <div className = "leftTimeDiv">
                     
 
@@ -61,6 +65,7 @@ class Photo extends Component {
                     <div> <input type="file" id="imageBtn"/> </div>
                 </div>
                 <div>에드센스</div>
+                <Timer/>
             </div>
         );
     }

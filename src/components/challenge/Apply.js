@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { resetChallenge } from '../../actions';
 
+import Timer from './Timer'
 import * as firebase from '../../api/Firebase';
 import * as facebook from '../../api/Facebook';
 import * as event from '../../api/Event';
@@ -92,6 +93,7 @@ class Apply extends Component {
                         콘테스트 응모하기
                     </button>
                 </div>
+                <Timer/>
             </div>
         );
     }

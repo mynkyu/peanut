@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import Challenger from '../../components/ranking/Challenger'
 import VoteButton from '../../components/ranking/VoteButton'
@@ -12,6 +13,7 @@ class ChallengerContainer extends Component {
     constructor() {
         super()
         this.state = {
+            isNonExist : null,
             isVote : null,
             challenger : null
         }
@@ -24,7 +26,7 @@ class ChallengerContainer extends Component {
         const instance = this
         const profile = props.profile
         const challegnerId = this.props.match.params.uid
-        
+
         if (profile) {
             firebase.getVote(challegnerId, profile.uid).then(function(isVote){
                 instance.setState({ isVote : isVote })
@@ -44,6 +46,7 @@ class ChallengerContainer extends Component {
             instance.setState({ challenger : challenger })
             kakao.shareChallenger(challenger)
         }, function(error) {
+            instance.setState({ isNonExist : true })
         })
 
         if (profile) {
@@ -93,6 +96,10 @@ class ChallengerContainer extends Component {
     }
 
     render() {
+        if(this.state.isNonExist) {
+            return <Redirect to='/challenge'/>
+        }
+
         return (
             <div>
                 <div>

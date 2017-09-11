@@ -158,8 +158,7 @@ export var getChallengerFeed = function (time) {
                 for (var i = length; i > 0; i--) {
                     feed.push(parseChallenger(challengers[i-1], 0))
                 }
-
-                console.log(feed)
+                
                 resolve(feed)
             } else {
                 resolve(null)

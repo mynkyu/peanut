@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom'
+
 import qwest from 'qwest';
 import InfiniteScroll from 'react-infinite-scroller';
 
+import ChallengerContainer from '../ranking/ChallengerContainer';
+import Feed from '../../components/feed/Feed';
 import * as firebase from '../../api/Firebase';
 
 class FeedContainer extends Component {
@@ -10,7 +14,7 @@ class FeedContainer extends Component {
     super(props);
 
     this.state = {
-        tracks: [],
+        challengers: [],
         hasMoreItems: true,
         nextHref: null
     };
@@ -26,12 +30,12 @@ class FeedContainer extends Component {
 
     firebase.getChallengerFeed(time).then((feed) => {
       if(feed) {
-        var tracks = self.state.tracks;
+        var challengers = self.state.challengers;
         feed.map((challenger) => {
-          tracks.push(challenger)
+          challengers.push(challenger)
         })
         self.setState({
-          tracks: tracks,
+          challengers: challengers,
           nextHref: (feed[feed.length-1].time - 1)
         });
       } else {
@@ -40,70 +44,35 @@ class FeedContainer extends Component {
         });
       }
     })
-
-    /*
-    var url = api.baseUrl + '/users/8665091/favorites';
-    if(this.state.nextHref) {
-        url = this.state.nextHref;
-    }
-
-    qwest.get(url, {
-      client_id: api.client_id,
-      linked_partitioning: 1,
-      page_size: 10
-    }, {
-      cache: true
-    }).then(function(xhr, resp) {
-      if(resp) {
-        var tracks = self.state.tracks;
-        resp.collection.map((track) => {
-          if(track.artwork_url == null) {
-              track.artwork_url = track.user.avatar_url;
-          }
-
-          tracks.push(track);
-        });
-
-        if(resp.next_href) {
-          self.setState({
-              tracks: tracks,
-              nextHref: resp.next_href
-          });
-        } else {
-          self.setState({
-              hasMoreItems: false
-          });
-        }
-      }
-    });
-    */
   }
 
   render() {
-    const loader = <div className="loader">Loading ...</div>;
-    
+    const instance = this
+
     var items = [];
-    this.state.tracks.map((track, i) => {
-        items.push(
-            <div className="track" key={i}>
-              <img src={track.imageURL} width="150" height="150" />
-              <p>올린 시각 {track.time}</p>
-            </div>
-        );
+    this.state.challengers.map((challenger, i) => {
+      items.push(
+            <Feed challenger={challenger} key={i}/>
+      );
     });
+
+    const loader = <div className="loader">Loading ...</div>;
 
     return (
       <div>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.loadItems.bind(this)}
-          hasMore={this.state.hasMoreItems}
-          loader={loader}>
+        <Route path="/feed/:uid" component={ChallengerContainer}/>
+        <div>
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadItems.bind(this)}
+            hasMore={this.state.hasMoreItems}
+            loader={loader}>
 
-          <div className="tracks">
-              {items}
-          </div>
-        </InfiniteScroll>
+            <div className="challengers">
+                {items}
+            </div>
+          </InfiniteScroll>
+        </div>
       </div>
     );
   }
