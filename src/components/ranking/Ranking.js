@@ -61,9 +61,9 @@ const Ranking = ({challenger, index}) => {
                     <img src = {challenger.imageURL}/>
                 </div>
             
-                <p className = "subChallengerName"> { challenger.name } 님</p>
-                <p className = "subChallengerVoteNumber"> { challenger.vote } 표</p>
-
+                <p className = "challengerName"> { challenger.name } 님</p>
+                <p className = "challengerVoteNumber"> { challenger.vote } 표</p>
+                <p className = "subRankLabel" >{challenger.rank}<span className="smallLabel">위</span></p>
             </li>
         );
     }
