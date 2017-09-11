@@ -136,9 +136,6 @@ class ChallengerContainer extends Component {
                         <p>에 공유하기</p>
                     </button>
                 </div>
-                
-                
-                
             </div>
         );
     }

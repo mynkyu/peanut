@@ -6,6 +6,7 @@ import qwest from 'qwest';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import ChallengerContainer from '../ranking/ChallengerContainer';
+import Timer from '../../components/challenge/Timer';
 import Feed from '../../components/feed/Feed';
 import * as firebase from '../../api/Firebase';
 
@@ -64,7 +65,9 @@ class FeedContainer extends Component {
       <div>
         <div className = "leftTimeDiv">
           <p>9월 3주차 컨테스트</p>
-          <p id = "leftTimeLabel" >결과 발표까지 00: 00 : 00 : 00!</p>
+          <Timer
+            id='leftTimeLabel'
+            text='결과 발표까지'/>
         </div>
                 
         <div className = "peopleNumberDiv">
@@ -81,14 +84,9 @@ class FeedContainer extends Component {
             hasMore={this.state.hasMoreItems}
             loader={loader}>
 
-
-            
-            
-            <li className="challengers">
-                <div className= "refreshButton"> 
-                    
-                </div>
-
+            <li className="challengersContainer">
+                {/* <div className= "refreshButton">                     
+                </div> */}
                 {items}
             </li>
           </InfiniteScroll>

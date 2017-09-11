@@ -58,3 +58,11 @@
     margin-left: 3.6vw;
     margin-bottom: 3.4vw;
 }
+
+.challengersContainer{
+    margin-top: 2rem;
+    width: 100%;
+    max-height: 20rem;
+    overflow-y: scroll;
+    list-style: none;
+}

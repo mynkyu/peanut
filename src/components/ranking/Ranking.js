@@ -12,7 +12,6 @@ import medal3 from '../../3rd_medal.png'
 import './Ranking.css'
 
 const Ranking = ({challenger, index}) => {
-    const path = '/ranking/' + challenger.uid
     var medalImg = medal3
     switch (challenger.rank) {
         case 1: medalImg = medal1; break;
@@ -23,13 +22,11 @@ const Ranking = ({challenger, index}) => {
     }
 
     if (challenger.rank < 4) {
+        const path = '/ranking/challenger/' + challenger.uid
         return (
-            
-    
             <li className = "challengerRankingComponent">
                 <div className = "imageContainer">
                         <img src = {contest2Ring}/>
-    
                         <div className = "contestImg">
                             <img src = {contestImg}/>
                         </div>
@@ -48,18 +45,18 @@ const Ranking = ({challenger, index}) => {
                 
                 <p className = "challengerName"> { challenger.name } 님</p>
                 <p className = "challengerVoteNumber"> { challenger.vote } 표</p>
-               
-                
-    
             </li>
         );
     }
     else{
+        const path = '/ranking/' + challenger.uid
         return(
             <li className = "challengerRankingSubComponent">
-                <div className = "subImageContainer">
-                    <img src = {challenger.imageURL}/>
-                </div>
+                <Link to={path}>
+                    <div className = "subImageContainer">
+                        <img src = {challenger.imageURL}/>
+                    </div>
+                </Link>
             
                 <p className = "challengerName"> { challenger.name } 님</p>
                 <p className = "challengerVoteNumber"> { challenger.vote } 표</p>

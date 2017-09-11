@@ -10,13 +10,15 @@ import Feed from './routes/Feed';
 import MyPage from './routes/MyPage';
 import NotFound from './routes/NotFound'
 
+import './App.css'
+
 class App extends Component {
   render() {
     return (  
       <Router>
         <div>
         <Header/>
-          <div>
+          <div className='bodyContainer'>
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/home" component={Home}/>

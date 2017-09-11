@@ -52,9 +52,11 @@
     border-color: #7d7d7d;
     border-width: 1px;
     border-style: solid;
+    border-radius: 8px;
 }
 
 .commentBox p{
+    color: #7d7d7d;
     margin-top: 10vw;
     margin-bottom: 10vw;
     width: 100%;

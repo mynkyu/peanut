@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { Route } from 'react-router-dom'
 
 import * as firebase from '../../api/Firebase';
+import Ranking from '../../components/ranking/Ranking'
 import RankingList from '../../components/ranking/RankingList'
 import ChallengerContainer from '../ranking/ChallengerContainer';
 
@@ -13,6 +14,7 @@ class RankingContainer extends Component {
     constructor() {
         super()
         this.state = {
+            isDataLoad : false,
             data : [],
             challengers : [],
             hasMoreItems: true,
@@ -23,7 +25,10 @@ class RankingContainer extends Component {
     componentDidMount() {
         const instance = this
         firebase.getRanking().then(function(data){
-            instance.setState({ data : data })
+            instance.setState({ 
+                isDataLoad : true,
+                data : data 
+            })
         }, function(error) {
         })
     }
@@ -31,9 +36,15 @@ class RankingContainer extends Component {
     loadItems(page) {
         var self = this;
         
-        var start = 0
+        var start = 3
         const data = this.state.data
         const length = data.length
+
+        if(length < 3) {
+            self.setState({ hasMoreItems: false });
+            return
+        }
+
         const range = 20
         if(this.state.nextHref) {
           start = this.state.nextHref;
@@ -54,42 +65,49 @@ class RankingContainer extends Component {
         });
 
         if (index >= length) {
-            console.log("end")
             self.setState({ hasMoreItems: false });
         }
       }
 
     render() {
-        // var items = [];
-        // this.state.challengers.map((challenger, i) => {
-        //   items.push(
-        //         <Ranking 
-        //             challenger={challenger} 
-        //             key={i}
-        //         />
-        //   );
-        // });
-    
-        // const loader = <div className="loader">Loading ...</div>;
+        var topList = []
+        const data = this.state.data
+        const length = Math.min(3, data.length)
+        for(var i = 0; i < length; i++){
+            topList.push(data[i])
+        }
+
+        var rankingList = <div></div>
+        const self = this
+        if(this.state.isDataLoad) {
+            var items = [];
+            this.state.challengers.map((challenger, i) => {
+              items.push(
+                    <Ranking 
+                        challenger={challenger} 
+                        key={i}
+                    />
+              );
+            });
+        
+            const loader = <div className="loader">Loading ...</div>;
+            rankingList = <InfiniteScroll
+                            pageStart={0}
+                            loadMore={this.loadItems.bind(this)}
+                            hasMore={this.state.hasMoreItems}
+                            loader={loader}>
+                            <div className='challengersContainer'>
+                                {items}
+                            </div>
+                        </InfiniteScroll>
+        }
 
         return (
             <div>
                 <div className = "titleLabel"><p>실시간 투표 순위</p></div>
+                <RankingList challengers={topList} />
                 <Route exact path="/ranking/:uid" component={ChallengerContainer}/>
-                <div>
-                    <RankingList
-                        challengers={this.state.data}
-                    />
-                    {/* <InfiniteScroll
-                        pageStart={0}
-                        loadMore={this.loadItems.bind(this)}
-                        hasMore={this.state.hasMoreItems}
-                        loader={loader}>
-                        <div className="challengers">
-                            {items}
-                        </div>
-                    </InfiniteScroll> */}
-                </div>
+                {rankingList}
             </div>
         );
     }
