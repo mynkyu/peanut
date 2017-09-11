@@ -1,5 +1,6 @@
 .challengers{
-    margin-top: 5rem;
+    margin-top: 8rem;
+    list-style-type: none;
 }
 
 .leftTimeDiv{
@@ -34,6 +35,7 @@
     padding-bottom: 4%;
     background-color: #E8E8E8;
     border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
 .peopleNumberDiv p{
@@ -47,4 +49,12 @@
 
 #peopleNumberLabel{
     color: #f38048;
+}
+
+.refreshButton{
+    float: left;
+    width: 28vw;
+    height: 28vw;
+    margin-left: 3.6vw;
+    margin-bottom: 3.4vw;
 }

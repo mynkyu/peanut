@@ -63,20 +63,18 @@ class FeedContainer extends Component {
     return (
       <div>
         <div className = "leftTimeDiv">
-              <p>8월 4주차 컨테스트</p>
-              <p id = "leftTimeLabel" >결과 발표까지 00: 00 : 00 : 00!</p>
-            </div>
+          <p>9월 3주차 컨테스트</p>
+          <p id = "leftTimeLabel" >결과 발표까지 00: 00 : 00 : 00!</p>
+        </div>
                 
-            <div className = "peopleNumberDiv">
-              <p>지금까지 지원자 수</p>
-              <p id = "peopleNumberLabel" >345,421명!</p>
-            </div>
+        <div className = "peopleNumberDiv">
+          <p>지금까지 도전자 수</p>
+          <p id = "peopleNumberLabel" >345,421명!</p>
+        </div>
        
         <Route path="/feed/:uid" component={ChallengerContainer}/>
+        
         <div>
-          
-
-
           <InfiniteScroll
             pageStart={0}
             loadMore={this.loadItems.bind(this)}
@@ -86,9 +84,13 @@ class FeedContainer extends Component {
 
             
             
-            <div className="challengers">
+            <li className="challengers">
+                <div className= "refreshButton"> 
+                    
+                </div>
+
                 {items}
-            </div>
+            </li>
           </InfiniteScroll>
         </div>
       </div>

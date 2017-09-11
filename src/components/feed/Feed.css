@@ -1,0 +1,14 @@
+.challengerInFeed{
+    width: 28vw;
+    height: 28vw;
+    float: left;
+    margin-left: 3.6vw;
+    margin-bottom: 3.4vw;
+
+}
+
+.challengerInFeed img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}

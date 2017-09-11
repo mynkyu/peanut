@@ -9,6 +9,11 @@ import * as kakao from '../../api/Kakao';
 import * as facebook from '../../api/Facebook';
 import * as firebase from '../../api/Firebase';
 
+import kakaoIcon from '../../kakao_icon.png'
+import facebookIcon from '../../facebook_icon.png'
+
+import './ChallengerContainer.css'
+
 class ChallengerContainer extends Component {
     constructor() {
         super()
@@ -111,17 +116,28 @@ class ChallengerContainer extends Component {
                 <div>
                     <Challenger challenger = {this.state.challenger} />
                 </div>
-                <div>
-                    <button onClick={this.vote}>
+
+                <div className = "voteButton">
+                    <button onClick={this.vote} >
                         <VoteButton isVote = {this.state.isVote}/>
                     </button>
                 </div>
-                <div>
+                
+                <div className="kakaoShare">
                     <a id="kakao-share-challenger" href="javascript:sendLink()">
-                        <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+                        <img src={kakaoIcon}/>
+                        <p>에 공유하기</p>
                     </a>
-                    <button onClick={this.facebookShare}>페이스북 공유</button>
                 </div>
+
+                <div className="facebookShare">
+                    <button onClick={this.facebookShare}>
+                        <img src={facebookIcon}/>
+                        <p>에 공유하기</p>
+                    </button>
+                </div>
+                
+                
             </div>
         );
     }
