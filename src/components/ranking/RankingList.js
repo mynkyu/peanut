@@ -1,6 +1,8 @@
 import React from 'react';
 import Ranking from './Ranking'
 
+import './RankingList.css'
+
 const RankingList = ({challengers}) => {
 
     const rankingList = challengers.map(
@@ -12,7 +14,7 @@ const RankingList = ({challengers}) => {
         )
     )
     return (
-        <ul>
+        <ul className  = "rankingList">
             {rankingList}
         </ul>
     );

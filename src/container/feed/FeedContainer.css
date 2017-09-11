@@ -1,0 +1,50 @@
+.challengers{
+    margin-top: 5rem;
+}
+
+.leftTimeDiv{
+    margin-top: 5.1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+}
+
+.leftTimeDiv p{
+    width: 100%;
+    color: #7d7d7d;
+    font-size: 17px;    
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    
+}
+
+#leftTimeLabel{
+    color: #f38048;
+}
+
+.peopleNumberDiv{
+    margin-top: 1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+}
+
+.peopleNumberDiv p{
+    width: 100%;
+    color: #7d7d7d;
+    font-size: 17px;    
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#peopleNumberLabel{
+    color: #f38048;
+}
