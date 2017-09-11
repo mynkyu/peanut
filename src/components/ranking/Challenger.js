@@ -1,5 +1,7 @@
 import React from 'react';
+import './Challenger.css'
 
+import imgContainer from '../../main_contest_ring.png'
 
 const Challenger = ({challenger}) => {
     if (!challenger) {
@@ -7,11 +9,21 @@ const Challenger = ({challenger}) => {
     }
 
     return (
-        <div>
-            <img src={challenger.imageURL}/>
-            <p>그 분과 {challenger.similarity}% 닮은 꼴</p>
-            <p>{challenger.name} 님!</p>
-            <p>{challenger.comment}</p>
+        <div className = "challengerContainer">
+            <div className = "challengerImgContainer">
+                <img src={imgContainer}></img>
+                <div className="contestpProfileImage">
+                    <img src={challenger.imageURL}/>    
+                </div>
+            </div>
+            
+            
+            <p className = "similarityLabel">그 분과 {challenger.similarity}% 닮은 꼴</p>
+            <p className = "nicknameLabel">{challenger.name} 님!</p>
+            <div className = "commentBox">
+                <p>{challenger.comment}</p>
+            </div>
+            
         </div>
     );
 };

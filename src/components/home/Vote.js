@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import  './Vote.css'
 
-import heartImg from '../../main_contest_heart_icon.png'
+import personImg from '../../person_img.png'
 
 class Vote extends Component {
     render() {
@@ -13,9 +13,9 @@ class Vote extends Component {
             <div className = "voteSituationLink" >
                 <Link to="/feed">
                 {/* <Link to="/ranking"> */}
-                    <div className = "heartImage">
+                    <div className = "personImage">
                         <div>
-                            <img src = {heartImg} /> 
+                            <img src = {personImg} /> 
                         </div>
                     <p>실시간 후보 현황</p>
                     </div>

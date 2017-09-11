@@ -112,7 +112,7 @@ class ChallengerContainer extends Component {
             return <Redirect to='/challenge'/>
         }
         return (
-            <div>
+            <div className="challengerInfoContainer">
                 <div>
                     <Challenger challenger = {this.state.challenger} />
                 </div>
@@ -136,6 +136,7 @@ class ChallengerContainer extends Component {
                         <p>에 공유하기</p>
                     </button>
                 </div>
+                
                 
                 
             </div>

@@ -33,19 +33,20 @@
     vertical-align: middle;
 }
 
-.heartImage{
+.personImage{
     display: block;
     position: relative;
     width: 100%;
     margin-top: 0px;
 }
-.heartImage div{
+.personImage div{
     width: 100%;
     padding-left: 32.5%;
 
 }
 
-.heartImage img{
+.personImage img{
     width: 35%;
+    height: auto;
     
 }

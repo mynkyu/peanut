@@ -1,0 +1,63 @@
+.challengerContainer{
+    margin-top: 1.3rem;
+    padding-top: 0;
+}
+
+.challengerImgContainer{
+    position: relative;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.challengerContainer img{
+    width: 100%;
+    height: 100%;
+}
+
+.contestpProfileImage{
+    position: absolute;
+    width: 51vw;
+    height: 51vw;
+    left: 4.2vw;
+    top: 4.2vw;
+}
+
+.contestpProfileImage img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.similarityLabel{
+    width:100%;
+    text-align: center;
+    color: #f38048;
+    margin-bottom: 1vw;
+    font-size: 4.4vw;
+}
+
+.nicknameLabel{
+    color: #7d7d7d;
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4.4vw;
+}
+
+.commentBox{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 6%;
+    border-color: #7d7d7d;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.commentBox p{
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    width: 100%;
+    text-align: center;
+    font-size: 5vw;
+}
