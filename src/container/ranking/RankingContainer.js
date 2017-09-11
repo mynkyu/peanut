@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
+import { Route } from 'react-router-dom'
 
 import * as firebase from '../../api/Firebase';
 import RankingList from '../../components/ranking/RankingList'
+import ChallengerContainer from '../ranking/ChallengerContainer';
 
 
 import './RankingContainer.css';
@@ -73,6 +75,7 @@ class RankingContainer extends Component {
         return (
             <div>
                 <div className = "titleLabel"><p>실시간 투표 순위</p></div>
+                <Route exact path="/ranking/:uid" component={ChallengerContainer}/>
                 <div>
                     <RankingList
                         challengers={this.state.data}

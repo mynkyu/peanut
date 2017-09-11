@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import contestImg from '../../sample2.jpg'
 import contest2Ring from '../../main_contest_big2rings.png'
 
@@ -9,6 +11,7 @@ import medal3 from '../../3rd_medal.png'
 import './Ranking.css'
 
 const Ranking = ({challenger, index}) => {
+    const path = '/ranking/' + challenger.uid
     return (
         <li className = "challengerRankingComponent">
             <div className = "imageContainer">
@@ -17,10 +20,11 @@ const Ranking = ({challenger, index}) => {
                     <div className = "contestImg">
                         <img src = {contestImg}/>
                     </div>
-
-                    <div className = "challengerImg">
-                        <img src = {challenger.imageURL}/>
-                    </div>
+                    <Link to={path}>
+                        <div className = "challengerImg">
+                            <img src = {challenger.imageURL}/>
+                        </div>
+                    </Link>
 
                     <div className = "medal">
                         
