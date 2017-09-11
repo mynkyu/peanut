@@ -25,10 +25,17 @@ class ChallengerContainer extends Component {
     componentWillReceiveProps(props) {
         const instance = this
         const profile = props.profile
-        const challegnerId = this.props.match.params.uid
+        const challengerId = props.match.params.uid
+
+        firebase.getChallenger(challengerId).then(function(challenger){
+            instance.setState({ challenger : challenger })
+            kakao.shareChallenger(challenger)
+        }, function(error) {
+            instance.setState({ isNonExist : true })
+        })
 
         if (profile) {
-            firebase.getVote(challegnerId, profile.uid).then(function(isVote){
+            firebase.getVote(challengerId, profile.uid).then(function(isVote){
                 instance.setState({ isVote : isVote })
             }, function(error) {
             })
@@ -40,9 +47,9 @@ class ChallengerContainer extends Component {
     componentDidMount() {
         const instance = this
         const profile = this.props.profile
-        const challegnerId = this.props.match.params.uid
-        
-        firebase.getChallenger(challegnerId).then(function(challenger){
+        const challengerId = this.props.match.params.uid
+
+        firebase.getChallenger(challengerId).then(function(challenger){
             instance.setState({ challenger : challenger })
             kakao.shareChallenger(challenger)
         }, function(error) {
@@ -50,7 +57,7 @@ class ChallengerContainer extends Component {
         })
 
         if (profile) {
-            firebase.getVote(challegnerId, profile.uid).then(function(isVote){
+            firebase.getVote(challengerId, profile.uid).then(function(isVote){
                 instance.setState({ isVote : isVote })
             }, function(error) {
             })
@@ -99,14 +106,13 @@ class ChallengerContainer extends Component {
         if(this.state.isNonExist) {
             return <Redirect to='/challenge'/>
         }
-
         return (
             <div>
                 <div>
                     <Challenger challenger = {this.state.challenger} />
                 </div>
                 <div>
-                <button onClick={this.vote}>
+                    <button onClick={this.vote}>
                         <VoteButton isVote = {this.state.isVote}/>
                     </button>
                 </div>
