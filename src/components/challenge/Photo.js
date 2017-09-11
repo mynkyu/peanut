@@ -59,7 +59,7 @@ class Photo extends Component {
                 
                 <div className = "leftTimeDiv">
                     <p>8월 4주차 컨테스트</p>
-                    <p id = "leftTimeLabel" >결과 발표까지 00:00:00:00 !</p>
+                    <p id = "leftTimeLabel" >결과 발표까지 {<Timer/>} !</p>
                 </div>
                 
                 <div className = "peopleNumberDiv">
