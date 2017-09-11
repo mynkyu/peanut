@@ -1,6 +1,22 @@
 {
     "rules": {
-      ".read": "auth != null",
-      ".write": "auth != null"
+      "challenger" : {
+        ".read": true,
+        ".write": "auth != null"
+      },
+      "removed_challenger" : {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      },
+      "profile" : {
+        "$uid": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        }
+      },
+      "vote" : {
+        ".read": true,
+        ".write": "auth != null"
+      }
     }
   }

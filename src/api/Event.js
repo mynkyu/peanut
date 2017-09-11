@@ -1,13 +1,22 @@
-const eventName = "testContest";
-const dueDate = new Date("2017-09-30T24:00:00");
+import axios from 'axios';
 
-export function getDDay() {
-    const currDate = new Date();
-    const timeDiff = Math.abs(dueDate.getTime() - currDate.getTime());
-    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    return diffDays
-}
+const eventName = "testContest"
 
 export function getEventName() {
     return eventName
+} 
+
+export function getEventInfo() {
+    return axios.get('https://us-central1-peanut-5b51b.cloudfunctions.net/getEventInfo')
 }
+
+export var getDDay = function () {
+    return new Promise(function (resolve, reject) {
+        getEventInfo().then((info) => {
+            const data = info.data
+            const timeDiff = Math.abs(data.dueTime - data.currTime);
+            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            resolve(diffDays);
+        })
+    });
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Top from '../../components/home/Top'
 import Challenge from '../../components/home/Challenge'
 import Vote from '../../components/home/Vote'
@@ -37,7 +38,7 @@ class HomeContainer extends Component {
                     challengers = {challengers}
                 />
                 <Challenge/>
-                <Vote/> 
+                <Vote/>
             </div>
         );
     }

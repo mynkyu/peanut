@@ -41,17 +41,22 @@ export var apply = function (profile, comment, imageURL, similarity) {
                 resolve(FIREBASE_SUCCESS);
             }
         };
+
         
-        const eventName = event.getEventName()
-        firebase.database().ref().child('challenger').child(eventName).child(profile.uid).set({
-            uid : profile.uid,
-            name : profile.name,
-            facebookURL : profile.facebookURL,
-            imageURL : imageURL,
-            similarity : similarity,
-            comment : comment,
-            vote : 0
-        }, onComplete)
+        event.getEventInfo().then((eventInfo) => {
+            const eventName = event.getEventName()
+            //firebase.database().ref().child('challenger').child(eventName).push({
+            firebase.database().ref().child('challenger').child(eventName).child(profile.uid).set({
+                uid : profile.uid,
+                name : profile.name,
+                facebookURL : profile.facebookURL,
+                imageURL : imageURL,
+                similarity : similarity,
+                comment : comment,
+                time : eventInfo.data.currTime,
+                vote : 0
+            }, onComplete)
+        })
     });
 };
 
@@ -64,6 +69,7 @@ function parseChallenger(data, rank) {
         similarity : data.similarity,
         comment : data.comment,
         vote : data.vote,
+        time : data.time,
         rank : rank
     }
 }
@@ -107,6 +113,55 @@ export var getChallenger = function (uid) {
                 resolve(challenger)
             } else {
                 reject(Error(FIREBASE_FAIL))
+            }
+        })
+    });
+}
+
+export var getVote = function (challengerId, uid) {
+    return new Promise(function (resolve, reject) {
+        const eventName = event.getEventName()
+        firebase.database().ref().child('vote').child(eventName).child(challengerId).child(uid).once('value').then(function(snapshot){
+            if (snapshot.exists()) {
+                resolve(true)
+            } else {
+                resolve(false)
+            }
+        })
+    });
+}
+
+export var vote = function (challengerId, uid) {
+    const eventName = event.getEventName()
+    firebase.database().ref().child('vote').child(eventName).child(challengerId).child(uid).set("false")
+}
+
+export var getChallengerFeed = function (time) {
+    return new Promise(function (resolve, reject) {
+        const eventName = event.getEventName()
+        var query = firebase.database().ref().child('challenger').child(eventName).orderByChild('time')
+
+        if(time) {
+            query = query.endAt(time)
+        }
+        query.limitToLast(20).once('value').then(function(snapshot){
+            if (snapshot.exists()) {
+
+                var feed = []
+                var challengers = []
+                snapshot.forEach(function(childSnapshot){
+                    const data = childSnapshot.val()
+                    challengers.push(data)
+                })
+
+                const length = challengers.length
+                for (var i = length; i > 0; i--) {
+                    feed.push(parseChallenger(challengers[i-1], 0))
+                }
+                
+                resolve(feed)
+            } else {
+                resolve(null)
             }
         })
     });

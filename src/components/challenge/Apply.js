@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { resetChallenge } from '../../actions';
 
+import Timer from './Timer'
 import * as firebase from '../../api/Firebase';
 import * as facebook from '../../api/Facebook';
 import * as event from '../../api/Event';
@@ -14,11 +15,19 @@ class Apply extends Component {
         super(props)
 
         this.state = {
+            dday : null,
             targetUid : null
         }
 
         this.apply = this.apply.bind(this)
         this.onApplySuccess = this.onApplySuccess.bind(this)
+    }
+
+    componentDidMount() {
+        const instance = this
+        event.getDDay().then((dday) => {
+            instance.setState({dday : dday})
+        })
     }
 
     apply() {
@@ -62,14 +71,13 @@ class Apply extends Component {
 
         const profile = this.props.profile
         const imgSrc = URL.createObjectURL(this.props.blob)
-        const dday = event.getDDay()
         const similarity = this.props.similarity
 
         return (
             <div>
                 <div>컨테스트 응모하기</div>
                 <div>컨테스트 우승자에게는 10만원 상당의 상금을 드립니다!</div>
-                <div>D-{dday}</div>
+                <div>D-{this.state.dday}</div>
                 <div>
                     <img src={contestImg}/>
                     <img src={imgSrc}/>
@@ -85,6 +93,7 @@ class Apply extends Component {
                         콘테스트 응모하기
                     </button>
                 </div>
+                <Timer/>
             </div>
         );
     }

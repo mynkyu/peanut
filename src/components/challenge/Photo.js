@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import Timer from './Timer'
+
 import { setImg } from '../../actions';
 import contestImg from '../../contestImg.png'
 
@@ -53,6 +56,7 @@ class Photo extends Component {
 
         return (
             <div>
+                
                 <div className = "leftTimeDiv">
                     <p>8월 4주차 컨테스트</p>
                     <p id = "leftTimeLabel" >결과 발표까지 00:00:00:00 !</p>
@@ -88,7 +92,10 @@ class Photo extends Component {
 
                     
                 </div>
-                
+
+                <div>에드센스</div>
+                <Timer/>
+
             </div>
         );
     }

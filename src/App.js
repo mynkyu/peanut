@@ -6,6 +6,8 @@ import Header from './Header';
 import Home from './routes/Home';
 import Ranking from './routes/Ranking';
 import Challenge from './routes/Challenge';
+import Feed from './routes/Feed';
+import MyPage from './routes/MyPage';
 import NotFound from './routes/NotFound'
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
               <Route path="/home" component={Home}/>
               <Route path="/ranking" component={Ranking}/>
               <Route path="/challenge" component={Challenge}/>
+              <Route path="/mypage/:uid" component={MyPage}/>
+              <Route path="/feed" component={Feed}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
