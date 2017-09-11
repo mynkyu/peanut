@@ -5,7 +5,19 @@ const cors = require('cors')({origin: true});
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
-const dueDate = new Date("2017-09-30T24:00:00");
+const dueDate = new Date("2017-09-17T24:00:00");
+
+exports.getEventInfo = functions.https.onRequest((req, res) => {
+  const date = new Date()
+  const dueTime = dueDate.getTime()
+  const currTime = date.getTime()
+  cors(req, res, () => {
+    res.status(200).send({
+      dueTime : dueTime,
+      currTime : currTime
+    });
+  });
+});
 
 exports.getEventInfo = functions.https.onRequest((req, res) => {
   const date = new Date()

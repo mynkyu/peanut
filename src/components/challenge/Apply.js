@@ -66,18 +66,18 @@ class Apply extends Component {
     }
 
     render() {
-        // if(this.state.targetUid) {
-        //     const path = "challenger/" + this.state.targetUid
-        //     return <Redirect to={path}/>;
-        // }
+        if(this.state.targetUid) {
+            const path = "challenger/" + this.state.targetUid
+            return <Redirect to={path}/>;
+        }
 
-        // if(!this.props.profile && !this.props.blob && !this.props.similarity) { 
-        //     return <div></div> 
-        // }
+        if(!this.props.profile && !this.props.blob && !this.props.similarity) { 
+            return <div></div> 
+        }
 
-        // const profile = this.props.profile
-        // const imgSrc = URL.createObjectURL(this.props.blob)
-        // const similarity = this.props.similarity
+        const profile = this.props.profile
+        const imgSrc = URL.createObjectURL(this.props.blob)
+        const similarity = this.props.similarity
 
         return (
             <div>
@@ -110,8 +110,8 @@ class Apply extends Component {
                             <img src={contestImage}/>
                         </div>
                     </div>
-                    <p className = "similarText">그 분과 12.1234% 닮은 꼴!</p>
-                    <p className = "nicknameText">방가방가 님!</p>
+                    <p className = "similarText">그 분과 {similarity}% 닮은 꼴!</p>
+                    <p className = "nicknameText">{profile.name} 님!</p>
                     
                     <div className = "commentPlzBox">
                         <textarea rows="4" cols="50" id='commentText' type="text" placeholder = "&#13;&#10;나를 어필하는 한마디를 써주세요"></textarea>
