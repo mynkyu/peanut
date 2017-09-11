@@ -3,7 +3,8 @@
     margin-top: 5rem;
     text-align: center;
     color: #f38048;
-    font-size: 6vw;
+    font-size: 6.4vw;
+    margin-bottom: 1vw;
 }
 
 .rewardLabel{
@@ -52,11 +53,14 @@
 }
 
 .contestBigContainer{
+    position: relative;
     margin-left: 7.5%;
     margin-right: 7.5%;
     border-radius: 8px;
     background-color: #ffffff;
     padding-top: 7%;
+    padding-bottom: 1px;
+    
 }
 
 .contestImageContainer{
@@ -94,3 +98,87 @@
     border-radius: 50%;
 }
 
+.similarText{
+    width: 100%;
+    text-align: center;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    color: #f38048;
+}
+
+.nicknameText{
+    width: 100%;
+    text-align: center;
+    margin-top: 2vw;
+    
+    color: #7d7d7d;
+    
+}
+
+.commentPlzBox{
+    width: 80%;
+    height: 10vh;
+    margin-left: 10%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7d7d7d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.commentPlzBox textarea{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 5vw;
+    text-align: center;
+    resize: none;
+    border-radius: 8px;
+}
+
+
+.contestApplyButton{
+    margin-top: 5.5%;
+    margin-bottom: 7.5%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-radius: 8px;
+    background-color: #f38048;
+
+
+}
+
+.contestApplyButton button{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0; 
+    color: #FFFFFF;
+    font-size: 4vw;
+    line-height: 10vw;
+}
+
+.similarMedal{
+    position: absolute;
+    width: 15vw;
+    top: -5.5vw;
+    left: 41.5%;
+    
+}
+
+.similarMedal img{
+    width: 100%;
+}
+
+.similarMedal p {
+    position: absolute;
+    margin: 0;
+    left: 5.4vw;
+    top: 3.3vw;
+    font-size: 5vw;
+    text-align: center;
+}

@@ -110,14 +110,15 @@
     border-width: 1.5px;
     border-color: #7d7d7d;
     font-size: 4.4vw;
-    width: 8.1vw;
-    height: 8.1vw;
+    width: 9.3vw;
+    height: 9.3vw;
     border-radius: 50%;
-    line-height: 8vw;
+    line-height: 9.3vw;
     text-align: center;
-    left: 0vw;
-    top: 0vw;
+    left: -1vw;
+    top: -1vw;
     margin: 0;
     
 }
+
 
