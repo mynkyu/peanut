@@ -11,7 +11,7 @@ export function getResponse(response) {
     switch (response) {
         case RESPONSE_SUCCESS : return "결과를 보려면 로그인 해주세요!"
         case RESPONSE_NO_FACE : return "얼굴을 인식할 수 없습니다"
-        case RESPONSE_MANY_FACE : return "얼굴이 너무 많아요"
+        case RESPONSE_MANY_FACE : return "얼굴이 여러개네요!\n그 중 어떤 얼굴인가요?"
         case RESPONSE_FAIL : return "오류 발생"
         default : return ""
     }

@@ -74,6 +74,8 @@ class Timer extends Component {
     
     render() {
         const isExpired = this.state.isExpired
+        const id = this.props.id
+        const text = this.props.text
 
         if (isExpired == null) {
             return <div></div>
@@ -90,9 +92,7 @@ class Timer extends Component {
 
         const time = days + " : " + hours + " : " + minutes + " : " + seconds
         return (
-            
-                <span>{time}</span>
-            
+            <p id={id}>{text} {time}</p>
         );
     }
 }

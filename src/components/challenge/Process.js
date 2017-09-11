@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 import * as firebaseApi from '../../api/Firebase';
 import * as facelink from '../../api/FaceLink';
 
+import './Process.css';
+
 class Process extends Component {
     constructor(props) {
         super(props)
@@ -73,14 +75,11 @@ class Process extends Component {
         }
 
         return (
-            <div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div id='test'></div>
-                <div>계산 중입니다</div>
-                <div>에드센스</div>
+            <div className='processDiv'>
+                <p id='processText'>
+                    "얼굴 파이터는 얼굴로 말한다"<br/>
+                    일치율 계산 중...
+                </p>
             </div>
         );
     }

@@ -1,0 +1,61 @@
+.mypageDiv{
+    margin-top: 5.1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+    text-align: center
+}
+
+#mypageText{
+    color: #f38048;
+}
+
+.signOutButton{
+    border-radius: 8px;
+    width: 70%;
+    height : 45px;
+    background-color: #677dbe;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4%;   
+}
+
+.signOutButtonLabel{
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;  
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 5vw;
+    padding: 0;
+    margin: 0;
+}
+
+.contestButton{
+    border-radius: 8px;
+    width: 70%;
+    height : 45px;
+    background-color: #f38048;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4%;   
+    text-decoration: none;
+}
+
+.contestButtonLabel{
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;  
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}

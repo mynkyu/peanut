@@ -5,6 +5,8 @@ import { setImg, setCropImg } from '../../actions';
 import Croppie from 'croppie'
 import croppieStyle from 'croppie/croppie.css'
 
+import './Crop.css'
+
 class Crop extends Component {
     constructor(props) {
         super(props)
@@ -33,7 +35,7 @@ class Crop extends Component {
 
         var el = document.getElementById('cropImage');
         var crop = new Croppie(el, {
-          viewport: { width: 100, height: 100 },
+          viewport: { width: 200, height: 200 },
           boundary: { width: 300, height: 300 },
           showZoomer: true,
           enableOrientation: true,
@@ -57,12 +59,15 @@ class Crop extends Component {
 
         return (
             <div>
-                <div>비슷한 표정을 지어보세요</div>
-                <div>
-                    <div id="cropImage" className="croppie-container"/>
+                <div className='guideDiv'>
+                    <p id='guideText'>얼굴에 맞게 줌을 확 땡겨주세요</p>
                 </div>
-                <div> <button id="uploadBtn">이미지 업로드</button></div>
-                <div>에드센스</div>
+                <div>
+                    <div id="cropImage" className="croppie-container cropDiv"/>
+                </div>
+                <div className='uploadButton'> 
+                    <button className='uploadButtonLabel' id="uploadBtn">일치율 확인</button>
+                </div>
             </div>
         );
     }

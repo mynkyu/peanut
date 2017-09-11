@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import * as firebase from 'firebase'
 
+import './MyPage.css'
+
 class MyPageContainer extends Component {
     signOut() {
         firebase.auth().signOut()
@@ -17,14 +19,17 @@ class MyPageContainer extends Component {
         const path = '/ranking/challenger/' + this.props.uid
 
         return (
-            <div>
-                <div>여백</div>
-                <div>여백</div>
-                <div>여백</div>
-                <div>여백</div>
-                <div>여백</div>
-                <Link to={path}><div>내가 지원한 콘테스트</div></Link>
-                <button onClick={this.signOut}><div>로그아웃</div></button>
+            <div className='mypageDiv'>
+                <div className='contestButton'>
+                    <Link className='contestButtonLabel' to={path}>
+                        내가 지원한 콘테스트
+                    </Link>
+                </div>
+                <div className='signOutButton'>
+                    <button className='signOutButtonLabel' onClick={this.signOut}>
+                        로그아웃
+                    </button>
+                </div>
             </div>
         );
     }

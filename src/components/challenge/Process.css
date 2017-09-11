@@ -1,0 +1,14 @@
+.processDiv{
+    margin-top: 5.1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+    text-align: center
+}
+
+#processText{
+    color: #f38048;
+}

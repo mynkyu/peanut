@@ -1,10 +1,15 @@
 import axios from 'axios';
 
 const eventName = "testContest"
+const eventWeek = "9월 3주차"
 
 export function getEventName() {
     return eventName
-} 
+}
+
+export function getEventWeek() {
+    return eventWeek
+}
 
 export function getEventInfo() {
     return axios.get('https://us-central1-peanut-5b51b.cloudfunctions.net/getEventInfo')

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import * as event from '../../api/Event';
+
 import contestRing from '../../main_contest_ring.png'
 import sample2 from '../../sample2.jpg'
 import './Challenge.css';
@@ -13,7 +15,7 @@ class Challenge extends Component {
                 <p className = "contestLabel">컨테스트</p> 
                 <div className = "separator"></div>
                 <p className = "firstContext">이 주의 '그 분'에게 도전하기</p>
-                <p className = "secondContext">8월의 4주차는 바로 이분!</p>
+                <p className = "secondContext">{event.getEventWeek()}는 바로 이분!</p>
                 
                 <div className = "ringImage" ><img  src={contestRing}/>
                     <div className = "personForChallenge"><img src={sample2}/></div>

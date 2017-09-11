@@ -5,6 +5,8 @@ import { Link, Redirect } from 'react-router-dom';
 import * as facebook from '../../api/Facebook';
 import * as facelink from '../../api/FaceLink';
 
+import './Response.css';
+
 class Response extends Component {
     facebookLogin() {
         facebook.signInWithPopup()
@@ -20,22 +22,25 @@ class Response extends Component {
             }
 
             return (
-                <div>
-                    <div><p>{response}</p></div>
-                    <div><button onClick={this.facebookLogin}>페이스북 로그인</button></div>
-                    {/* <div><Link to="/challenge/result">로그인</Link></div> */}
+                <div className='responseDiv'>
+                    <p id='responseText' >{response}</p>
+                    <div className='successButton'>
+                        <button className='successButtonLabel' onClick={this.facebookLogin}>
+                            페이스북 로그인
+                        </button>
+                    </div>
                 </div>
             );
         }
         
         return (
-            <div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div>에드센스</div>
-                <div><p>{response}</p></div>
-                <div><Link to="/challenge">사진 선택으로 되돌아 가기</Link></div>
+            <div className='responseDiv'>
+                <p id='responseText'>{response}</p>
+                <div className='failButton'>
+                    <Link className='failButtonLabel' to="/challenge">
+                        <p>사진 선택으로 되돌아 가기</p>
+                    </Link>
+                </div>
             </div>
         );
     }

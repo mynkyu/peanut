@@ -25,48 +25,12 @@ const Top = ({challengers}) => {
             <img src = {heartImg} className = "heartImg"/>
             
             <div className = "topHeadLine" >
-                <p className = "rankNumberOneNow">컨테스트 컨테스트 순위
-                        
-                </p> 
+                <p className = "rankNumberOneNow">컨테스트 순위</p>
                 <Link to="/ranking" className = "rankCheck">순위확인>></Link>
             </div>
                 {first}
                 {second}
                 {third}
-{/*             
-                
-                <div className = "imgContainer firstContainer">
-                    <img src = {imgContainer}/>
-
-                    <div className = "firstPrize">
-                        <img src = {sample1}/>
-                    </div>
-
-                    <p>3340231 표</p>
-                </div>
-                
-                <div className = "imgContainer secondContainer">
-                    <img src = {imgContainer}/>
-
-                    <div className = "secondPrize">
-                        <img src = {sample2}/>
-                    </div>
-                    <p>1265136 표</p>
-                </div>
-
-                <div className = "imgContainer thirdContainer">
-                    <img src = {imgContainer}/>
-
-                    <div className = "thirdPrize">
-                        <img src = {sample3}/>
-                    </div>
-                    <p>552452 표</p>
-                </div>
-
-            
-
-
-             */}
         </div>
     );
 };
