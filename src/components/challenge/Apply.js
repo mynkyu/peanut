@@ -8,7 +8,7 @@ import * as firebase from '../../api/Firebase';
 import * as facebook from '../../api/Facebook';
 import * as event from '../../api/Event';
 
-import contestImg from '../../contestImg.png'
+import contestImage from '../../image/contestImage.jpeg'
 
 class Apply extends Component {
     constructor(props) {
@@ -79,7 +79,7 @@ class Apply extends Component {
                 <div>컨테스트 우승자에게는 10만원 상당의 상금을 드립니다!</div>
                 <div>D-{this.state.dday}</div>
                 <div>
-                    <img src={contestImg}/>
+                    <img src={contestImage}/>
                     <img src={imgSrc}/>
                 </div>
                 <div>그 분과 {similarity}% 닮은 꼴!</div>
