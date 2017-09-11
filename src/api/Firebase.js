@@ -74,12 +74,11 @@ function parseChallenger(data, rank) {
     }
 }
 
-const LAST_RANK = 3
 export var getRanking = function () {
     return new Promise(function (resolve, reject) {
         const eventName = event.getEventName()
         firebase.database().ref().child('challenger').child(eventName)
-        .orderByChild('vote').limitToLast(LAST_RANK).once('value').then(function(snapshot){
+        .orderByChild('vote').once('value').then(function(snapshot){
             if (snapshot.exists()) {
                 var challengersData = []
                 var challengers = []
