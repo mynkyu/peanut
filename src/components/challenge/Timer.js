@@ -90,9 +90,9 @@ class Timer extends Component {
 
         const time = days + " : " + hours + " : " + minutes + " : " + seconds
         return (
-            <div>
-                {time}
-            </div>
+            
+                <span>{time}</span>
+            
         );
     }
 }

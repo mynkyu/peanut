@@ -17,7 +17,7 @@ class Vote extends Component {
                         <div>
                             <img src = {heartImg} /> 
                         </div>
-                    <p>실시간 투표 상황</p>
+                    <p>실시간 후보 현황</p>
                     </div>
                 </Link>
             </div>

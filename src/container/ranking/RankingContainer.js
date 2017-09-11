@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import * as firebase from '../../api/Firebase';
 import RankingList from '../../components/ranking/RankingList'
 
+
+import './RankingContainer.css';
+
 class RankingContainer extends Component {
     constructor() {
         super()
@@ -30,7 +33,10 @@ class RankingContainer extends Component {
 
         return (
             <div>
-                <div>실시간 투표 상황</div>
+
+                
+
+                <div className = "titleLabel"><p>실시간 투표 순위</p></div>
                 <RankingList
                     challengers = {challengers}
                 />        
