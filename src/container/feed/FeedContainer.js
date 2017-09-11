@@ -70,10 +70,10 @@ class FeedContainer extends Component {
             text='결과 발표까지'/>
         </div>
                 
-        <div className = "peopleNumberDiv">
+        {/* <div className = "peopleNumberDiv">
           <p>지금까지 도전자 수</p>
           <p id = "peopleNumberLabel" >345,421명!</p>
-        </div>
+        </div> */}
        
         <Route path="/feed/:uid" component={ChallengerContainer}/>
         

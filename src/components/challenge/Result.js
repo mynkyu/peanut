@@ -24,9 +24,9 @@ class Result extends Component {
     }
 
     render() {
-        // if(!this.props.blob && !this.props.similarity) { return <div></div> } 
-        // const imgSrc = URL.createObjectURL(this.props.blob)
-        // const similarity = this.props.similarity
+        if(!this.props.blob && !this.props.similarity) { return <div></div> } 
+        const imgSrc = URL.createObjectURL(this.props.blob)
+        const similarity = this.props.similarity
         
         return (
             <div>
@@ -40,8 +40,7 @@ class Result extends Component {
                     </div>
                 </div>
                 <p className = "similarityLabel">이 분과 당신의 일치율은...</p>
-                <p className="similarity">12.1234%</p>
-                {/* <div>{similarity}%</div> */}
+                <p className="similarity">{similarity}%</p>
                 <p className = "scaryText">이쯤되면 무서운데요?</p>
                 <div className="contestGo"><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>
                 <div className="buttons">

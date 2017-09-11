@@ -54,7 +54,7 @@ export function sharePeanut() {
 }
 
 export function shareChallenger(challenger) {
-    const path = app.getURL() + "feed/" + challenger.uid
+    const path = app.getURL() + "?feed=" + challenger.uid
     const description = challenger.name + '님이 그 분과의 닮은꼴 컨테스트에 참여하셨습니다!'
     console.log('facebook: ' + path)
     window.FB.ui({
