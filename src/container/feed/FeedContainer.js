@@ -5,10 +5,12 @@ import { Route } from 'react-router-dom'
 import qwest from 'qwest';
 import InfiniteScroll from 'react-infinite-scroller';
 
+import * as event from '../../api/Event';
+import * as firebase from '../../api/Firebase';
+
 import ChallengerContainer from '../ranking/ChallengerContainer';
 import Timer from '../../components/challenge/Timer';
 import Feed from '../../components/feed/Feed';
-import * as firebase from '../../api/Firebase';
 
 import personImg from '../../person_img.png'
 
@@ -66,7 +68,7 @@ class FeedContainer extends Component {
     return (
       <div>
         <div className = "leftTimeDiv">
-          <p>9월 3주차 컨테스트</p>
+          <p>{event.getEventWeek()} 컨테스트</p>
           <Timer
             id='leftTimeLabel'
             text='결과 발표까지'/>

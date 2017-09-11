@@ -41,7 +41,7 @@ class Result extends Component {
                 </div>
                 <p className = "similarityLabel">이 분과 당신의 일치율은...</p>
                 <p className="similarity">{similarity}%</p>
-                <p className = "scaryText">이쯤되면 무서운데요?</p>
+                {/* <p className = "scaryText">이쯤되면 무서운데요?</p> */}
                 <div className="contestGo"><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>
                 <div className="buttons">
                     <Link to="/challenge" className="againwithAnother">다른 사진으로 재도전</Link>

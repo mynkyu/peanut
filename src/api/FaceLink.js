@@ -18,6 +18,5 @@ export function getResponse(response) {
 }
 
 export function getSimilarity(imageUri) {
-    return axios.get('https://us-central1-peanut-5b51b.cloudfunctions.net/calSimilarity?' + querystring.stringify({imageUri : imageUri}));
-    //return axios.get('https://35.200.119.61:8080/contest/similar?' + querystring.stringify({imageUri : imageUri}));
+    return axios.get('https://us-central1-peanut-5b51b.cloudfunctions.net/calSimilarity?' + querystring.stringify({imageUri : imageUri}))
 }
