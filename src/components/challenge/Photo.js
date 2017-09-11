@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { setImg } from '../../actions';
 import contestImg from '../../contestImg.png'
 
+import contest8Ring from '../../contest_2rings.png'
+import cameraButton from '../../contest_cameraicon.png'
+import facebookButton from '../../contest_facebook.png'
+import sample2 from '../../sample2.jpg'
+
 import './Photo.css';
 
 class Photo extends Component {
@@ -49,18 +54,41 @@ class Photo extends Component {
         return (
             <div>
                 <div className = "leftTimeDiv">
+                    <p>8월 4주차 컨테스트</p>
+                    <p id = "leftTimeLabel" >결과 발표까지 00:00:00:00 !</p>
+                </div>
+                
+                <div className = "peopleNumberDiv">
+                    <p>지금까지 지원자 수</p>
+                    <p id = "peopleNumberLabel" >345,421명!</p>
+                </div>
+                
+                
+                <div className="faceLinkDiv">
+                    <p>과연 당신의 일치율은?</p>
                     
+                    <div className = "ringImage" ><img  src={contest8Ring}/>
+                        <div className = "personForChallenge"><img src={sample2}/></div>
 
+                        <div className = "buttonDiv">
+                            <div className="photoSelectButton">
+                                <input type="file" id="imageBtn" className="imageSelectInput"></input>
+                                <img src = {cameraButton}/>
+                                <p>카메라<br/>&amp;앨범</p>
+
+                            </div>
+                            <div className="facebookPhotoButton">
+                                <img src = {facebookButton}/>
+                                <p>프로필<br/>&amp;사진</p>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
                 </div>
                 
-                
-                
-                <div>과연 당신의 일치율은?</div>
-                <img src={contestImg}/>
-                <div>
-                    <div> <input type="file" id="imageBtn"/> </div>
-                </div>
-                <div>에드센스</div>
             </div>
         );
     }

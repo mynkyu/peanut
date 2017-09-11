@@ -73,17 +73,12 @@
     margin-bottom: 0;
 }
 
+.imgContainer a{
+    text-decoration: none;
+}
+
 .firstContainer{
     
-    float: left;
-    
-}
-
-.secondContainer{
-    float: left;
-}
-
-.thirdContainer{
     float: left;
     
 }
@@ -103,37 +98,6 @@
     height: 100%;
 }
 
-.secondPrize{
-    position: absolute;
-    width: 16vw;
-    height: 16vw;
-    object-fit: cover;
-    top: 1.8vw;
-    left: 1.8vw;
-}
-
-.secondPrize img{
-    border-radius: 50%;
-    width : 100%;
-    height: 100%;
-    
-}
-
-.thirdPrize{    
-    position: absolute;
-    width: 16vw;
-    height: 16vw;
-    top: 1.8vw;
-    left: 1.8vw;
-}
-
-.thirdPrize img{
-    border-radius: 50%;
-    width : 100%;
-    height: 100%;
-    
-    
-}
 
 
 

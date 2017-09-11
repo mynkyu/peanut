@@ -1,3 +1,155 @@
-.bigDiv{
-    margin-top: 4rem;
+.leftTimeDiv{
+    margin-top: 5.1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
 }
+
+.leftTimeDiv p{
+    width: 100%;
+    color: #7d7d7d;
+    font-size: 17px;    
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    
+}
+
+#leftTimeLabel{
+    color: #f38048;
+}
+
+.peopleNumberDiv{
+    margin-top: 1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+}
+
+.peopleNumberDiv p{
+    width: 100%;
+    color: #7d7d7d;
+    font-size: 17px;    
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#peopleNumberLabel{
+    color: #f38048;
+}
+
+.faceLinkDiv{
+    margin-top: 1rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #E8E8E8;
+    border-radius: 8px;
+}
+
+.faceLinkDiv p{
+    width: 100%;
+    color: #f38048;
+    text-align: center;
+}
+
+
+.ringImage{
+    position: relative;
+}
+
+.personForChallenge{
+    position: absolute;
+    width: 37vw;
+    height: 37vw;
+    left: 2.7vw;
+    top: 2.7vw;
+}
+
+.buttonDiv{
+    position: absolute;
+    width: 33vw;
+    height: 33vw;
+    left: 4.83vw;
+    top: 49.5vw;
+    
+}
+
+.photoSelectButton{
+    position: absolute;
+    border-width: 2.6px;
+    border-color: #c2c2c2;
+    border-style: solid;
+    
+    border-top-left-radius: 18.5vw;
+    border-bottom-left-radius: 18.5vw;
+    width: 46%;
+    height: 100%;
+    top : -2.6px;
+    left: -3.6px;
+    opacity: 0.85;
+}
+
+.photoSelectButton p{
+    position: absolute;
+    bottom: 9%;
+    left: 9%;
+    font-size: 3vw;
+    color: #c2c2c2;
+    
+}
+
+.photoSelectButton img{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    left: 35%;
+    top: 21%;
+}
+
+.imageSelectInput{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+}
+
+.facebookPhotoButton{
+    position: absolute;
+    border-width: 2.6px;
+    border-color: #c2c2c2;
+    border-style: solid;
+    
+    border-top-right-radius: 18.5vw;
+    border-bottom-right-radius: 18.5vw;
+    width: 46%;
+    height: 100%;
+    top : -2.6px;
+    right: -3.6px;
+    opacity: 0.85;
+}
+
+.facebookPhotoButton p{
+    position: absolute;
+    bottom: 9%;
+    right: 9%;
+    font-size: 3vw;
+    color: #c2c2c2;
+}
+
+.facebookPhotoButton img{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    right: 35%;
+    top: 21%;
+}
+
