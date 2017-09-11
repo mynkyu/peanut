@@ -36,7 +36,7 @@ class Result extends Component {
                         <img src={contestImage}/>
                     </div>
                     <div className="contestResultMyImage">
-                        <img src={contestImage}/>
+                        <img src={imgSrc}/>
                     </div>
                 </div>
                 <p className = "similarityLabel">이 분과 당신의 일치율은...</p>

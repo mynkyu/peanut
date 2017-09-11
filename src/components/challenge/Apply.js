@@ -107,7 +107,7 @@ class Apply extends Component {
                             <img src={contestImage}/>
                         </div>
                         <div className = "applyingImage">
-                            <img src={contestImage}/>
+                            <img src={imgSrc}/>
                         </div>
                     </div>
                     <p className = "similarText">그 분과 {similarity}% 닮은 꼴!</p>

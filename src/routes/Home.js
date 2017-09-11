@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         const location = this.props.location.search
         const feed = new URLSearchParams(location).get('feed')
-        console.log(feed)
+        
         if(feed) {
             const path = 'feed/' + feed
             return <Redirect to={path}/>

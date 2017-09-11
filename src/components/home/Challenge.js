@@ -9,7 +9,40 @@ import './Challenge.css';
 
 
 class Challenge extends Component {
+    constructor() {
+        super()
+        this.state = {
+            isContestOn : null
+        }
+    }
+
+    componentDidMount() {
+        const self = this
+        event.getEventInfo().then((info) => {
+            const dueTime = info.data.dueTime
+            const currTime = info.data.currTime
+
+            if (dueTime < currTime) {
+                self.setState({isContestOn:false})
+            } else {
+                self.setState({isContestOn:true})
+            }
+        })
+    }
+
     render() {
+        const isContestOn = this.state.isContestOn
+
+        var start = <div className = "startLink" > <div className = "startLinkLabel">시작하기</div> </div>;
+        
+        if(isContestOn != null) {
+            if(isContestOn) {
+                start = <div className = "startLink" ><Link to="/challenge" className = "startLinkLabel">시작하기</Link></div>
+            } else {
+                start = <div className = "startLink" > <div className = "startLinkLabel">컨테스트 종료</div> </div>
+            }
+        }
+
         return (
             <div className = "challengeDiv">
                 <p className = "contestLabel">컨테스트</p> 
@@ -20,11 +53,7 @@ class Challenge extends Component {
                 <div className = "ringImage" ><img  src={contestRing}/>
                     <div className = "personForChallenge"><img src={contestImage}/></div>
                 </div>
-                
-                <div className = "startLink" >
-                    <Link to="/challenge" className = "startLinkLabel">시작하기</Link>
-                </div>
-                
+                {start}
             </div>
         );
     }
