@@ -8,8 +8,9 @@ class Ranking extends Component {
     render() {
         return (
             <div>
-                <Route exact path="/ranking" component={RankingContainer}/>
                 <Route exact path="/ranking/challenger/:uid" component={ChallengerContainer}/>
+                <Route exact path="/ranking/" component={RankingContainer}/>
+                <Route exact path="/ranking/:uid" component={RankingContainer}/>
             </div>
         );
     }
