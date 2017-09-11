@@ -11,6 +11,8 @@ import * as event from '../../api/Event';
 import contestImage from '../../image/contestImage.jpeg'
 import contest2ring from '../../main_contest_big2rings.png'
 import trophy from '../../contest_trophy.png'
+import goldMedal from '../../1st_medal.png'
+
 
 import './Apply.css'
 
@@ -93,6 +95,12 @@ class Apply extends Component {
 
                 
                 <div className="contestBigContainer" >
+
+                    <div className = "similarMedal">
+                        <img src={goldMedal}/>
+                        <p>닮</p>
+                    </div>
+
                     <div className="contestImageContainer">
                         <img src={contest2ring}/>
                         <div className = "contestingImage">
@@ -102,26 +110,30 @@ class Apply extends Component {
                             <img src={contestImage}/>
                         </div>
                     </div>
-                    <p> </p>
+                    <p className = "similarText">그 분과 12.1234% 닮은 꼴!</p>
+                    <p className = "nicknameText">방가방가 님!</p>
+                    
+                    <div className = "commentPlzBox">
+                        <textarea rows="4" cols="50" id='commentText' type="text" placeholder = "&#13;&#10;나를 어필하는 한마디를 써주세요"></textarea>
+                    </div>
 
+                    <div className = "contestApplyButton">
+                        <button onClick={this.apply}>
+                            콘테스트에 이대로 응모하기
+                        </button>
+                    </div>
 
                 </div>
 
                 
 
-                <div>그 분과 12.1234% 닮은 꼴!</div>
+                
                 {/* <div>그 분과 {similarity}% 닮은 꼴!</div> */}
-                <div>방가방가 님!</div>
+                
                 {/* <div>{profile.name} 님!</div> */}
-                <div>
-                    <input id='commentText' type="text"></input>
-                </div>
-                <div>나를 어필하는 한마디를 써주세요!</div>
-                <div>
-                    <button onClick={this.apply}>
-                        콘테스트 응모하기
-                    </button>
-                </div>
+                
+                
+                
                 
             </div>
         );
