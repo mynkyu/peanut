@@ -17,18 +17,20 @@ class Result extends Component {
     }
 
     render() {
-        if(!this.props.blob && !this.props.similarity) { return <div></div> } 
-        const imgSrc = URL.createObjectURL(this.props.blob)
-        const similarity = this.props.similarity
+        // if(!this.props.blob && !this.props.similarity) { return <div></div> } 
+        // const imgSrc = URL.createObjectURL(this.props.blob)
+        // const similarity = this.props.similarity
         
         return (
             <div>
                 <div>
                     <img src={contestImage}/>
-                    <img src={imgSrc}/>
+                    <img src={contestImage}/>
+                    {/* <img src={imgSrc}/> */}
                 </div>
                 <div>이 분과 당신의 일치율은...</div>
-                <div>{similarity}%</div>
+                <div>12.1234%</div>
+                {/* <div>{similarity}%</div> */}
                 <div>이쯤되면 무서운데요?</div>
                 <div><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>
                 <div>

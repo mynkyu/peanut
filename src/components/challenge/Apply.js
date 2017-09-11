@@ -60,18 +60,18 @@ class Apply extends Component {
     }
 
     render() {
-        if(this.state.targetUid) {
-            const path = "challenger/" + this.state.targetUid
-            return <Redirect to={path}/>;
-        }
+        // if(this.state.targetUid) {
+        //     const path = "challenger/" + this.state.targetUid
+        //     return <Redirect to={path}/>;
+        // }
 
-        if(!this.props.profile && !this.props.blob && !this.props.similarity) { 
-            return <div></div> 
-        }
+        // if(!this.props.profile && !this.props.blob && !this.props.similarity) { 
+        //     return <div></div> 
+        // }
 
-        const profile = this.props.profile
-        const imgSrc = URL.createObjectURL(this.props.blob)
-        const similarity = this.props.similarity
+        // const profile = this.props.profile
+        // const imgSrc = URL.createObjectURL(this.props.blob)
+        // const similarity = this.props.similarity
 
         return (
             <div>
@@ -80,10 +80,13 @@ class Apply extends Component {
                 <div>D-{this.state.dday}</div>
                 <div>
                     <img src={contestImage}/>
-                    <img src={imgSrc}/>
+                    <img src={contestImage}/>
+                    {/* <img src={imgSrc}/> */}
                 </div>
-                <div>그 분과 {similarity}% 닮은 꼴!</div>
-                <div>{profile.name} 님!</div>
+                <div>그 분과 12.1234% 닮은 꼴!</div>
+                {/* <div>그 분과 {similarity}% 닮은 꼴!</div> */}
+                <div>방가방가 님!</div>
+                {/* <div>{profile.name} 님!</div> */}
                 <div>
                     <input id='commentText' type="text"></input>
                 </div>
