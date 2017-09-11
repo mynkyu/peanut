@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import contestImg from '../../sample2.jpg'
+import contestImage from '../../image/contestImage.jpeg'
 import contest2Ring from '../../main_contest_big2rings.png'
 import contestRing from '../../main_contest_ring.png'
 
@@ -28,7 +28,7 @@ const Ranking = ({challenger, index}) => {
                 <div className = "imageContainer">
                         <img src = {contest2Ring}/>
                         <div className = "contestImg">
-                            <img src = {contestImg}/>
+                            <img src = {contestImage}/>
                         </div>
                         <Link to={path}>
                             <div className = "challengerImg">

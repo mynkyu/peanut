@@ -5,70 +5,20 @@ export function init() {
 }
 
 export function sharePeanut() {
-  window.Kakao.Link.createDefaultButton({
-      container: '#kakao-link-btn',
-      objectType: 'feed',
-      content: {
-        title: '피넛',
-        description: '공유 테스트 입니당',
-        imageUrl: 'http://img.ezmember.co.kr/cache/board/2013/03/18/85c137cf1df080c680d70e457e38f3ba.jpg',
-        link: {
-          mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-          webUrl: 'https://peanut-5b51b.firebaseapp.com/'
-        }
-      },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-            webUrl: 'https://peanut-5b51b.firebaseapp.com/'
-          }
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://peanut-5b51b.firebaseapp.com/',
-            webUrl: 'https://peanut-5b51b.firebaseapp.com/'
-          }
-        }
-      ]
+  window.Kakao.Link.createCustomButton({
+    container: '#kakao-link-btn',
+    templateId: 5725,
+    templateArgs: {}
   });
 }
 
 export function shareChallenger(challenger) {
-  const path = app.getURL() + "ranking/challenger/" + challenger.uid
-  console.log('kako: ' + challenger.imageURL)
-  window.Kakao.Link.createDefaultButton({
+  window.Kakao.Link.createCustomButton({
     container: '#kakao-share-challenger',
-    objectType: 'feed',
-    content: {
-      title: '피넛',
-      description: '공유 테스트',
-      imageUrl: challenger.imageURL,
-      link: {
-        mobileWebUrl: path,
-        webUrl: path
-      }
-    },
-    social: {
-      likeCount: 286,
-      commentCount: 45,
-      sharedCount: 845
-    },
-    buttons: [
-      {
-        title: '웹으로 보기',
-        link: {
-          mobileWebUrl: path,
-          webUrl: path
-        }
-      }
-    ]
+    templateId: 5726,
+    templateArgs: {
+      nickname : challenger.name,
+      uid : challenger.uid
+    }
   });
 }

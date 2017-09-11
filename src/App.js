@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import Header from './Header';
 
@@ -12,10 +13,12 @@ import NotFound from './routes/NotFound'
 
 import './App.css'
 
+const history = createBrowserHistory()
 class App extends Component {
   render() {
+    
     return (  
-      <Router>
+      <Router history={history}>
         <div>
         <Header/>
           <div className='bodyContainer'>
