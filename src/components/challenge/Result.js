@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as kakao from '../../api/Kakao';
 import * as facebook from '../../api/Facebook';
 
-import contestImg from '../../contestImg.png'
+import contestImage from '../../image/contestImage.jpeg'
 
 class Result extends Component {
     componentDidMount() {
@@ -24,7 +24,7 @@ class Result extends Component {
         return (
             <div>
                 <div>
-                    <img src={contestImg}/>
+                    <img src={contestImage}/>
                     <img src={imgSrc}/>
                 </div>
                 <div>이 분과 당신의 일치율은...</div>

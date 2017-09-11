@@ -6,12 +6,11 @@ import Timer from './Timer'
 import * as event from '../../api/Event';
 
 import { setImg } from '../../actions';
-import contestImg from '../../contestImg.png'
 
 import contest8Ring from '../../contest_2rings.png'
 import cameraButton from '../../contest_cameraicon.png'
 import facebookButton from '../../contest_facebook.png'
-import sample2 from '../../sample2.jpg'
+import contestImage from '../../image/contestImage.jpeg'
 
 import './Photo.css';
 
@@ -63,14 +62,10 @@ class Photo extends Component {
                         id='leftTimeLabel'
                         text='결과 발표까지'/>
                 </div>
-                <div className = "peopleNumberDiv">
-                    <p>지금까지 지원자 수</p>
-                    <p id = "peopleNumberLabel" >345,421명!</p>
-                </div>
                 <div className="faceLinkDiv">
                     <p>과연 당신의 일치율은?</p>
                     <div className = "ringImage" ><img  src={contest8Ring}/>
-                        <div className = "personForChallenge"><img src={sample2}/></div>
+                        <div className = "personForChallenge"><img src={contestImage}/></div>
                         <div className = "buttonDiv">
                             <div className="photoSelectButton">
                                 <input type="file" id="imageBtn" className="imageSelectInput"></input>
@@ -85,6 +80,10 @@ class Photo extends Component {
                         </div>
                     </div>
                 </div>
+                {/* <div className = "peopleNumberDiv">
+                    <p>지금까지 지원자 수</p>
+                    <p id = "peopleNumberLabel" >345,421명!</p>
+                </div> */}
             </div>
         );
     }

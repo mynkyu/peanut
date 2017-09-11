@@ -37,7 +37,10 @@ exports.calSimilarity = functions.https.onRequest((req, res) => {
 });
 
 exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}').onWrite(event => {
-  if (event.data.previous.exists()) {
+  const prev = event.data.previous
+  const curr = event.data
+
+  if (prev.exists() && !(curr.exists() && (prev.val().vote != curr.val().vote))) {
     const eventName = event.params.eventName
     const challengerId = event.params.challengerId
     const prevRef = event.data.ref.root.child('removed_challenger').child(eventName).child(challengerId)
@@ -48,7 +51,7 @@ exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}')
   }
 });
 
-exports.vote = functions.database.ref('/vote/{eventName}/{challengerId}').onWrite(event => {
+exports.vote = functions.database.ref('/vote/{eventName}/{challengerId}/{uid}').onWrite(event => {
   if (event.data.exists() && !event.data.previous.exists()) {
     const eventName = event.params.eventName
     const challengerId = event.params.challengerId
