@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Top from '../../components/home/Top'
 import Challenge from '../../components/home/Challenge'
 import Vote from '../../components/home/Vote'
+import Legend from '../../components/home/Legend'
+
 
 import * as firebase from '../../api/Firebase';
 
@@ -39,6 +41,7 @@ class HomeContainer extends Component {
                 />
                 <Challenge/>
                 <Vote/>
+                <Legend/>
             </div>
         );
     }

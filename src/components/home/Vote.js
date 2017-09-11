@@ -21,6 +21,8 @@ class Vote extends Component {
                     </div>
                 </Link>
             </div>
+
+            
         );
     }
 }

@@ -1,0 +1,31 @@
+.seeLegendLink{
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 0%;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    padding-top: 8%;
+    padding-bottom: 6%;
+    min-width: 109px;
+    float:left;
+    opacity: 0.3;
+}
+
+.seeLegendLink p{
+    width: 100%;
+    text-align: center;
+    color: #7d7d7d;
+    margin: 0;
+    margin-top: 0.5vw;
+    font-size: 4vw;
+}
+
+.trophyImage{
+    width: 35%;
+    padding-left: 0;
+}
+
+.trophyImage img{
+    width: 100%;
+    margin-left: 93%;
+}

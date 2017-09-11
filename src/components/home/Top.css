@@ -66,11 +66,12 @@
 }
 
 .imgContainer p{
-    font-size: 13px;
+    font-size: 3.5vw;
     text-align: center;
     color: #9b9b9b;
     margin-top: 4px;
     margin-bottom: 0;
+    
 }
 
 .imgContainer a{
@@ -96,6 +97,29 @@
     border-radius: 50%;
     width : 100%;
     height: 100%;
+}
+
+.rankingMedal{
+    position: absolute;
+    width: 8vw;
+    top: -0.5vw;
+    left: -0.5vw;
+}
+
+.rankingMedal p{
+    position: absolute;
+    font-size: 2.5vw;
+    color: #000000;
+    top: 0;
+    left: 0vw;
+    width: 100%;
+    line-height: 7vw;
+    text-align: center;
+    margin: 0;
+}
+
+.suffix{
+    font-size: 1.8vw;
 }
 
 
