@@ -1,0 +1,96 @@
+.applyContestLabel{
+    width: 100%;
+    margin-top: 5rem;
+    text-align: center;
+    color: #f38048;
+    font-size: 6vw;
+}
+
+.rewardLabel{
+    width: 100%;
+    text-align: center;
+    color: #f38048;
+    font-size: 4vw;
+}
+
+.timerContainer{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.timerContainer p{
+    text-align: center;
+    color: #f38048;
+    font-size: 8vw;
+    margin: 0;
+}
+
+.cup{
+    position: absolute;
+    top: 0;
+    
+    width: 8%;
+}
+.left{
+    left: 12vw;
+    float: left;
+}
+.right{
+    right: 12vw;
+    float: right;
+}
+
+#timerLeft{
+    
+    height: 15vw;
+    line-height: 15vw;
+    text-align: center;
+    margin : 0;
+}
+
+.contestBigContainer{
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding-top: 7%;
+}
+
+.contestImageContainer{
+    position: relative;
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.contestImageContainer img{
+    width: 100%;
+}
+
+.contestingImage{
+    position: absolute;
+    width: 31vw;
+    left: 2.4vw;
+    top: 2.4vw;
+}
+
+.contestingImage img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.applyingImage{
+    position: absolute;
+    width: 31vw;
+    top: 2.4vw;
+    left: 39.8vw;
+}
+
+.applyingImage img{
+    width: 100%;
+    border-radius: 50%;
+}
+
