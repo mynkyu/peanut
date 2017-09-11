@@ -57,7 +57,7 @@ class Process extends Component {
         }
 
         if (result.data.result && result.data.result.similarity) {
-            const similarity = result.data.result.similarity
+            const similarity = Math.floor(result.data.result.similarity * 100)/100
             this.setState({ similarity : similarity })
             this.props.onSetChallengeResult(imageURL, similarity)
         }
