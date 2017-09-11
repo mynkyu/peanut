@@ -41,21 +41,32 @@ export function signInWithRedirect() {
 export function sharePeanut() {
     window.FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.likes',
+        action_type: 'og.shares',
         action_properties: JSON.stringify({
-            object: app.getURL(),
+            object: {
+                'og:url': app.getURL(),
+                'og:title': '심심풀이 얼굴놀이 피넛!',
+                'og:description': '나는 과연 그 분과 얼마나 닮았을까...',
+                'og:image': 'http://mud-kage.kakao.co.kr/dn/dxf8QZ/btqhdYS8PH1/l9Jk0h8Rb0QFC0UX9z7Z5k/kakaolink40_original.png'
+            }
         })
     }, response => {});
 }
 
-export function shareChallenger(uid) {
-    const path = app.getURL() + "ranking/challenger/" + uid
+export function shareChallenger(challenger) {
+    const path = app.getURL() + "feed/" + challenger.uid
+    const description = challenger.name + '님이 그 분과의 닮은꼴 컨테스트에 참여하셨습니다!'
     console.log('facebook: ' + path)
     window.FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.likes',
+        action_type: 'og.shares',
         action_properties: JSON.stringify({
-            object: path,
+            object: {
+                'og:url': path,
+                'og:title': '얼마나 닮았는지 궁금하다면?',
+                'og:description': description,
+                'og:image': 'http://mud-kage.kakao.co.kr/dn/BLkfW/btqhdEA7iW5/SXpdB9Jxk0HGWNcbUtWtO0/kakaolink40_original.png'
+            }
         })
     }, response => {});
 }

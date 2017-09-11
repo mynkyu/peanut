@@ -82,7 +82,7 @@ class ChallengerContainer extends Component {
             return
         }
         
-        facebook.shareChallenger(challenger.uid)
+        facebook.shareChallenger(challenger)
     }
 
     vote() {
