@@ -6,6 +6,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 const dueDate = new Date("2017-09-17T24:00:00");
+const appURL = "https://peanutstud.io/"
 
 exports.getEventInfo = functions.https.onRequest((req, res) => {
   const date = new Date()
@@ -19,16 +20,43 @@ exports.getEventInfo = functions.https.onRequest((req, res) => {
   });
 });
 
-exports.getEventInfo = functions.https.onRequest((req, res) => {
-  const date = new Date()
-  const dueTime = dueDate.getTime()
-  const currTime = date.getTime()
-  cors(req, res, () => {
-    res.status(200).send({
-      dueTime : dueTime,
-      currTime : currTime
-    });
-  });
+exports.ranking = functions.https.onRequest((req, res) => {
+  var uid = 'root'
+  if (req.params.length == 1) {
+    uid = req.params[0]
+  } else if (req.params.length == 2){
+    uid = req.params[1]
+  }
+
+  const path = appURL +'?'+ querystring.stringify({ranking : uid})
+  res.redirect(303, path);
+});
+
+exports.challenge = functions.https.onRequest((req, res) => {
+  const path = appURL +'?'+ querystring.stringify({challenge : 'root'})
+  res.redirect(303, path);
+});
+
+exports.mypage = functions.https.onRequest((req, res) => {
+  console.log(req.params)
+
+  var uid = 'root'
+  if (req.params.length == 1) {
+    uid = req.params[0]
+  }
+  const path = appURL +'?'+ querystring.stringify({mypage : uid})
+  res.redirect(303, path);
+});
+
+exports.feed = functions.https.onRequest((req, res) => {
+  console.log(req.params)
+  
+  var uid = 'root'
+  if (req.params.length == 1) {
+    uid = req.params[0]
+  }
+  const path = appURL +'?'+ querystring.stringify({feed : uid})
+  res.redirect(303, path);
 });
 
 exports.calSimilarity = functions.https.onRequest((req, res) => {
@@ -52,7 +80,8 @@ exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}')
   const prev = event.data.previous
   const curr = event.data
 
-  if (prev.exists() && !(curr.exists() && (prev.val().vote != curr.val().vote))) {
+  if (prev.exists() && 
+    !(curr.exists() && (prev.val().imageURL == curr.val().imageURL))) {
     const eventName = event.params.eventName
     const challengerId = event.params.challengerId
     const prevRef = event.data.ref.root.child('removed_challenger').child(eventName).child(challengerId)
