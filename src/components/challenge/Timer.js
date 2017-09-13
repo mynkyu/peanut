@@ -105,8 +105,9 @@ class Timer extends Component {
         if (text) {
             textDiv = <div><p className="timeLabel">{text}<span className="timeLabelSpan"> {time}</span></p><bar/></div>
             challengerDiv = <div>
-                                <bar/> <p className="applyCount" >도전자 수 <span className="applyCountSpan" >{this.state.applyCount} 명</span></p>
-                                <bar/> <p className="challengerCount">지원자 수 <span className="challengerCountSpan">{this.state.challengeCount} 명</span></p>
+                                <bar/> <p className="challengerCount">도전자 수 <span className="challengerCountSpan">{this.state.challengeCount} 명</span></p>
+                                <bar/> <p className="applyCount" >컨테스트 지원자 수 <span className="applyCountSpan" >{this.state.applyCount} 명</span></p>
+                                
                             </div>
         }
         else{

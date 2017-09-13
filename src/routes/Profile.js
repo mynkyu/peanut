@@ -59,9 +59,9 @@ class Profile extends React.Component {
     var item = null
     if (profile) {
       const path = "/mypage/" + profile.uid
-      item = <Link to={path}> <img id="profile_img" className = "afterLogin"  src={profile.photoURL} alt='' style = {{height : '2.3rem' , mode : 'fit'}} /> </Link>
+      item = <Link to={path}> <img id="profile_img" className = "afterLogin"  src={profile.photoURL} alt='' style = {{height : '2.3rem' , width: '2.3rem' , mode : 'fit'}} /> </Link>
     } else {
-      item = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} alt='' style = {{ height : '2.3rem', mode : 'fit'}}  />
+      item = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} alt='' style = {{ height : '2.3rem', width: '2.3rem' , mode : 'fit'}}  />
     }
 
     return (
