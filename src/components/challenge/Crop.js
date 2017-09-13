@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setImg, setCropImg } from '../../actions';
 import Croppie from 'croppie'
-import croppieStyle from 'croppie/croppie.css'
+import 'croppie/croppie.css'
 
 import './Crop.css'
 

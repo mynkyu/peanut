@@ -1,5 +1,6 @@
 import axios from 'axios';
 import querystring from 'querystring'
+import * as event from './Event'
 
 const RESPONSE_SUCCESS = 200
 const RESPONSE_NO_FACE = 211
@@ -18,5 +19,7 @@ export function getResponse(response) {
 }
 
 export function getSimilarity(imageUri) {
-    return axios.get('https://us-central1-peanut-5b51b.cloudfunctions.net/calSimilarity?' + querystring.stringify({imageUri : imageUri}))
+    return axios.get(
+        'https://us-central1-peanut-5b51b.cloudfunctions.net/calSimilarity?' 
+        + querystring.stringify({imageUri : imageUri, eventName : event.getEventName()}))
 }

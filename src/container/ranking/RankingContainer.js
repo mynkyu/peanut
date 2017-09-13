@@ -78,7 +78,7 @@ class RankingContainer extends Component {
         }
 
         var rankingList = <div></div>
-        const self = this
+        
         if(this.state.isDataLoad) {
             var items = [];
             this.state.challengers.map((challenger, i) => {

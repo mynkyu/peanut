@@ -12,7 +12,6 @@ import { signIn, signOut } from '../actions';
 import '../Header.css'
 import './Profile.css'
 
-import userOnImg from '../userOnImg.png'
 import userOffImg from '../userOffImg.png'
 
 class Profile extends React.Component {
@@ -60,9 +59,9 @@ class Profile extends React.Component {
     var item = null
     if (profile) {
       const path = "/mypage/" + profile.uid
-      item = <Link to={path}> <img id="profile_img" className = "afterLogin"  src={profile.photoURL} style = {{height : 50, mode : 'fit'}} /> </Link>
+      item = <Link to={path}> <img id="profile_img" className = "afterLogin"  src={profile.photoURL} alt='' style = {{height : 50, mode : 'fit'}} /> </Link>
     } else {
-      item = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} style = {{height : 50, mode : 'fit'}}  />
+      item = <img id="profile_img" className = "beforeLogin"  src={userOffImg} onClick={this.facebookLogin} alt='' style = {{height : 50, mode : 'fit'}}  />
     }
 
     return (
