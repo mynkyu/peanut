@@ -71,13 +71,13 @@ exports.calSimilarity = functions.https.onRequest((req, res) => {
       const path = '/event/' + eventName
       admin.database().ref(path).transaction(function(event) {
         if(event) {
-          if(event.count) {
-            event.count++
+          if(event.challengeCount) {
+            event.challengeCount++
           } else {
-            event.count = 1
+            event.challengeCount = 1
           }
         } else {
-          event = {count : 1}
+          event = {challengeCount : 1}
         }
         return event
       })
@@ -103,6 +103,19 @@ exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}')
       const challengerId = event.params.challengerId
       const prevRef = event.data.ref.root.child('removed_challenger').child(eventName).child(challengerId)
       const voteRef = event.data.ref.root.child('vote').child(eventName).child(challengerId)
+      const eventRef = event.data.ref.root.child('event').child(eventName).transaction(function(challenger) {
+        if(event) {
+          if(event.applyCount) {
+            event.applyCount++
+          } else {
+            event.applyCount = 1
+          }
+        } else {
+          event = {applyCount : 1}
+        }
+        return event
+      });
+
       return prevRef.push(event.data.previous.val()).then(() => {
         return voteRef.set(null)
       });
