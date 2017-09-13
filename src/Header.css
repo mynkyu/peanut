@@ -10,8 +10,8 @@
 
 .item {
     display: inline-table;
-    width  : 8rem;
-    height : 8rem;
+    width  : 4rem;
+    height : 4rem;
     font-size: 1.1rem;
     text-decoration: none;
     color: #f38048;
@@ -20,7 +20,6 @@
 
 .item img{
     border-radius: 50%;
-    
 }
 
 .logoImage{
@@ -29,11 +28,13 @@
 }
 
 .profile {
-    width: 20px;
-    height: 20px;
-    margin-top: 0.5rem;
+    width  : 2rem;
+    height : 2rem;
+    
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     float: right;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 .profile img{

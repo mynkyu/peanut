@@ -88,6 +88,13 @@ class Timer extends Component {
         const id = this.props.id
         const text = this.props.text
 
+        var textDiv = <div></div>
+        var challengerDiv = <div></div>
+        if (text) {
+            textDiv = <div><p id={id}>{text}</p> <bar/></div>
+            challengerDiv = <div><bar/><p id={id}>{this.state.count} 명 도전 중</p></div>
+        }
+
         if (isExpired == null) {
             return <div></div>
         }
@@ -104,11 +111,10 @@ class Timer extends Component {
         const time = days + " : " + hours + " : " + minutes + " : " + seconds
         return (
             <div>
-                <p id={id}>{text}</p>
-                <bar/>
+                {textDiv}
                 <p id={id}>{time}</p>
                 <bar/>
-                <p id={id}>{this.state.count} 명 도전 중</p>
+                {challengerDiv}
             </div>
         );
     }

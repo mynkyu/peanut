@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .challengerRankingComponent{
     margin-top: 3vw;
     margin-bottom: 3vw;
@@ -50,6 +52,8 @@
     text-align: center;
     color: #7d7d7d;
     margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .challengerVoteNumber{
@@ -57,6 +61,8 @@
     text-align: center;
     color: #f38048;
     margin : 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 
 }
 
@@ -75,10 +81,12 @@
 .medal p{
     position: absolute;
     font-size: 4.7vw;
-    left: 3.68vw;
-    top: 2.6vw;
+    left: 3.3vw;
+    top: 1.5vw;
     margin: 0;
     color: #545454;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .smallLabel{

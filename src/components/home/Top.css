@@ -123,9 +123,11 @@
     top: 0;
     left: 0vw;
     width: 100%;
-    line-height: 6.6vw;
+    line-height: 6.4vw;
     text-align: center;
     margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .suffix{
