@@ -11,7 +11,8 @@ class Timer extends Component {
             hours : null,
             minutes : null,
             seconds : null,
-            count : null,
+            applyCount : null,
+            challengeCount : null,
             isExpired : null
         }
     } 
@@ -66,7 +67,8 @@ class Timer extends Component {
         const path = 'event/' + event.getEventName()
         firebase.database().ref(path).on('value', function(snapshot) {
             if (snapshot.exists()) {
-                self.setState({count : snapshot.val().count}) 
+                self.setState({applyCount : snapshot.val().applyCount}) 
+                self.setState({challengeCount : snapshot.val().challengeCount}) 
             } else {
                 self.setState({count : 0}) 
             }
@@ -92,7 +94,10 @@ class Timer extends Component {
         var challengerDiv = <div></div>
         if (text) {
             textDiv = <div><p id={id}>{text}</p> <bar/></div>
-            challengerDiv = <div><bar/><p id={id}>{this.state.count} 명 도전 중</p></div>
+            challengerDiv = <div>
+                                <bar/> <p id={id}>도전자 수 {this.state.applyCount} 명</p>
+                                <bar/> <p id={id}>지원자 수 {this.state.challengeCount} 명</p>
+                            </div>
         }
 
         if (isExpired == null) {
@@ -113,7 +118,6 @@ class Timer extends Component {
             <div>
                 {textDiv}
                 <p id={id}>{time}</p>
-                <bar/>
                 {challengerDiv}
             </div>
         );
