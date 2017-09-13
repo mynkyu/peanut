@@ -69,7 +69,7 @@ class Crop extends Component {
                 <div>
                     <div id="cropImage" className="croppie-container cropDiv"/>
                 </div>
-                <div className='uploadButton'> 
+                <div className='rotationButton'> 
                     <button className='uploadButtonLabel' id='rotateBtn'>회전</button>
                 </div>
                 <div className='uploadButton'> 

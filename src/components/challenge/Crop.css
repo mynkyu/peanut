@@ -8,6 +8,7 @@
 
 #guideText{
     color: #f38048;
+    font-size: 5vw;
 }
 
 .cropDiv{
@@ -16,7 +17,7 @@
 .uploadButton{
     border-radius: 8px;
     width: 70%;
-    height : 45px;
+    height : 10vw;
     background-color: #f38048;
     margin-left: 15%;
     margin-right: 15%;
@@ -26,6 +27,7 @@
 .uploadButton button{
     border: 0px;
     background-color: transparent;
+    line-height: 10vw;
 }
 
 .uploadButtonLabel{
@@ -34,11 +36,27 @@
     display: block;
     text-align: center;
     vertical-align: middle;
-    line-height: 45px;  
+    line-height: 10vw;  
     color: #ffffff;
     text-align: center;
     text-decoration: none;
     font-size: 5vw;
     padding: 0;
     margin: 0;
+}
+
+.rotationButton{
+    border-radius: 8px;
+    width: 70%;
+    height : 10vw;
+    background-color: #7d7d7d;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4%;  
+}
+
+.rotationButton button{
+    border: 0px;
+    background-color: transparent;
+    line-height: 10vw;
 }

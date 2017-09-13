@@ -114,7 +114,7 @@ class Apply extends Component {
                     <p className = "nicknameText">{profile.name} 님!</p>
                     
                     <div className = "commentPlzBox">
-                        <textarea rows="3" cols="50" id='commentText' type="text" placeholder = "&#13;&#10;나를 어필하는 한마디를 써주세요"></textarea>
+                        <textarea rows="3" cols="50" id='commentText' type="text" placeholder = "나를 어필하는 한마디를 써주세요"></textarea>
                     </div>
 
                     <div className = "contestApplyButton">
