@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const eventName = "testContest"
+const eventName = "bogum"
 const eventWeek = "9월 3주차"
 
 export function getEventName() {

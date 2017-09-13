@@ -11,9 +11,23 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    //파이어베이스 펑션 호스팅
-    "rewrites": [ {
-      "source": "/calSimilarity", "function": "calSimilarity"
-    } ]
+    "rewrites": [
+      // {
+      //   "source": "/ranking/**",
+      //   "function": "ranking"
+      // },
+      // {
+      //   "source": "/challenge/**",
+      //   "function": "challenge"
+      // },
+      // {
+      //   "source": "/mypage/**",
+      //   "function": "mypage"
+      // },
+      // {
+      //   "source": "/feed/**",
+      //   "function": "feed"
+      // }
+    ]
   }
 }

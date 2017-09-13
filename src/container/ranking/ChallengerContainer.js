@@ -28,42 +28,52 @@ class ChallengerContainer extends Component {
     }
 
     componentWillReceiveProps(props) {
-        const instance = this
+        const self = this
         const profile = props.profile
         const challengerId = props.match.params.uid
 
+        if(challengerId === 'root') {
+            self.setState({ isNonExist : true })
+            return
+        }
+
         firebase.getChallenger(challengerId).then(function(challenger){
-            instance.setState({ challenger : challenger })
+            self.setState({ challenger : challenger })
             kakao.shareChallenger(challenger)
         }, function(error) {
-            instance.setState({ isNonExist : true })
+            self.setState({ isNonExist : true })
         })
 
         if (profile) {
             firebase.getVote(challengerId, profile.uid).then(function(isVote){
-                instance.setState({ isVote : isVote })
+                self.setState({ isVote : isVote })
             }, function(error) {
             })
         } else {
-            instance.setState({ isVote : null })
+            self.setState({ isVote : null })
         }
     }
 
     componentDidMount() {
-        const instance = this
+        const self = this
         const profile = this.props.profile
         const challengerId = this.props.match.params.uid
 
+        if(challengerId === 'root') {
+            self.setState({ isNonExist : true })
+            return
+        }
+
         firebase.getChallenger(challengerId).then(function(challenger){
-            instance.setState({ challenger : challenger })
+            self.setState({ challenger : challenger })
             kakao.shareChallenger(challenger)
         }, function(error) {
-            instance.setState({ isNonExist : true })
+            self.setState({ isNonExist : true })
         })
 
         if (profile) {
             firebase.getVote(challengerId, profile.uid).then(function(isVote){
-                instance.setState({ isVote : isVote })
+                self.setState({ isVote : isVote })
             }, function(error) {
             })
         }
@@ -109,8 +119,9 @@ class ChallengerContainer extends Component {
 
     render() {
         if(this.state.isNonExist) {
-            return <Redirect to='/challenge'/>
+            return <Redirect to='/'/>
         }
+
         return (
             <div className="challengerInfoContainer">
                 <div>

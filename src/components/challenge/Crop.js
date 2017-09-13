@@ -50,6 +50,10 @@ class Crop extends Component {
                 setCropImg(blob)
             });
         })
+
+		document.getElementById('rotateBtn').addEventListener('click', function(ev) {
+			crop.rotate(90);
+		});
     }
 
     render() {
@@ -64,6 +68,9 @@ class Crop extends Component {
                 </div>
                 <div>
                     <div id="cropImage" className="croppie-container cropDiv"/>
+                </div>
+                <div className='uploadButton'> 
+                    <button className='uploadButtonLabel' id='rotateBtn'>회전</button>
                 </div>
                 <div className='uploadButton'> 
                     <button className='uploadButtonLabel' id="uploadBtn">일치율 확인</button>
