@@ -48,7 +48,7 @@ class Challenge extends Component {
                 <p className = "contestLabel">컨테스트</p> 
                 <div className = "separator"></div>
                 <p className = "firstContext">이 주의 '그 분'에게 도전하기</p>
-                <p className = "secondContext">{event.getEventWeek()}는 바로 이분!</p>
+                <p className = "secondContext">{event.getEventWeek()}는 바로 이 분!</p>
                 
                 <div className = "ringImage" ><img  src={contestRing}/>
                     <div className = "personForChallenge"><img src={contestImage}/></div>

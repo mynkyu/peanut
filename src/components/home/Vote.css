@@ -1,7 +1,10 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .voteSituationLink{
     width: 40%;
     margin-left: 7.5%;
     margin-right: 0%;
+    margin-bottom: 15%;
     background-color: #d8d8d8;
     border-radius: 8px;
     padding-top: 8%;
@@ -33,6 +36,8 @@
     bottom: 0;
     vertical-align: middle;
     font-size: 4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
 }
 
 .personImage{

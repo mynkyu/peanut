@@ -1,9 +1,11 @@
 .announcement {
     color: #f38048;
     text-align: center;
-    
-    margin-bottom: 2rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
 
     margin-top: 5rem;
+    
 }
 
