@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
 .challengerContainer{
     margin-top: 1.3rem;
     padding-top: 0;
@@ -35,6 +38,8 @@
     color: #f38048;
     margin-bottom: 1vw;
     font-size: 4.4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .nicknameLabel{
@@ -43,6 +48,8 @@
     width: 100%;
     text-align: center;
     font-size: 4.4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .commentBox{
@@ -62,4 +69,6 @@
     width: 100%;
     text-align: center;
     font-size: 5vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }

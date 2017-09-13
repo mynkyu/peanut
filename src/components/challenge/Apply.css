@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .applyContestLabel{
     width: 100%;
     margin-top: 5rem;
@@ -5,6 +7,8 @@
     color: #f38048;
     font-size: 6.4vw;
     margin-bottom: 1vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .rewardLabel{
@@ -12,6 +16,8 @@
     text-align: center;
     color: #f38048;
     font-size: 4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .timerContainer{
@@ -27,6 +33,10 @@
     color: #f38048;
     font-size: 8vw;
     margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    width: 100%;
+    margin: 0;
 }
 
 .cup{
@@ -37,11 +47,11 @@
 }
 .left{
     left: 12vw;
-    float: left;
+    
 }
 .right{
     right: 12vw;
-    float: right;
+    
 }
 
 #timerLeft{
@@ -104,13 +114,16 @@
     margin-top: 2vw;
     margin-bottom: 2vw;
     color: #f38048;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .nicknameText{
     width: 100%;
     text-align: center;
     margin-top: 2vw;
-    
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
     color: #7d7d7d;
     
 }
@@ -136,6 +149,8 @@
     text-align: center;
     resize: none;
     border-radius: 8px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 
@@ -160,6 +175,8 @@
     color: #FFFFFF;
     font-size: 4vw;
     line-height: 10vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .similarMedal{
@@ -178,7 +195,10 @@
     position: absolute;
     margin: 0;
     left: 5.4vw;
-    top: 3.3vw;
+    top: 2vw;
     font-size: 5vw;
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    color: #545454;
 }
