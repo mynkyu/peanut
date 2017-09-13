@@ -8,6 +8,8 @@ import Legend from '../../components/home/Legend'
 
 import * as firebase from '../../api/Firebase';
 
+
+
 class HomeContainer extends Component {
     constructor() {
         super()

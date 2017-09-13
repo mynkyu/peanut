@@ -4,12 +4,15 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import Header from './Header';
 
+
+
 import Home from './routes/Home';
 import Ranking from './routes/Ranking';
 import Challenge from './routes/Challenge';
 import Feed from './routes/Feed';
 import MyPage from './routes/MyPage';
 import NotFound from './routes/NotFound'
+
 
 import './App.css'
 
@@ -32,6 +35,7 @@ class App extends Component {
               <Route component={NotFound}/>
             </Switch>
           </div>
+        
         </div>
       </Router>
     );

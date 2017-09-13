@@ -1,8 +1,10 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 .contestResultImageContainer{
     position: relative;
     width: 83%;
     margin-left: 8.5%;
     margin-right: 8.5%;
+    margin-top: 10%;
 }
 
 .contestResultImageContainer img{
@@ -39,6 +41,8 @@
     text-align: center;
     font-size: 5.6vw;
     margin-top: 2vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .similarity{
@@ -48,6 +52,7 @@
     font-size: 11vw;
     margin-top: 2vw;
     margin-bottom: 0vw;
+    font-family: 'Noto Sans KR', sans-serif;
     font-weight: bold;
 }
 
@@ -68,6 +73,8 @@
     padding-bottom: 4%;
     margin-bottom: 3%;
     margin-top: 6%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .contestGo a{
@@ -92,6 +99,8 @@
     width: 41.25%;
     height: 14vw;
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .againwithAnother :visited{
@@ -122,6 +131,8 @@
     font-size: 5vw;
     color: #ffffff;
     line-height: 14vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .shareOnKakao img{
@@ -152,6 +163,8 @@
     margin-left: 1vw;
     font-size: 5vw;
     color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .shareOnFacebook img{
@@ -168,10 +181,12 @@
 }
 
 .seeContest p{
-    color: #7d7d7d;
+    color: #9b9b9b;
     font-size: 4vw;
     margin-bottom: 0;
     margin-top: 14%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .seeContest div{
@@ -201,6 +216,8 @@
     color: #7d7d7d;
     
     line-height: 15vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
 
 }
 

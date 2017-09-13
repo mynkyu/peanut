@@ -7,7 +7,7 @@ import TopItem from './TopItem'
 import contestImg from '../../contestImg.png'
 import userOnImg from '../../userOnImg.png'
 import heartImg from '../../main_contest_heart_icon.png'
-import imgContainer from '../../main_contest_ring.png'
+import imgContainer from '../../main_contest_ring_thick.png'
 
 import sample1 from '../../sample1.jpg'
 import sample2 from '../../sample2.jpg'
@@ -25,8 +25,8 @@ const Top = ({challengers}) => {
             <img src = {heartImg} className = "heartImg"/>
             
             <div className = "topHeadLine" >
-                <p className = "rankNumberOneNow">컨테스트 순위</p>
-                <Link to="/ranking" className = "rankCheck">순위확인>></Link>
+                <p className = "rankNumberOneNow">컨테스트 실시간 순위</p>
+                <Link to="/ranking" className = "rankCheck">순위확인 >></Link>
             </div>
                 {first}
                 {second}
