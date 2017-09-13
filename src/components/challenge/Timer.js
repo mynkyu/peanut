@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as event from '../../api/Event';
+import * as firebase from 'firebase'
 
 var x
 class Timer extends Component {
@@ -10,11 +11,12 @@ class Timer extends Component {
             hours : null,
             minutes : null,
             seconds : null,
+            count : null,
             isExpired : null
         }
     } 
     componentDidMount() {
-        const instance = this
+        const self = this
 
         event.getEventInfo().then((response) => {
             const info = response.data
@@ -39,7 +41,7 @@ class Timer extends Component {
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-                instance.setState({
+                self.setState({
                     days : days,
                     hours : hours,
                     minutes : minutes,
@@ -53,12 +55,21 @@ class Timer extends Component {
                 // If the count down is finished, write some text 
                 if (distance < 0) {
                     clearInterval(x)
-                    instance.setState({isExpired : true})  
+                    self.setState({isExpired : true})  
                     // document.getElementById("demo").innerHTML = "EXPIRED";
                 } else {
-                    instance.setState({isExpired : false})  
+                    self.setState({isExpired : false})  
                 }
             }, 1000);
+        })
+
+        const path = 'event/' + event.getEventName()
+        firebase.database().ref(path).on('value', function(snapshot) {
+            if (snapshot.exists()) {
+                self.setState({count : snapshot.val().count}) 
+            } else {
+                self.setState({count : 0}) 
+            }
         })
     }
 
@@ -92,7 +103,13 @@ class Timer extends Component {
 
         const time = days + " : " + hours + " : " + minutes + " : " + seconds
         return (
-            <p id={id}>{text} {time}</p>
+            <div>
+                <p id={id}>{text}</p>
+                <bar/>
+                <p id={id}>{time}</p>
+                <bar/>
+                <p id={id}>{this.state.count} 명 도전 중</p>
+            </div>
         );
     }
 }

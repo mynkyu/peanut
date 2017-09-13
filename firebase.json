@@ -12,22 +12,22 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      // {
-      //   "source": "/ranking/**",
-      //   "function": "ranking"
-      // },
-      // {
-      //   "source": "/challenge/**",
-      //   "function": "challenge"
-      // },
-      // {
-      //   "source": "/mypage/**",
-      //   "function": "mypage"
-      // },
-      // {
-      //   "source": "/feed/**",
-      //   "function": "feed"
-      // }
+      {
+        "source": "/ranking/**",
+        "function": "ranking"
+      },
+      {
+        "source": "/challenge/**",
+        "function": "challenge"
+      },
+      {
+        "source": "/mypage/**",
+        "function": "mypage"
+      },
+      {
+        "source": "/feed/**",
+        "function": "feed"
+      }
     ]
   }
 }

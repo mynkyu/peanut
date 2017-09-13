@@ -12,7 +12,7 @@ class Header extends Component {
                 <div id = "dummy"></div>
                 
                 <NavLink exact to="/" className="item"> 
-                    <img src = {peanutLogo} className = "logoImage"></img>
+                    <img src ={peanutLogo} alt='' className = "logoImage"></img>
                 </NavLink>
                 
                 <Profile/>

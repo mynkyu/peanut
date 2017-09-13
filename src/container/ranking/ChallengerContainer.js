@@ -136,14 +136,14 @@ class ChallengerContainer extends Component {
                 
                 <div className="kakaoShare">
                     <a id="kakao-share-challenger" href="javascript:sendLink()">
-                        <img src={kakaoIcon}/>
+                        <img src={kakaoIcon} alt=''/>
                         <p>에 공유하기</p>
                     </a>
                 </div>
 
                 <div className="facebookShare">
                     <button onClick={this.facebookShare}>
-                        <img src={facebookIcon}/>
+                        <img src={facebookIcon} alt=''/>
                         <p>에 공유하기</p>
                     </button>
                 </div>

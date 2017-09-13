@@ -44,7 +44,7 @@ const Ranking = ({challenger, index}) => {
                 
                 
                 <p className = "challengerName"> { challenger.name } 님</p>
-                <p className = "challengerVoteNumber"> { challenger.vote } 표</p>
+                <p className = "challengerVoteNumber">{challenger.similarity}%<br/>{ challenger.vote } 표</p>
             </li>
         );
     }
@@ -59,7 +59,7 @@ const Ranking = ({challenger, index}) => {
                 </Link>
             
                 <p className = "challengerName"> { challenger.name } 님</p>
-                <p className = "challengerVoteNumber"> { challenger.vote } 표</p>
+                <p className = "challengerVoteNumber">{challenger.similarity}%<br/>{ challenger.vote } 표</p>
                 <p className = "subRankLabel" >{challenger.rank}<span className="smallLabel">위</span></p>
             </li>
         );

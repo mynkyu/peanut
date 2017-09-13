@@ -65,7 +65,24 @@ exports.calSimilarity = functions.https.onRequest((req, res) => {
         res.status(403).send('Forbidden!');
       });
     }
-  
+
+    const eventName = req.query.eventName
+    if (eventName) {
+      const path = '/event/' + eventName
+      admin.database().ref(path).transaction(function(event) {
+        if(event) {
+          if(event.count) {
+            event.count++
+          } else {
+            event.count = 1
+          }
+        } else {
+          event = {count : 1}
+        }
+        return event
+      })
+    }
+
     cors(req, res, () => {
       const imageUri = req.query.imageUri;
       axios.get('http://35.200.119.61:8080/contest/similar?' + querystring.stringify({imageUri : imageUri})).then(function (response) {
@@ -97,10 +114,13 @@ exports.vote = functions.database.ref('/vote/{eventName}/{challengerId}/{uid}').
       const eventName = event.params.eventName
       const challengerId = event.params.challengerId
       const uid = event.params.uid
-      const countRef = event.data.ref.root.child('challenger').child(eventName).child(challengerId).child('vote')
+      const challengerRef = event.data.ref.root.child('challenger').child(eventName).child(challengerId)
   
-      return countRef.transaction(function(current) {
-        return (current || 0) + 1;
+      return challengerRef.transaction(function(challenger) {
+        if(challenger) {
+          challenger.vote++
+        }
+        return challenger;
       });
     }
 });

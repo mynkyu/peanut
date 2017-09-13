@@ -31,7 +31,7 @@ const TopItem = ({challenger}) => {
                 <div className = "firstPrize">
                     <img src = {challenger.imageURL}/>
                 </div>
-                <p>{challenger.vote} 표</p>
+                <p>{challenger.similarity}%<br/>{challenger.vote} 표</p>
             </Link>
 
             <div className="rankingMedal">

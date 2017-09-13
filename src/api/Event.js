@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
+import querystring from 'querystring'
 
 const eventName = "bogum"
 const eventWeek = "9월 3주차"

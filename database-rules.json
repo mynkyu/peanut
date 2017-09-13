@@ -17,6 +17,10 @@
       "vote" : {
         ".read": true,
         ".write": "auth != null"
+      },
+      "event" : {
+        ".read": true,
+        ".write": true
       }
     }
   }
