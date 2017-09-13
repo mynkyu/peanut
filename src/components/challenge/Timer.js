@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as event from '../../api/Event';
 import * as firebase from 'firebase'
 
+import './Timer.css'
+
 var x
 class Timer extends Component {
     constructor() {
@@ -90,14 +92,25 @@ class Timer extends Component {
         const id = this.props.id
         const text = this.props.text
 
+        const days    = this.pad(this.state.days, 2)      
+        const hours   = this.pad(this.state.hours, 2)
+        const minutes = this.pad(this.state.minutes, 2)
+        const seconds = this.pad(this.state.seconds, 2)
+
+        const time = days + " : " + hours + " : " + minutes + " : " + seconds
+
+
         var textDiv = <div></div>
         var challengerDiv = <div></div>
         if (text) {
-            textDiv = <div><p id={id}>{text}</p> <bar/></div>
+            textDiv = <div><p className="timeLabel">{text}<span className="timeLabelSpan"> {time}</span></p><bar/></div>
             challengerDiv = <div>
-                                <bar/> <p id={id}>도전자 수 {this.state.applyCount} 명</p>
-                                <bar/> <p id={id}>지원자 수 {this.state.challengeCount} 명</p>
+                                <bar/> <p className="applyCount" >도전자 수 <span className="applyCountSpan" >{this.state.applyCount} 명</span></p>
+                                <bar/> <p className="challengerCount">지원자 수 <span className="challengerCountSpan">{this.state.challengeCount} 명</span></p>
                             </div>
+        }
+        else{
+            textDiv = <p className="timerLabel">{time}</p>
         }
 
         if (isExpired == null) {
@@ -108,16 +121,10 @@ class Timer extends Component {
             return <div>콘테스트가 종료 되었습니다</div>
         }
 
-        const days    = this.pad(this.state.days, 2)      
-        const hours   = this.pad(this.state.hours, 2)
-        const minutes = this.pad(this.state.minutes, 2)
-        const seconds = this.pad(this.state.seconds, 2)
-
-        const time = days + " : " + hours + " : " + minutes + " : " + seconds
+        
         return (
             <div>
                 {textDiv}
-                <p id={id}>{time}</p>
                 {challengerDiv}
             </div>
         );
