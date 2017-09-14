@@ -72,8 +72,7 @@ export function shareChallenger(challenger) {
 }
 
 export function shareFaceLink(imageURL) {
-    const path = app.getURL()
-    console.log('facebook: ' + path)
+    const path = app.getURL() + '?to=facelink'
     window.FB.ui({
         method: 'share_open_graph',
         action_type: 'og.shares',
