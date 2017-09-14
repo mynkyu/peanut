@@ -74,7 +74,7 @@ exports.calSimilarity = functions.https.onRequest((req, res) => {
           if(event.challengeCount) {
             event.challengeCount++
           } else {
-            event.challengeCount = 1
+            event['challengeCount'] = 1
           }
         } else {
           event = {challengeCount : 1}
@@ -97,24 +97,29 @@ exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}')
     const prev = event.data.previous
     const curr = event.data
   
-    if (prev.exists() && 
-      !(curr.exists() && (prev.val().imageURL == curr.val().imageURL))) {
+    if (!prev.exists() && curr.exists()) {
       const eventName = event.params.eventName
-      const challengerId = event.params.challengerId
-      const prevRef = event.data.ref.root.child('removed_challenger').child(eventName).child(challengerId)
-      const voteRef = event.data.ref.root.child('vote').child(eventName).child(challengerId)
-      const eventRef = event.data.ref.root.child('event').child(eventName).transaction(function(challenger) {
+      const eventRef = event.data.ref.root.child('event').child(eventName)
+      eventRef.transaction(function(event) {
         if(event) {
           if(event.applyCount) {
             event.applyCount++
           } else {
-            event.applyCount = 1
+            event['applyCount'] = 1
           }
         } else {
           event = {applyCount : 1}
         }
         return event
       });
+    }
+
+    if (prev.exists() && 
+      !(curr.exists() && (prev.val().imageURL == curr.val().imageURL))) {
+      const eventName = event.params.eventName
+      const challengerId = event.params.challengerId
+      const prevRef = event.data.ref.root.child('removed_challenger').child(eventName).child(challengerId)
+      const voteRef = event.data.ref.root.child('vote').child(eventName).child(challengerId)
 
       return prevRef.push(event.data.previous.val()).then(() => {
         return voteRef.set(null)
