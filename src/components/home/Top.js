@@ -19,7 +19,7 @@ const Top = ({challengers}) => {
     const first = <TopItem challenger={challengers[0]}/>
     const second = <TopItem challenger={challengers[1]}/>
     const third = <TopItem challenger={challengers[2]}/>
-    
+
     return (
         <div className = "topContainer" >
             <img src = {heartImg} className = "heartImg"/>

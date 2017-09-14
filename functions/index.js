@@ -92,6 +92,39 @@ exports.calSimilarity = functions.https.onRequest((req, res) => {
       });
     });
 });
+
+exports.calFaceLink = functions.https.onRequest((req, res) => {
+  if (req.method === 'PUT') {
+    cors(req, res, () => {
+      res.status(403).send('Forbidden!');
+    });
+  }
+
+  const path = '/event/facelink'
+  admin.database().ref(path).transaction(function(event) {
+    if(event) {
+      if(event.challengeCount) {
+        event.challengeCount++
+      } else {
+        event['challengeCount'] = 1
+      }
+    } else {
+      event = {challengeCount : 1}
+    }
+    return event
+  })
+
+  cors(req, res, () => {
+    const i0 = req.query.i0;
+    const i1 = req.query.i1;
+
+    axios.get('http://35.200.119.61:8080/peanut/facelink?' + querystring.stringify({i0 : i0, i1 : i1})).then(function (response) {
+      res.status(200).send(response.data);
+    })
+    .catch(function (error) {
+    });
+  });
+});
   
 exports.apply = functions.database.ref('/challenger/{eventName}/{challengerId}').onWrite(event => {
     const prev = event.data.previous

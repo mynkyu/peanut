@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import HomeContainer from '../container/home/HomeContainer'
+import FaceLinkContainer from '../container/facelink/FaceLinkContainer'
 
 import './Home.css'
 
 class Home extends Component {
+
     render() {
         const location = this.props.location.search
         
@@ -33,6 +35,14 @@ class Home extends Component {
         if(feed) {
             path = 'feed/' + feed
             return <Redirect to={path}/>
+        }
+
+
+        const to = new URLSearchParams(location).get('to')
+        if(to) {
+            switch(to) {
+                case 'facelink' : return <FaceLinkContainer location={location}/>
+            }
         }
 
 
