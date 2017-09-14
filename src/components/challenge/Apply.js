@@ -13,6 +13,7 @@ import contest2ring from '../../main_contest_big2rings.png'
 import trophy from '../../contest_trophy.png'
 import goldMedal from '../../1st_medal.png'
 
+import commentTail from '../../comment_Tail.png'
 
 import './Apply.css'
 
