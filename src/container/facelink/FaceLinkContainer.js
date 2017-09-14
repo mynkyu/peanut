@@ -29,8 +29,8 @@ class FaceLinkContainer extends Component {
         const self = this
 
         const croppie = new Croppie(document.getElementById('cropImage'), {
-          viewport: { width: 200, height: 200 },
-          boundary: { width: 300, height: 300 },
+          viewport: { width: 150, height: 150 },
+          boundary: { width: 250, height: 250 },
           showZoomer: true,
           enableOrientation: true,
           enableExif: true
