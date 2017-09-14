@@ -1,6 +1,8 @@
 import React from 'react';
 import './Challenger.css'
 
+import commentTail from '../../comment_Tail.png'
+
 import imgContainer from '../../main_contest_ring.png'
 
 const Challenger = ({challenger}) => {
@@ -21,6 +23,7 @@ const Challenger = ({challenger}) => {
             <p className = "similarityLabel">그 분과 {challenger.similarity}% 닮은 꼴</p>
             <p className = "nicknameLabel">{challenger.name} 님!</p>
             <div className = "commentBox">
+                <img src = {commentTail} className="commentTail" ></img>
                 <p>{challenger.comment}</p>
             </div>
             
