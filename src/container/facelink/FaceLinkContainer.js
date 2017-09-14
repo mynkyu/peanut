@@ -36,7 +36,7 @@ class FaceLinkContainer extends Component {
           enableExif: true
         });
 
-        // const nameInput = document.getElementById('nameInput')
+        const nameInput = document.getElementById('nameInput')
         const uploadBtn = document.getElementById('uploadBtn')
         const rotateLeftBtn = document.getElementById('rotateLeftBtn')
         const rotateRightBtn = document.getElementById('rotateRightBtn')
@@ -60,13 +60,13 @@ class FaceLinkContainer extends Component {
             }
         }
 
-        // function clearNameInput() {
-        //     nameInput.value = ''
-        // }
+        function clearNameInput() {
+            nameInput.value = ''
+        }
 
         function reset() {
             crop(userOffImage)
-            // clearNameInput()
+            clearNameInput()
             clearImageInput()
 
             self.setState({
@@ -84,11 +84,13 @@ class FaceLinkContainer extends Component {
 
         function upload(face) {
             crop(userOffImage)
-            // clearNameInput()
+            clearNameInput()
 
             const faces = self.state.face
             if(faces.length >= 2) {
-                self.setState({face : []})
+                self.setState({
+                    face : []
+                })
             }
 
             faces.push(face)
@@ -97,7 +99,7 @@ class FaceLinkContainer extends Component {
             })
 
             if(faces.length >= 2) {
-                facelink.getFaceLink(faces[0].image, faces[1].image).then((response) => {
+                facelink.getFaceLink(faces).then((response) => {
                     if (facelink.checkFaceLinkResponse(response.data)) {
                         console.log("getFaceLink : success")
                         
@@ -114,16 +116,14 @@ class FaceLinkContainer extends Component {
             }
         }
 
-        
-
         uploadBtn.addEventListener('click', function(ev) {
-            // const name = nameInput.value
-            // if (name.length > 0 && self.state.isImageExist) {
-            if (self.state.isImageExist) {
+            const name = nameInput.value
+            if (name.length > 0 && self.state.isImageExist) {
+            //if (self.state.isImageExist) {
                 croppie.result('blob').then(function(blob) {
                     const face = {
-                        // name : name,
-                        image : blob
+                        image : blob,
+                        name : name
                     }
                     upload(face)
                 });
@@ -208,9 +208,9 @@ class FaceLinkContainer extends Component {
                 <div>
                     <div id="cropImage" className="croppie-container"/>
                 </div>
-                {/* <div>
+                <div>
                     <p>이름 : <input id='nameInput'/> </p>
-                </div> */}
+                </div>
                 <div>
                     <input id='imageBtn' type="file"/>
                 </div>

@@ -47,8 +47,8 @@ export function getFaceLinkResponse(response) {
     return [string0 ,string1]
 }
 
-export function getFaceLink(i0, i1) {
-    return Promise.all([firebase.updateFaceLinkImage(i0), firebase.updateFaceLinkImage(i1)]).then((images) => {
+export function getFaceLink(faces) {
+    return Promise.all([firebase.updateFaceLinkImage(faces[0]), firebase.updateFaceLinkImage(faces[1])]).then((images) => {
         if(images.length == 2) {
             console.log('getFacelink : start')
             return axios.get(

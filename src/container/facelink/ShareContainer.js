@@ -25,7 +25,7 @@ class ShareContainer extends Component {
         const self = this
         const leftURL = URL.createObjectURL(face[0].image)
         const rightURL = URL.createObjectURL(face[1].image)
-        const text = similarity + "% 닮았다"
+        const text = face[0].name + '님과 ' + face[1].name + '님이 ' + similarity + "% 닮았습니다"
 
         const img = new Image();
         img.onload = () => {

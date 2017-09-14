@@ -1,5 +1,6 @@
 import * as firebase from 'firebase'
 import * as event from './Event';
+import * as regex from './Regex'
 
 const FIREBASE_SUCCESS = 200
 const FIREBASE_FAIL = 400
@@ -190,12 +191,13 @@ var updateImage = function (image, path) {
     })
 }
 
-function getFaceLinkFileName() {
-    return 'facelink/' + getFileName();
+function getFaceLinkFileName(name) {
+    const processedName = regex.removeSpecialChar(name)
+    return 'facelink/' + processedName + "_" + getFileName();
 }
 
-export var updateFaceLinkImage = function (image) {
-    return updateImage(image, getFaceLinkFileName())
+export var updateFaceLinkImage = function (face) {
+    return updateImage(face.image, getFaceLinkFileName(face.name))
 }
 
 function getFaceLinkShareFileName() {
