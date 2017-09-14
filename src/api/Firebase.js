@@ -20,7 +20,7 @@ export function updateProfile(user) {
     return profile
 }
 
-export function getStorageFileName() {
+function getFileName() {
     function d() {
         const date = new Date()
         return date.getTime()
@@ -29,7 +29,11 @@ export function getStorageFileName() {
     function s4() {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
-    return event.getEventName() + "/" + s4() + s4() + s4() + s4() + s4() + d() ;
+    return d() + s4() + s4() + s4() + s4() + s4()
+}
+
+export function getStorageFileName() {
+    return event.getEventName() + "/" +  getFileName();
 }
 
 export var apply = function (profile, comment, imageURL, similarity) {
@@ -164,4 +168,40 @@ export var getChallengerFeed = function (time) {
             }
         })
     });
+}
+
+var updateImage = function (image, path) {
+    return new Promise(function (resolve, reject) {
+        console.log('updateFaceLinkImage')
+        var storageRef = firebase.storage().ref(path)
+        var task = storageRef.put(image)
+        task.on('state_changed', function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log("updateFaceLinkImage : " + percentage)
+        },
+        function error(err) {
+            console.log("updateFaceLinkImage : fail")
+            reject(Error(FIREBASE_FAIL))
+        },
+        function complete() {
+            console.log("updateFaceLinkImage : success")
+            resolve(task.snapshot.downloadURL)
+        })
+    })
+}
+
+function getFaceLinkFileName() {
+    return 'facelink/' + getFileName();
+}
+
+export var updateFaceLinkImage = function (image) {
+    return updateImage(image, getFaceLinkFileName())
+}
+
+function getFaceLinkShareFileName() {
+    return 'facelinkShare/' + getFileName();
+}
+
+export var updateFaceLinkShare = function (image) {
+    return updateImage(image, getFaceLinkShareFileName())
 }

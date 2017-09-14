@@ -70,3 +70,20 @@ export function shareChallenger(challenger) {
         })
     }, response => {});
 }
+
+export function shareFaceLink(imageURL) {
+    const path = app.getURL()
+    console.log('facebook: ' + path)
+    window.FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+            object: {
+                'og:url': path,
+                'og:title': '심심풀이 얼굴놀이 피넛',
+                'og:description': '다른 사람과 얼마나 닮았는지 궁금하다면?',
+                'og:image': imageURL
+            }
+        })
+    }, response => {});
+}

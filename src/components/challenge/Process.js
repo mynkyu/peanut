@@ -34,8 +34,8 @@ class Process extends Component {
         var storageRef = firebase.storage().ref(firebaseApi.getStorageFileName())
         var task = storageRef.put(file)
         task.on('state_changed', function progress(snapshot) {
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            console.log("업로드 : " + percentage)
+            // var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            // console.log("업로드 : " + percentage)
         },
         function error(err) {},
         function complete() {    
