@@ -5,7 +5,11 @@
     font-weight: normal;
     margin-bottom: 1.5rem;
     font-size: 4.35vw;
-    margin-top: 5.6rem;
+    margin-top: 1rem;
     
+}
+
+.mainContainer{
+    overflow: hidden;
 }
 

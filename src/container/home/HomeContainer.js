@@ -5,6 +5,7 @@ import Top from '../../components/home/Top'
 import Challenge from '../../components/home/Challenge'
 import Vote from '../../components/home/Vote'
 import Legend from '../../components/home/Legend'
+import FaceLink from '../../components/home/FaceLink'
 
 import * as firebase from '../../api/Firebase';
 
@@ -34,7 +35,7 @@ class HomeContainer extends Component {
         const challengers = this.state.challengers
         
         return (
-            <div>
+            <div className="mainContainer">
                 <div className="announcement">강낭콩과 땅콩의 일치율을 확인해 보세요!</div>
                 <Top
                     challengers = {challengers}
@@ -42,6 +43,7 @@ class HomeContainer extends Component {
                 <Challenge/>
                 <Vote/>
                 <Legend/>
+                <FaceLink/>
                 {/* <div> <Link to='?to=facelink'>facelink</Link> </div> */}
             </div>
         );
