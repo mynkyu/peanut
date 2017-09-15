@@ -61,7 +61,7 @@ class ShareContainer extends Component {
                 ctx.arc(x, y, r, 0, Math.PI * 2, true);
                 ctx.clip();
     
-                ctx.drawImage(img, x-r, y-r, r*2, r*2);
+                ctx.drawImage(img, x-r, y - (1.286 * r), r * 2, r * 2.571);
                 ctx.closePath()
                 ctx.restore()
                 
