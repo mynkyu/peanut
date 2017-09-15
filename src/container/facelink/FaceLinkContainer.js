@@ -32,9 +32,15 @@ class FaceLinkContainer extends Component {
         this.setButtons()
     }
 
+    getPixelFromVW(vw) {
+        return (document.documentElement.clientWidth / 100) * vw
+    }
+
     getCroppie() {
+        const self = this
         const cropper = document.getElementById('cropImage')
         const croppie = new Croppie(cropper, {
+
           viewport: { width: 175, height: 225 },
           showZoomer: false,
           enableOrientation: true
