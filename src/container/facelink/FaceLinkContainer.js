@@ -275,7 +275,7 @@ class FaceLinkContainer extends Component {
                     </div>
                     
                     <div className = "nameInputDiv">
-                        <p>이 얼굴은 누구인가요?<br/><input id='nameInput' type="text" maxlength="30"/> </p>
+                        <p>이 얼굴은 누구인가요?<br/><input id='nameInput' type="text" maxLength="30"/> </p>
                     </div>
                 </div>
 
