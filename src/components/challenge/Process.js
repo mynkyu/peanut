@@ -77,9 +77,9 @@ class Process extends Component {
         return (
             <div className='processDiv'>
                 <p id='processText'> 
-                    땅콩 뉴럴 가동 
+                    땅콩 뉴럴 가동 중
                     <br/>
-                    강낭콩과 일치율 계산 중...
+                    그 분과 당신의 일치율 계산 합니다...
                 </p>
             </div>
         );

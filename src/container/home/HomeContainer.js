@@ -36,7 +36,7 @@ class HomeContainer extends Component {
         
         return (
             <div className="mainContainer">
-                <div className="announcement">강낭콩과 땅콩의 일치율을 확인해 보세요!</div>
+                <div className="announcement">그 분과 당신의 일치율을 확인해 보세요!</div>
                 <Top
                     challengers = {challengers}
                 />
