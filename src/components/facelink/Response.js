@@ -12,7 +12,6 @@ const Response = ({face, response}) => {
     return (
         <div>
             <div className='responseContainer'> 
-            <p>{test}</p>
                 <div className='responseItem'>
                     <img src={i0}/> 
                     <p>{response[0]}</p>
