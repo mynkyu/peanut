@@ -32,7 +32,7 @@ class FaceLinkContainer extends Component {
         const croppie = new Croppie(cropper, {
           viewport: { width: 175, height: 225 },
           boundary: { width: 210, height: 270 },
-          showZoomer: true,
+          showZoomer: false,
           enableOrientation: true
         });
         return croppie
@@ -154,7 +154,6 @@ class FaceLinkContainer extends Component {
 			reset()
 		});
 
-        
         imageBtn.addEventListener('change', function(e) {
             const file = e.target.files.item(0);
             if (!file || !imageType.test(file.type)) {
