@@ -66,14 +66,14 @@ class ShareContainer extends Component {
             // const canvas = document.getElementById('tutorial');
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, 1200, 630);
+                ctx.drawImage(img, 0, 0, 600, 315);
                 
                 
                 ctx.font = '500 32px Noto Sans KR';
                 ctx.fillStyle = '#f38048';
                 ctx.textAlign = "center"
-                ctx.fillText(leftNim, 346, 450);
-                ctx.fillText(rightNim, 583, 450);
+                ctx.fillText(leftNim, 173, 225);
+                ctx.fillText(rightNim, 292, 225);
 
                 ctx.textAlign = "left"
                 ctx.fillText(match, 435, 510);
@@ -100,6 +100,41 @@ class ShareContainer extends Component {
                         self.onImageDraw(canvas, ctx)
                     })
                 })
+                // var ctx = canvas.getContext('2d');
+                // ctx.drawImage(img, 0, 0, 1200, 630);
+                
+                
+                // ctx.font = '500 32px Noto Sans KR';
+                // ctx.fillStyle = '#f38048';
+                // ctx.textAlign = "center"
+                // ctx.fillText(leftNim, 346, 450);
+                // ctx.fillText(rightNim, 583, 450);
+
+                // ctx.textAlign = "left"
+                // ctx.fillText(match, 435, 510);
+
+                // ctx.font = '500 45px Noto Sans KR';
+                // ctx.textAlign = "right"
+                // ctx.fillText(similarity + '%', 427, 510);
+
+                // const leftNameSize = Math.min(38, 180 / leftName.length)
+                // ctx.font = '500 ' + leftNameSize +'px Noto Sans KR';
+                // ctx.fillStyle = '#7d7d7d';
+                // ctx.textAlign = "center"
+                // ctx.fillText(leftName, 235, 450, 180);
+
+                // const rightNameSize = Math.min(38, 180 / rightName.length)
+                // ctx.font = '500 ' + rightNameSize +'px Noto Sans KR';
+                // ctx.fillText(rightName, 475, 450, 180);
+
+                // ctx.font = '500 32px Noto Sans KR';
+                // ctx.fillText(resultText, 391, 565);
+
+                // self.drawImage(ctx, leftURL, 268, 278, 102).then((ctx) => {
+                //     self.drawImage(ctx, rightURL, 515, 278, 102).then((ctx) => {
+                //         self.onImageDraw(canvas, ctx)
+                //     })
+                // })
             } else {
                 // canvas-unsupported code here
             }

@@ -147,10 +147,10 @@ class FaceLinkContainer extends Component {
                 croppie.result({
                     type : 'blob',
                     format : 'png',
-                    quality: '0.9',
+                    quality: '1',
                     size: {
-                        width : 140,
-                        height : 180
+                        width : 210,
+                        height : 270
                     }
                 }).then(function(blob) {
                     const face = {
