@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import HomeContainer from '../container/home/HomeContainer'
 import FaceLinkContainer from '../container/facelink/FaceLinkContainer'
+import Term from '../container/term/Term'
 
 import './Home.css'
 
@@ -42,6 +43,7 @@ class Home extends Component {
         if(to) {
             switch(to) {
                 case 'facelink' : return <FaceLinkContainer location={location}/>
+                case 'term' : return <Term/>
             }
         }
 

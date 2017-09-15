@@ -8,6 +8,7 @@ import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
 
 import userOffImage from '../../userOffImg.png'
+import userOff2Image from '../../userOnImg.png'
 
 class FaceLinkContainer extends Component {
     constructor() {
@@ -68,14 +69,13 @@ class FaceLinkContainer extends Component {
         }
 
         function clearNameInput() {
-            nameInput.value = ''
+            nameInput.value='왼쪽땅콩'
         }
 
         function reset() {
             crop(userOffImage)
             clearNameInput()
             clearImageInput()
-
             self.setState({
                 face : [],
                 isImageExist : false,
@@ -90,20 +90,20 @@ class FaceLinkContainer extends Component {
         }
 
         function upload(face) {
-            crop(userOffImage)
-            clearNameInput()
-
             const faces = self.state.face
             if(faces.length >= 2) {
-                self.setState({
-                    face : []
-                })
+                reset()
             }
 
             faces.push(face)
             self.setState({
                 isImageExist : false
             })
+
+            if(faces.length == 1) {
+                crop(userOff2Image)
+                nameInput.value = '오른쪽땅콩'
+            }
 
             if(faces.length >= 2) {
                 facelink.getFaceLink(faces).then((response) => {
@@ -205,9 +205,9 @@ class FaceLinkContainer extends Component {
 
         var text = ''
         if(face.length == 0){
-            text = '첫번째 얼굴을 넣어주세요'
+            text = '먼저 첫번째 얼굴을 넣어주세요'
         }else if (face.length == 1){
-            text = '두번째 얼굴을 넣어주세요'
+            text = '이제 두번째 얼굴을 넣어주세요'
         }else if (face.length >= 2) {
             return <div>'일치율을 계산 중입니다'</div>
         }
