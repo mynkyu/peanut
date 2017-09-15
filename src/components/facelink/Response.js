@@ -20,18 +20,14 @@ const Response = ({face, response}) => {
         <div>
             <div className='responseContainer'> 
                 <div className='responseItem'>
-                    <p className='responseText'>
-                        <img src={i0} className='responseImg'/> 
-                        {response[0]}
-                    </p>
+                    <img src={i0}/> 
+                    <p>{response[0]}</p>
                 </div>
                 <div className='responseItem'>
-                    <p className='responseText'>
-                        <img src={i1} className='responseImg'/>
-                        {response[1]}
-                    </p>
+                    <img src={i1}/> 
+                    <p>{response[1]}</p>
                 </div>
-                <div>
+                <div className="backToPicture">
                     <button onClick={refresh}>사진 선택으로 되돌아가기</button>
                 </div>
             </div>
