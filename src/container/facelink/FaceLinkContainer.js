@@ -3,6 +3,8 @@ import Croppie from 'croppie'
 import 'croppie/croppie.css'
 
 import ShareContainer from './ShareContainer'
+import Response from '../../components/Response'
+import Process from '.../../components/Process'
 
 import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
@@ -188,18 +190,7 @@ class FaceLinkContainer extends Component {
         }
 
         if (response) {
-            return <div> 
-                <div>
-                    <p>
-                        {response[0]} 
-                        <bar/>
-                        {response[1]} 
-                    </p>
-                </div>
-                <div>
-                    <button onClick={this.refresh}>다시하기</button>
-                </div>
-            </div>
+            return <Response response = {response}/>
         }
 
         var text = ''
@@ -208,7 +199,7 @@ class FaceLinkContainer extends Component {
         }else if (face.length == 1){
             text = '이제 두번째 얼굴을 넣어주세요'
         }else if (face.length >= 2) {
-            return <div>'일치율을 계산 중입니다'</div>
+            return <Process/>
         }
 
         return (
