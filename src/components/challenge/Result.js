@@ -39,7 +39,7 @@ class Result extends Component {
                         <img src={imgSrc}/>
                     </div>
                 </div>
-                <p className = "similarityLabel">이 분과 당신의 일치율은...</p>
+                <p className = "similarityLabel">강낭콩과 당신의 일치율은...</p>
                 <p className="similarity">{similarity}%</p>
                 <p className = "scaryText">컨테스트 재응모시 기존 응모는 취소됩니다</p>
                 <div className="contestGo"><Link to="/challenge/apply">컨테스트 응모 자격 획득!</Link></div>

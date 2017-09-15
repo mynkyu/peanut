@@ -76,9 +76,10 @@ class Process extends Component {
 
         return (
             <div className='processDiv'>
-                <p id='processText'>
-                    "얼굴 파이터는 얼굴로 말한다"<br/>
-                    일치율 계산 중...
+                <p id='processText'> 
+                    땅콩 뉴럴 가동 
+                    <br/>
+                    강낭콩과 일치율 계산 중...
                 </p>
             </div>
         );

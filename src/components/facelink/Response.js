@@ -18,17 +18,21 @@ const Response = ({face, response}) => {
     // const i1 = URL.createObjectURL(face[1].image)
     return (
         <div>
-            <div> 
-                <div>
-                    <img src={i0}/>
-                    {response[0]} 
+            <div className='responseContainer'> 
+                <div className='responseItem'>
+                    <p className='responseText'>
+                        <img src={i0} className='responseImg'/> 
+                        {response[0]}
+                    </p>
+                </div>
+                <div className='responseItem'>
+                    <p className='responseText'>
+                        <img src={i1} className='responseImg'/>
+                        {response[1]}
+                    </p>
                 </div>
                 <div>
-                    <img src={i1}/>
-                    {response[1]} 
-                </div>
-                <div>
-                    <button onClick={refresh}>다시하기</button>
+                    <button onClick={refresh}>사진 선택으로 되돌아가기</button>
                 </div>
             </div>
             

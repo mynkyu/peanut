@@ -1,9 +1,12 @@
 import React from 'react';
+import './Process.css'
 
 const Process = () => {
     return (
         <div>
-            <div>'일치율을 계산 중입니다'</div>
+            <p className="processText">땅콩과 강낭콩의</p>
+            <bar/>
+            <p className="processText">일치율 계산 중...</p>
         </div>
     );
 };
