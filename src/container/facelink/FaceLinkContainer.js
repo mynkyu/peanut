@@ -9,6 +9,7 @@ import Process from '.../../components/Process'
 import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
 
+// 첫번째 두번째
 import userOffImage from '../../userOffImg.png'
 import userOff2Image from '../../userOnImg.png'
 
@@ -92,6 +93,8 @@ class FaceLinkContainer extends Component {
         }
 
         function upload(face) {
+            crop(userOff2Image)
+
             const faces = self.state.face
             if(faces.length >= 2) {
                 reset()
@@ -103,7 +106,6 @@ class FaceLinkContainer extends Component {
             })
 
             if(faces.length == 1) {
-                crop(userOff2Image)
                 nameInput.value = '오른쪽땅콩'
             }
 
@@ -178,6 +180,7 @@ class FaceLinkContainer extends Component {
     }
 
     render() {
+        const isImageExist = this.state.isImageExist
         const face = this.state.face
         const similarity = this.state.similarity
         const response = this.state.response
@@ -190,16 +193,33 @@ class FaceLinkContainer extends Component {
         }
 
         if (response) {
-            return <Response response = {response}/>
+            return <Response 
+                face = {face}
+                response = {response}
+            />
         }
 
         var text = ''
+        var inputText = ''
         if(face.length == 0){
             text = '먼저 첫번째 얼굴을 넣어주세요'
+            inputText = '첫 번째 얼굴 불러오기'
         }else if (face.length == 1){
             text = '이제 두번째 얼굴을 넣어주세요'
+            inputText = '두 번째 얼굴 불러오기'
         }else if (face.length >= 2) {
             return <Process/>
+        }
+
+        var uploadText = ''
+        if (isImageExist) {
+            if(face.length >= 2) {
+                uploadText = '완료! 두 얼굴간 일치율 확인하기'
+            } else {
+                uploadText = '적용하기'
+            }
+        } else {
+            uploadText = '사진과 이름을 넣어주세요'
         }
 
         return (
@@ -214,12 +234,13 @@ class FaceLinkContainer extends Component {
                     <p>이름 : <input id='nameInput'/> </p>
                 </div>
                 <div>
-                    <input id='imageBtn' type="file"/>
+                    <input id='imageBtn' type="file"> {inputText} </input>
                 </div>
                 <div> 
                     <button id='rotateLeftBtn'>왼쪽 회전</button>
                     <button id='rotateRightBtn'>오른쪽 회전</button>
-                    <button id="uploadBtn">완료</button>
+                    {/* 적용하기 */}
+                    <button id="uploadBtn"> {uploadText} </button>
                 </div>
                 <div> 
                     <button id="resetBtn">다시하기</button>
