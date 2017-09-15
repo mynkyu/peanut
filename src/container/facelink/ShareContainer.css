@@ -93,6 +93,8 @@
     height: 100%;
     color: #ffffff;
     font-size: 4.5vw;
+    border: 0;
+    background-color: transparent;
 }
 
 
