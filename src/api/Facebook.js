@@ -15,7 +15,7 @@ export function init() {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
+        js.src = "//connect.facebook.net/ko_KR/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 }
@@ -41,7 +41,7 @@ export function signInWithRedirect() {
 export function sharePeanut() {
     window.FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.shares',
+        action_type: 'og.likes',
         action_properties: JSON.stringify({
             object: {
                 'og:url': app.getURL(),
@@ -59,7 +59,7 @@ export function shareChallenger(challenger) {
     console.log('facebook: ' + path)
     window.FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.shares',
+        action_type: 'og.likes',
         action_properties: JSON.stringify({
             object: {
                 'og:url': path,
@@ -71,18 +71,21 @@ export function shareChallenger(challenger) {
     }, response => {});
 }
 
-export function shareFaceLink(imageURL) {
+export function shareFaceLink(imageURL, face) {
     const path = app.getURL() + '?to=facelink'
+
     window.FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.shares',
+        action_type: 'og.likes',
         action_properties: JSON.stringify({
-            object: {
-                'og:url': path,
-                'og:title': '심심풀이 얼굴놀이 피넛',
-                'og:description': '다른 사람과 얼마나 닮았는지 궁금하다면?',
-                'og:image': imageURL
-            }
+          object: {
+                      'og:url': path,
+                      'og:title': '다른 사람과 얼마나 닮았는지 궁금하다면?',
+                      'og:description': '심심풀이 얼굴놀이 피넛!',
+                      'og:image': imageURL,
+                      'og:image:width' : 1200 ,
+                      'og:image:height' : 630
+                  }
         })
     }, response => {});
 }

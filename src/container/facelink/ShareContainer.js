@@ -8,6 +8,7 @@ import './ShareContainer.css'
 
 import contestImage from '../../image/contestImage.jpeg'
 import backgroundImage from '../../image/facebookShare.png'
+// import backgroundImage from '../../peanut_share1.png'
 
 import kakaoIcon from '../../kakao_icon.png'
 import facebookIcon from '../../facebook_icon.png'
@@ -66,14 +67,15 @@ class ShareContainer extends Component {
             // const canvas = document.getElementById('tutorial');
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, 600, 315);
-                
+
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, 1200, 630);
                 
                 ctx.font = '500 32px Noto Sans KR';
                 ctx.fillStyle = '#f38048';
                 ctx.textAlign = "center"
-                ctx.fillText(leftNim, 173, 225);
-                ctx.fillText(rightNim, 292, 225);
+                ctx.fillText(leftNim, 346, 450);
+                ctx.fillText(rightNim, 583, 450);
 
                 ctx.textAlign = "left"
                 ctx.fillText(match, 435, 510);
@@ -100,41 +102,6 @@ class ShareContainer extends Component {
                         self.onImageDraw(canvas, ctx)
                     })
                 })
-                // var ctx = canvas.getContext('2d');
-                // ctx.drawImage(img, 0, 0, 1200, 630);
-                
-                
-                // ctx.font = '500 32px Noto Sans KR';
-                // ctx.fillStyle = '#f38048';
-                // ctx.textAlign = "center"
-                // ctx.fillText(leftNim, 346, 450);
-                // ctx.fillText(rightNim, 583, 450);
-
-                // ctx.textAlign = "left"
-                // ctx.fillText(match, 435, 510);
-
-                // ctx.font = '500 45px Noto Sans KR';
-                // ctx.textAlign = "right"
-                // ctx.fillText(similarity + '%', 427, 510);
-
-                // const leftNameSize = Math.min(38, 180 / leftName.length)
-                // ctx.font = '500 ' + leftNameSize +'px Noto Sans KR';
-                // ctx.fillStyle = '#7d7d7d';
-                // ctx.textAlign = "center"
-                // ctx.fillText(leftName, 235, 450, 180);
-
-                // const rightNameSize = Math.min(38, 180 / rightName.length)
-                // ctx.font = '500 ' + rightNameSize +'px Noto Sans KR';
-                // ctx.fillText(rightName, 475, 450, 180);
-
-                // ctx.font = '500 32px Noto Sans KR';
-                // ctx.fillText(resultText, 391, 565);
-
-                // self.drawImage(ctx, leftURL, 268, 278, 102).then((ctx) => {
-                //     self.drawImage(ctx, rightURL, 515, 278, 102).then((ctx) => {
-                //         self.onImageDraw(canvas, ctx)
-                //     })
-                // })
             } else {
                 // canvas-unsupported code here
             }
@@ -186,15 +153,20 @@ class ShareContainer extends Component {
         const self = this
         const shareImageBlob = this.state.shareImageBlob
         const shareImageURL = this.state.shareImageURL
+        const face = this.state.face
+
+        if (shareImageURL){
+            facebook.shareFaceLink(shareImageURL, face)
+            return
+        }
 
         if (shareImageBlob && !this.state.isUploaded) {
             self.setState({isUploaded : true})
             firebase.updateFaceLinkShare(shareImageBlob).then((shareImageURL) => {
                 self.setState({shareImageURL : shareImageURL})
-                facebook.shareFaceLink(shareImageURL)
+                facebook.shareFaceLink(shareImageURL, face)
+                self.setState({isUploaded : false})
             })
-        } else if (shareImageURL){
-            facebook.shareFaceLink(shareImageURL)
         }
     }
 
@@ -203,12 +175,21 @@ class ShareContainer extends Component {
     }
 
     render() {
+        // const blob = this.state.shareImageBlob
         const blob = this.state.showImageBlob
+        const isUploaded = this.state.isUploaded
+
         var shareImg = <div></div>
         if (blob) {
             const url = URL.createObjectURL(blob)
             shareImg = <img src={url}/>
         }
+
+        var facebookShareText = '페이스북에 공유'
+        if (isUploaded) {
+            facebookShareText = '불러오는 중'
+        }
+
         return (
             <div className="shareContainerDiv">
                 <div  className="ImageForShare" >
@@ -219,7 +200,7 @@ class ShareContainer extends Component {
                 <div>
                     <button onClick={this.facebookShare} className="shareWithFacebook">
                         <img src={facebookIcon}/>
-                        <p>페이스북에 공유</p>
+                        <p>{facebookShareText}</p>
                     </button>
 
                     <a id="kakao-link-btn" href="javascript:sendLink()" className="shareWithKakao">
