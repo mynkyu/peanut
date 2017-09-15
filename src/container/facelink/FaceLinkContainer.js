@@ -25,16 +25,20 @@ class FaceLinkContainer extends Component {
         this.setButtons()
     }
 
-    setButtons() {
-        const self = this
-
-        const croppie = new Croppie(document.getElementById('cropImage'), {
+    getCroppie() {
+        const cropper = document.getElementById('cropImage')
+        const croppie = new Croppie(cropper, {
           viewport: { width: 175, height: 225 },
           boundary: { width: 210, height: 270 },
           showZoomer: true,
-          enableOrientation: true,
-          enableExif: true
+          enableOrientation: true
         });
+        return croppie
+    }
+    setButtons() {
+        const self = this
+
+        var croppie = this.getCroppie()
 
         const nameInput = document.getElementById('nameInput')
         const uploadBtn = document.getElementById('uploadBtn')
@@ -48,6 +52,8 @@ class FaceLinkContainer extends Component {
 
         function crop(image) {
             if(image) {
+                croppie.destroy()
+                croppie = self.getCroppie()
                 croppie.bind({url: image});
             }
         }
@@ -118,9 +124,14 @@ class FaceLinkContainer extends Component {
 
         uploadBtn.addEventListener('click', function(ev) {
             const name = nameInput.value
-            if (name.length > 0 && self.state.isImageExist) {
-            //if (self.state.isImageExist) {
-                croppie.result('blob').then(function(blob) {
+            // if (name.length > 0 && self.state.isImageExist) {
+            if (self.state.isImageExist) {
+                croppie.result({
+                    type : 'blob',
+                    format : 'png',
+                    quality: '0.9',
+                    size: 'original'
+                }).then(function(blob) {
                     const face = {
                         image : blob,
                         name : name

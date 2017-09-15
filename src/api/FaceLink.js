@@ -51,12 +51,12 @@ export function getFaceLink(faces) {
     return Promise.all([firebase.updateFaceLinkImage(faces[0]), firebase.updateFaceLinkImage(faces[1])]).then((images) => {
         if(images.length == 2) {
             console.log('getFacelink : start')
-            return axios.get(
-                'http://127.0.0.1:8080/peanut/facelink?' 
-                + querystring.stringify({i0 : images[0], i1 : images[1]}))
             // return axios.get(
-            //     'https://us-central1-peanut-5b51b.cloudfunctions.net/calFaceLink?' 
+            //     'http://127.0.0.1:8080/peanut/facelink?' 
             //     + querystring.stringify({i0 : images[0], i1 : images[1]}))
+            return axios.get(
+                'https://us-central1-peanut-5b51b.cloudfunctions.net/calFaceLink?' 
+                + querystring.stringify({i0 : images[0], i1 : images[1]}))
         } else {
             console.log('getFacelink : fail')
             return

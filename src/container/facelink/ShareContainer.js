@@ -10,6 +10,8 @@ class ShareContainer extends Component {
     constructor() {
         super()
         this.state = {
+            isUploaded : false,
+            shareImageBlob : null,
             shareImageURL : null
         }
 
@@ -75,15 +77,22 @@ class ShareContainer extends Component {
         kakao.sharePeanut()
 
         canvas.toBlob(function(blob){
-            firebase.updateFaceLinkShare(blob).then((url) => {
-                self.setState({shareImageURL : url})
-            })
-        }); 
+            self.setState({shareImageBlob : blob})
+        });
     }
 
     facebookShare() {
+        const self = this
+        const shareImageBlob = this.state.shareImageBlob
         const shareImageURL = this.state.shareImageURL
-        if (shareImageURL) {
+
+        if (shareImageBlob && !this.state.isUploaded) {
+            self.setState({isUploaded : true})
+            firebase.updateFaceLinkShare(shareImageBlob).then((shareImageURL) => {
+                self.setState({shareImageURL : shareImageURL})
+                facebook.shareFaceLink(shareImageURL)
+            })
+        } else if (shareImageURL){
             facebook.shareFaceLink(shareImageURL)
         }
     }

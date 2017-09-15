@@ -38,15 +38,14 @@ class Crop extends Component {
           viewport: { width: 200, height: 200 },
           boundary: { width: 300, height: 300 },
           showZoomer: true,
-          enableOrientation: true,
-          enableExif: true
+          enableOrientation: true
         });
         crop.bind({
           url: image
         });
 
         document.getElementById('uploadBtn').addEventListener('click', function(ev) {
-            crop.result('blob').then(function(blob) {
+            crop.result('blob', 'original' ).then(function(blob) {
                 setCropImg(blob)
             });
         })
