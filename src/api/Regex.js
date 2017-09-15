@@ -27,6 +27,7 @@ const specials = [
 , "^"
 , "$"
 , "|"
+, "\s"
 ]
 
 // I choose to escape every character with '\'

@@ -5,6 +5,7 @@ import 'croppie/croppie.css'
 import ShareContainer from './ShareContainer'
 
 import * as facelink from '../../api/FaceLink'
+import * as regex from '../../api/Regex'
 
 import userOffImage from '../../userOffImg.png'
 
