@@ -13,6 +13,8 @@ import * as regex from '../../api/Regex'
 import userOffImage from '../../userOffImg.png'
 import userOff2Image from '../../userOnImg.png'
 
+import './FaceLinkContainer.css'
+
 class FaceLinkContainer extends Component {
     constructor() {
         super()
@@ -38,8 +40,8 @@ class FaceLinkContainer extends Component {
         const self = this
         const cropper = document.getElementById('cropImage')
         const croppie = new Croppie(cropper, {
-          viewport: { width: self.getPixelFromVW(49), height: self.getPixelFromVW(63) },
-          boundary: { width: self.getPixelFromVW(63), height: self.getPixelFromVW(81) },
+
+          viewport: { width: 175, height: 225 },
           showZoomer: false,
           enableOrientation: true
         });
@@ -232,7 +234,7 @@ class FaceLinkContainer extends Component {
                 <div>
                     <p>{text}</p>
                 </div>
-                <div>
+                <div className = "cropDiv">
                     <div id="cropImage" className="croppie-container"/>
                 </div>
                 <div>
