@@ -17,6 +17,7 @@ class ShareContainer extends Component {
         super()
         this.state = {
             isUploaded : false,
+            showImageBlob : null,
             shareImageBlob : null,
             shareImageURL : null
         }
@@ -26,16 +27,16 @@ class ShareContainer extends Component {
     }
 
     componentDidMount() {
-        this.drawResult(this.props.face, 100)
-        // this.drawResult(this.props.face, this.props.similarity)
+        // this.drawResult(this.props.face, 47.12)
+        this.drawResult(this.props.face, this.props.similarity)
     }
 
     drawResult(face, similarity) {
         const self = this
-        const leftURL = contestImage
-        const rightURL = contestImage
-        const leftName = '땅콩'
-        const rightName = '강낭콩'
+        // const leftURL = contestImage
+        // const rightURL = contestImage
+        const leftName = face[0].name //'보검보검'
+        const rightName = face[1].name //'고마해라마이무따아이가'
         const leftNim = '님과'
         const rightNim = '님은'
         const match = '일치!'
@@ -54,9 +55,8 @@ class ShareContainer extends Component {
             resultText = '본인이군요.'
         }
 
-        // const leftURL = URL.createObjectURL(face[0].image)
-        // const rightURL = URL.createObjectURL(face[1].image)
-        // const text = face[0].name + '님과 ' + face[1].name + '님이 ' + similarity + "% 닮았습니다"
+        const leftURL = URL.createObjectURL(face[0].image)
+        const rightURL = URL.createObjectURL(face[1].image)
 
         const img = new Image();
         img.onload = () => {
@@ -76,11 +76,11 @@ class ShareContainer extends Component {
                 ctx.fillText(rightNim, 583, 450);
 
                 ctx.textAlign = "left"
-                ctx.fillText(match, 420, 510);
+                ctx.fillText(match, 435, 510);
 
                 ctx.font = '500 45px Noto Sans KR';
                 ctx.textAlign = "right"
-                ctx.fillText(similarity + '%', 412, 510);
+                ctx.fillText(similarity + '%', 427, 510);
 
                 const leftNameSize = Math.min(38, 180 / leftName.length)
                 ctx.font = '500 ' + leftNameSize +'px Noto Sans KR';
@@ -89,15 +89,15 @@ class ShareContainer extends Component {
                 ctx.fillText(leftName, 235, 450, 180);
 
                 const rightNameSize = Math.min(38, 180 / rightName.length)
-                ctx.font = '500 ' + leftNameSize +'px Noto Sans KR';
+                ctx.font = '500 ' + rightNameSize +'px Noto Sans KR';
                 ctx.fillText(rightName, 475, 450, 180);
 
                 ctx.font = '500 32px Noto Sans KR';
-                ctx.fillText(resultText, 391, 560);
+                ctx.fillText(resultText, 391, 565);
 
                 self.drawImage(ctx, leftURL, 268, 278, 102).then((ctx) => {
                     self.drawImage(ctx, rightURL, 515, 278, 102).then((ctx) => {
-                        self.onImageDraw(canvas)
+                        self.onImageDraw(canvas, ctx)
                     })
                 })
             } else {
@@ -127,13 +127,23 @@ class ShareContainer extends Component {
         })
     }
 
-    onImageDraw(canvas) {
+    onImageDraw(canvas, ctx) {
         const self = this
         
         kakao.sharePeanut()
 
         canvas.toBlob(function(blob){
             self.setState({shareImageBlob : blob})
+        });
+
+        const showCanvas = document.createElement('canvas')
+        showCanvas.width  = 785
+        showCanvas.height = 630
+        const showCtx = showCanvas.getContext('2d');
+        showCtx.putImageData(ctx.getImageData(0,0,1200,630), 0, 0) 
+        
+        showCanvas.toBlob(function(blob){
+            self.setState({showImageBlob : blob})
         });
     }
 
@@ -158,7 +168,7 @@ class ShareContainer extends Component {
     }
 
     render() {
-        const blob = this.state.shareImageBlob
+        const blob = this.state.showImageBlob
         var shareImg = <div></div>
         if (blob) {
             const url = URL.createObjectURL(blob)
