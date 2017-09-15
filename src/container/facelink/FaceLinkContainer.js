@@ -13,6 +13,12 @@ import * as regex from '../../api/Regex'
 import userOffImage from '../../userOffImg.png'
 import userOff2Image from '../../userOnImg.png'
 
+import faceLinkLine from '../../facelink_line.png'
+import cameraButton from '../../contest_cameraicon.png'
+import rotationLeft from '../../rotate_left_icon.png'
+import rotationRight from '../../rotate_right_icon.png'
+
+
 import './FaceLinkContainer.css'
 
 class FaceLinkContainer extends Component {
@@ -79,7 +85,7 @@ class FaceLinkContainer extends Component {
         }
 
         function clearNameInput() {
-            nameInput.value='왼쪽땅콩'
+            nameInput.value='땅콩'
         }
 
         function reset() {
@@ -113,7 +119,7 @@ class FaceLinkContainer extends Component {
             })
 
             if(faces.length == 1) {
-                nameInput.value = '오른쪽땅콩'
+                nameInput.value = '강낭콩'
             }
 
             if(faces.length >= 2) {
@@ -231,28 +237,43 @@ class FaceLinkContainer extends Component {
 
         return (
             <div>
-                <div>
-                    <p>{text}</p>
+                <p className = "faceLinkTitle" >{text}</p>
+                
+                <div className = "divWithBorder">
+                    <img className="lineImage" src = {faceLinkLine}/>
+                    <div className = "cropDiv">
+                        <div id="cropImage" className="croppie-container"/>
+                    </div>
+                    
+                    <div className = "inputDiv" >
+                        <img src = {cameraButton}/>
+                        <p className = "inputText">{inputText}</p>
+                        <input id='imageBtn' type="file"/>
+                    </div>
+                    
+                    <div className = "rotationDiv">
+                        <button id='rotateLeftBtn'>
+                            <img src={rotationLeft} />
+                        </button>
+                        <div/>
+                        <button id='rotateRightBtn'>
+                            <img src={rotationRight} />
+                        </button>
+                    </div>
+
+                    <div className="resetDiv">
+                        <button id="resetBtn">다시하기</button>
+                    </div>
+                    
+                    <div className = "nameInputDiv">
+                        <p>이 얼굴은 누구인가요?<br/><input id='nameInput'/> </p>
+                    </div>
                 </div>
-                <div className = "cropDiv">
-                    <div id="cropImage" className="croppie-container"/>
-                </div>
-                <div>
-                    <p>이름 : <input id='nameInput'/> </p>
-                </div>
-                <div>
-                    {inputText}
-                    <input id='imageBtn' type="file"/>
-                </div>
-                <div> 
-                    <button id='rotateLeftBtn'>왼쪽 회전</button>
-                    <button id='rotateRightBtn'>오른쪽 회전</button>
-                    {/* 적용하기 */}
-                    <button id="uploadBtn"> {uploadText} </button>
-                </div>
-                <div> 
-                    <button id="resetBtn">다시하기</button>
-                </div>
+
+                
+
+                {/* 적용하기 */}
+                <button id="uploadBtn"> {uploadText} </button>
             </div>
         );
     }

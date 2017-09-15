@@ -1,12 +1,195 @@
-.cropDiv{
-    width: 63vw;
-    height: 81vw;
+.faceLinkTitle{
+    width: 100%;
+    text-align: center;
+    color: #f38048;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.divWithBorder{
+    position: relative;
+    width: 70vw;
+    margin-left: 15vw;
+    overflow: hidden;
+    margin-bottom: 25%;
+    border-radius: 2px;
     
 }
 
+.lineImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
+.cropDiv{
+    width: 63vw;
+    height: 81vw;
+    margin-left: 3.5vw;
+    margin-top: 3.5vw;
+}
 
 div.cr-viewport{
     width: 49vw  !important;
     height: 56vw  !important;
 }
+
+.inputDiv{
+    position: relative;
+    height: 12vw;
+    width: 85%;
+    margin-left: 7.5%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 5.8%;
+}
+
+.inputDiv input{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 100;
+}
+
+.inputDiv img{
+    position: absolute;
+    width: auto;
+    height: 7vw;
+    
+    left: 6vw;
+    top: 2vw;
+}
+
+.inputDiv p{
+    position: absolute;
+    line-height: 12vw;
+    color: #f38048;
+    top: 0;
+    right: 3.9vw;
+    margin: 0;
+    font-size: 4.5vw;
+    text-align: center;
+
+}
+
+
+.rotationDiv{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 9vw;
+    width: 30%;
+    margin-top: 5.8%;
+    margin-left: 7.5%;
+    margin-right: 5%;
+    margin-bottom: 5.8%;
+}
+
+#rotateLeftBtn{
+    width: 25%;
+    float: left;
+    margin-left: 14%;
+    margin-top: 5%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#rotateLeftBtn img{
+    width: 100%;
+}
+
+.rotationDiv div{
+    position: absolute;
+    width: 1%;
+    
+    background-color: #9b9b9b;
+    left: 50%;
+    height: 7vw;
+    margin-top: 1vw;
+    
+    
+}
+
+#rotateRightBtn{
+    width: 25%;
+    float: right;
+    margin-right: 14%;
+    margin-top: 5%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#rotateRightBtn img{
+    width: 100%;
+}
+
+.resetDiv{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 9vw;
+    width: 45%;
+    margin-bottom: 5.8%;
+    margin-left: 5%;
+    margin-right: 7.5%;
+    margin-top: 5.8%;
+}
+
+#resetBtn{
+    width: 100%;
+    height: 100%;
+    color: #9b9b9b;
+    font-size: 4.5vw;
+    border: 0; 
+    background-color: transparent;
+}
+
+.nameInputDiv{
+    position: relative;
+    height: 12vw;
+    width: 85%;
+    float: left;
+    margin-bottom: 9%;
+    margin-left: 7.5%;
+}
+
+.nameInputDiv p{
+    
+    
+    line-height: 6vw;
+    font-size: 4.5vw;
+    color: #f38048;
+    margin: 0;
+}
+
+.nameInputDiv input{
+    height: 6vw;
+    width: 100%;
+    border: 0;
+    font-size: 4.5vw;
+
+    
+}
+
+#uploadBtn{
+    position: fixed;
+    height: 2.7rem;
+    width: 100%;
+    background-color: #f38048;
+    border: 0px;
+    color: #ffffff;
+    bottom: 0;
+    z-index: 100;
+}
+
+
+
