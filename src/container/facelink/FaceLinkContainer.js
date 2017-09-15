@@ -148,7 +148,10 @@ class FaceLinkContainer extends Component {
                     type : 'blob',
                     format : 'png',
                     quality: '0.9',
-                    size: 'original'
+                    size: {
+                        width : 140,
+                        height : 180
+                    }
                 }).then(function(blob) {
                     const face = {
                         image : blob,
@@ -221,7 +224,13 @@ class FaceLinkContainer extends Component {
             text = '이제 두번째 얼굴을 넣어주세요'
             inputText = '두 번째 얼굴 불러오기'
         }else if (face.length >= 2) {
-            return <Process/>
+            // const i0 = URL.createObjectURL(face[0].image)
+            // const i1 = URL.createObjectURL(face[1].image)
+            // return <div>
+            //     <img src={i0}/>
+            //     <img src={i1}/>
+            // </div>
+            return <Process face={face}/>
         }
 
         var uploadText = ''
