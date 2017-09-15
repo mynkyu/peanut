@@ -10,8 +10,8 @@ import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
 
 // 첫번째 두번째
-import userOffImage from '../../userOffImg.png'
-import userOff2Image from '../../userOnImg.png'
+import userOffImage from '../../faceLink_Empty.png'
+
 
 import faceLinkLine from '../../facelink_line.png'
 import cameraButton from '../../contest_cameraicon.png'
