@@ -3,8 +3,8 @@ import Croppie from 'croppie'
 import 'croppie/croppie.css'
 
 import ShareContainer from './ShareContainer'
-import Response from '../../components/Response'
-import Process from '.../../components/Process'
+import Response from '../../components/facelink/Response'
+import Process from '../../components/facelink/Process'
 
 import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
@@ -93,7 +93,7 @@ class FaceLinkContainer extends Component {
         }
 
         function upload(face) {
-            crop(userOff2Image)
+            crop(userOffImage)
 
             const faces = self.state.face
             if(faces.length >= 2) {
@@ -234,7 +234,8 @@ class FaceLinkContainer extends Component {
                     <p>이름 : <input id='nameInput'/> </p>
                 </div>
                 <div>
-                    <input id='imageBtn' type="file"> {inputText} </input>
+                    {inputText}
+                    <input id='imageBtn' type="file"/>
                 </div>
                 <div> 
                     <button id='rotateLeftBtn'>왼쪽 회전</button>

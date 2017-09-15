@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Response = () => {
+const Response = ({response}) => {
     // function refresh() {
     //     window.location.reload()
     // }
