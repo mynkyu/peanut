@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import HomeContainer from '../container/home/HomeContainer'
 // import FaceLinkContainer from '../components/facelink/Response'
-import FaceLinkContainer from '../components/facelink/Process'
-// import FaceLinkContainer from '../container/facelink/ShareContainer'
+// import FaceLinkContainer from '../components/facelink/Process'
+import FaceLinkContainer from '../container/facelink/ShareContainer'
 // import FaceLinkContainer from '../container/facelink/FaceLinkContainer'
 import Term from '../container/term/Term'
 

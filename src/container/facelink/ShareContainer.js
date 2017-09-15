@@ -9,6 +9,9 @@ import './ShareContainer.css'
 import contestImage from '../../image/contestImage.jpeg'
 import backgroundImage from '../../image/facebookShare.png'
 
+import kakaoIcon from '../../kakao_icon.png'
+import facebookIcon from '../../facebook_icon.png'
+
 class ShareContainer extends Component {
     constructor() {
         super()
@@ -162,24 +165,24 @@ class ShareContainer extends Component {
             shareImg = <img src={url}/>
         }
         return (
-            <div>
-                <div>
+            <div className="shareContainerDiv">
+                <div  className="ImageForShare" >
                     {/* <span className='shareText'>&nbsp;</span> */}
                     {/* <canvas id="tutorial" width="1200" height="630"></canvas> */}
                     {shareImg}
                 </div>
                 <div>
-                    <button onClick={this.facebookShare} className="shareOnFacebook">
-                        {/* <img src={facebookIcon}/> */}
-                        <p>공유</p>
+                    <button onClick={this.facebookShare} className="shareWithFacebook">
+                        <img src={facebookIcon}/>
+                        <p>페이스북에 공유</p>
                     </button>
 
-                    <a id="kakao-link-btn" href="javascript:sendLink()" className="shareOnKakao">
-                        {/* <img src={kakaoIcon}/> */}
-                        <p>공유</p>
+                    <a id="kakao-link-btn" href="javascript:sendLink()" className="shareWithKakao">
+                        <img src={kakaoIcon}/>
+                        <p>카카오톡에 공유</p>
                     </a>
                 </div>
-                <div>
+                <div className="againButton">
                     <button onClick={this.refresh}>다시하기</button>
                 </div>
             </div>
