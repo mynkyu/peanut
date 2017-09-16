@@ -180,7 +180,7 @@ div.cr-viewport{
     
 }
 
-#uploadBtn{
+.uploadBtn{
     position: fixed;
     height: 2.7rem;
     width: 100%;

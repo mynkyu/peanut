@@ -147,10 +147,10 @@ class FaceLinkContainer extends Component {
                 croppie.result({
                     type : 'blob',
                     format : 'png',
-                    quality: '0.9',
+                    quality: '1',
                     size: {
-                        width : 140,
-                        height : 180
+                        width : 175,
+                        height : 225
                     }
                 }).then(function(blob) {
                     const face = {
@@ -224,6 +224,10 @@ class FaceLinkContainer extends Component {
             text = '이제 두번째 얼굴을 넣어주세요'
             inputText = '두 번째 얼굴 불러오기'
         }else if (face.length >= 2) {
+            // return <ShareContainer
+            //     face = {face}
+            //     similarity = {similarity}
+            // />
             // const i0 = URL.createObjectURL(face[0].image)
             // const i1 = URL.createObjectURL(face[1].image)
             // return <div>
@@ -282,7 +286,7 @@ class FaceLinkContainer extends Component {
                 
 
                 {/* 적용하기 */}
-                <button id="uploadBtn"> {uploadText} </button>
+                <button id="uploadBtn" className="uploadBtn"> {uploadText} </button>
             </div>
         );
     }
