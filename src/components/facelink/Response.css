@@ -45,6 +45,7 @@
     height: 100%;
     font-size: 4.7vw;
     color: #ffffff;
-
+    border: 0px;
+    background-color: transparent;
 }
 
