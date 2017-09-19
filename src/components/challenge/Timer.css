@@ -24,3 +24,18 @@
 .timeLabelSpan{
     color: #f38048;
 }
+
+.contestOverLabel{
+    width: 100%;
+    text-align: center;
+    color: #7d7d7d;
+    font-size: 5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.contestOverLabel p {
+    width: 100%;
+    text-align: center;
+    color: #7d7d7d;
+}
