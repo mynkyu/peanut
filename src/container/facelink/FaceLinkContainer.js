@@ -10,7 +10,7 @@ import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
 
 // 첫번째 두번째
-import userOffImage from '../../faceLink_Empty.png'
+import userOffImage from '../../facelink_Empty.png'
 
 
 import faceLinkLine from '../../facelink_line.png'
@@ -158,6 +158,7 @@ class FaceLinkContainer extends Component {
                         name : name
                     }
                     upload(face)
+                    window.scrollTo(0, 0)
                 });
             }
         })
@@ -196,6 +197,9 @@ class FaceLinkContainer extends Component {
     }
 
     render() {
+
+        window.scrollTo(0, 0)
+
         const isImageExist = this.state.isImageExist
         const face = this.state.face
         const similarity = this.state.similarity
@@ -219,10 +223,10 @@ class FaceLinkContainer extends Component {
         var inputText = ''
         if(face.length == 0){
             text = '먼저 첫번째 얼굴을 넣어주세요'
-            inputText = '첫 번째 얼굴 불러오기'
+            inputText = '첫번째 얼굴 불러오기'
         }else if (face.length == 1){
             text = '이제 두번째 얼굴을 넣어주세요'
-            inputText = '두 번째 얼굴 불러오기'
+            inputText = '두번째 얼굴 불러오기'
         }else if (face.length >= 2) {
             // return <ShareContainer
             //     face = {face}
@@ -240,8 +244,10 @@ class FaceLinkContainer extends Component {
         var uploadText = ''
         if (isImageExist) {
             if(face.length >= 2) {
+                inputText = '다른 사진으로 해보기'
                 uploadText = '완료! 두 얼굴간 일치율 확인하기'
             } else {
+                inputText = '다른 사진으로 해보기'
                 uploadText = '적용하기'
             }
         } else {
@@ -275,12 +281,14 @@ class FaceLinkContainer extends Component {
                     </div>
 
                     <div className="resetDiv">
-                        <button id="resetBtn">다시하기</button>
+                        <button id="resetBtn">모두 되돌리기</button>
                     </div>
                     
-                    <div className = "nameInputDiv">
-                        <p>이 얼굴은 누구인가요?<br/><input id='nameInput' type="text" maxLength="30"/> </p>
-                    </div>
+                    
+                </div>
+
+                <div className = "nameInputDiv">
+                    <p>이 얼굴은 누구인가요?<input id='nameInput' type="text" maxLength="30"/> </p>
                 </div>
 
                 

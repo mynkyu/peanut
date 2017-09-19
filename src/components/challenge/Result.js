@@ -28,6 +28,8 @@ class Result extends Component {
         const imgSrc = URL.createObjectURL(this.props.blob)
         const similarity = this.props.similarity
         
+        window.scrollTo(0, 0)
+
         return (
             <div>
                 <div className = "contestResultImageContainer">

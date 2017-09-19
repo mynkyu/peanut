@@ -8,9 +8,9 @@ const Process = ({face}) => {
         <div className="loadingContainer">
             <img  className = "colorLine" src = {colorline} />
 
-            <p className="processText">{face[0].name}님과 {face[1].name}님의</p>
+            <p className="processText">세계 최고의 머신러닝 기술로</p>
             <br/>
-            <p className="processText">일치율 계산 중...</p>
+            <p className="processText">일치율을 계산중입니다</p>
         </div>
     );
 };

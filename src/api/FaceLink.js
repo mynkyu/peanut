@@ -12,8 +12,8 @@ const RESPONSE_FAIL = 400
 export function getResponse(response) {
     switch (response) {
         case RESPONSE_SUCCESS : return "결과를 보려면 로그인 해주세요!"
-        case RESPONSE_NO_FACE : return "얼굴을 인식할 수 없습니다"
-        case RESPONSE_MANY_FACE : return "얼굴이 여러개네요!&#13;&#10;그 중 어떤 얼굴인가요?"
+        case RESPONSE_NO_FACE : return "얼굴이 없어요!"
+        case RESPONSE_MANY_FACE : return "얼굴이 여러개네요!\n어떤 얼굴인지 모르겠어요."
         case RESPONSE_FAIL : return "오류 발생"
         default : return ""
     }
@@ -32,16 +32,16 @@ export function checkFaceLinkResponse(response) {
 export function getFaceLinkResponse(response) {
     var string0 = ''
     if(response.response0 != RESPONSE_SUCCESS) {
-        string0 = string0 + '첫 번째 사진 : ' + getResponse(response.response0)
+        string0 = string0 + getResponse(response.response0)
     } else {
-        string0 = string0 + '첫 번째 사진 : 인식 성공'
+        string0 = string0 + '인식 성공'
     }
 
     var string1 = ''
     if(response.response1 != RESPONSE_SUCCESS) {
-        string1 = string1 + '두 번째 사진 : ' + getResponse(response.response1)
+        string1 = string1 + getResponse(response.response1)
     } else {
-        string1 = string1 + '두 번째 사진 : 인식 성공'
+        string1 = string1 + '인식 성공'
     }
 
     return [string0 ,string1]

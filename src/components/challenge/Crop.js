@@ -56,6 +56,9 @@ class Crop extends Component {
     }
 
     render() {
+
+        window.scrollTo(0, 0)
+
         if (this.state.imageBlob) {
             return <Redirect to="/challenge/process"/>;
         }
