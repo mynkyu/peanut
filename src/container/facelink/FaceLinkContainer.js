@@ -35,6 +35,7 @@ class FaceLinkContainer extends Component {
     }
 
     componentDidMount() {
+        if (this.props.img) { return }
         this.setButtons()
     }
 
@@ -200,10 +201,17 @@ class FaceLinkContainer extends Component {
 
         window.scrollTo(0, 0)
 
+        const img = this.props.img
         const isImageExist = this.state.isImageExist
         const face = this.state.face
         const similarity = this.state.similarity
         const response = this.state.response
+
+        if (img) {
+            return <ShareContainer
+                img = {img}
+            />
+        }
 
         if (similarity) {
             return <ShareContainer

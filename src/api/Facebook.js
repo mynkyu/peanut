@@ -71,15 +71,41 @@ export function shareChallenger(challenger) {
     }, response => {});
 }
 
+// export function getShareFaceLinkOGTag(imageURL) {
+//     const path = app.getURL() + '?' + querystring.stringify({to : 'facelink', img : imageURL})
+//     return <div>
+//         <meta charset="utf-8" />
+//         {/* <meta name="description" content='심심풀이 얼굴놀이 피넛!' /> */}
+//         {/* <meta property="article:publisher" content="https://www.facebook.com/kr.vonvon.me" /> */}
+//         {/* <meta property="article:tag" content="quiz" /> */}
+//         {/* <meta property="article:published_time" content="2017-08-31T05:00:00+00:00" /> */}
+//         {/* <meta property="article:author" content="https://www.facebook.com/kr.vonvon.me" /> */}
+//         <meta property="fb:app_id" content="114048632608756" />
+//         {/* <meta property="fb:pages" content="301348366728265" /> */}
+//         {/* <meta property="og:site_name" content="vonvon" /> */}
+//         <meta property="og:description" content="다른 사람과 얼마나 닮았는지 궁금하다면?" />
+//         <meta property="og:title" content="심심풀이 얼굴놀이 피넛!" />
+//         <meta property="og:url" content= {path} />
+//         <meta property="og:image" content= {imageURL} />
+//         <meta property="og:image:height" content="630" />
+//         <meta property="og:type" content="article" />
+//         <meta property="og:image:width" content="1200" />
+//         <meta property="og:image:type" content="image/png" />
+//     </div>
+// }
+
 export function shareFaceLink(imageURL, face) {
+    // const path = app.getURL() + '?' + querystring.stringify({to : 'facelink', img : imageURL})
     const path = app.getURL() + '?to=facelink'
 
     window.FB.ui({
+        app_id: '114048632608756',
         method: 'share_open_graph',
         action_type: 'og.likes',
         action_properties: JSON.stringify({
           object: {
                       'og:url': path,
+                      'og.type' : 'article',
                       'og:title': '다른 사람과 얼마나 닮았는지 궁금하다면?',
                       'og:description': '심심풀이 얼굴놀이 피넛!',
                       'og:image:url': imageURL,

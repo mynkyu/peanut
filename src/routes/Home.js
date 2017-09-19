@@ -45,7 +45,9 @@ class Home extends Component {
         const to = new URLSearchParams(location).get('to')
         if(to) {
             switch(to) {
-                case 'facelink' : return <FaceLinkContainer location={location}/>
+                case 'facelink' : 
+                    const img = new URLSearchParams(location).get('img')
+                    return <FaceLinkContainer img={img}/>
                 case 'term' : return <Term/>
             }
         }
