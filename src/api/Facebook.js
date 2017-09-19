@@ -82,8 +82,9 @@ export function shareFaceLink(imageURL, face) {
                       'og:url': path,
                       'og:title': '다른 사람과 얼마나 닮았는지 궁금하다면?',
                       'og:description': '심심풀이 얼굴놀이 피넛!',
-                      'og:image': imageURL,
-                      'og:image:width' : 1200 ,
+                      'og:image:secure_url': imageURL,
+                      'og:image:type' : 'image/png',
+                      'og:image:width' : 1200,
                       'og:image:height' : 630
                   }
         })
