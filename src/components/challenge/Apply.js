@@ -67,6 +67,9 @@ class Apply extends Component {
     }
 
     render() {
+
+        window.scrollTo(0, 0)
+
         if(this.state.targetUid) {
             const path = "challenger/" + this.state.targetUid
             return <Redirect to={path}/>;
@@ -81,7 +84,13 @@ class Apply extends Component {
         const similarity = this.props.similarity
 
         return (
+
+            
+
             <div>
+
+                
+
                 <div className = "applyContestLabel">컨테스트 응모하기</div>
                 <div className = "rewardLabel">컨테스트 우승자에게는 <br/>10만원 상당의 상금을 드립니다!</div>
                 

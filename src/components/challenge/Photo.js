@@ -50,11 +50,17 @@ class Photo extends Component {
     }
 
     render() {
+
+        window.scrollTo(0, 0)
+
         if (this.props.blob) {
             return <Redirect to="/challenge/crop"/>;
         }
 
         return (
+
+            
+
             <div>
                 <div className = "leftTimeDiv">
                     <p>{event.getEventWeek()} 컨테스트</p>

@@ -1,9 +1,14 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .faceLinkTitle{
     width: 100%;
     text-align: center;
     color: #f38048;
     font-size: 5vw;
-    font-weight: bold;
+    line-height: 5vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    margin-top: 5%;
 }
 
 .divWithBorder{
@@ -11,7 +16,8 @@
     width: 70vw;
     margin-left: 15vw;
     overflow: hidden;
-    margin-bottom: 25%;
+    margin-top: 6%;
+    margin-bottom: 5%;
     border-radius: 2px;
     
 }
@@ -39,7 +45,7 @@ div.cr-viewport{
 
 .inputDiv{
     position: relative;
-    height: 12vw;
+    height: 11.5vw;
     width: 85%;
     margin-left: 7.5%;
     background-color: #ffffff;
@@ -57,21 +63,23 @@ div.cr-viewport{
 .inputDiv img{
     position: absolute;
     width: auto;
-    height: 7vw;
+    height: 5.2vw;
     
-    left: 6vw;
-    top: 2vw;
+    left: 8vw;
+    top: 3vw;
 }
 
 .inputDiv p{
     position: absolute;
-    line-height: 12vw;
+    line-height: 11.5vw;
     color: #f38048;
     top: 0;
-    right: 3.9vw;
+    right: 8.5vw;
     margin: 0;
-    font-size: 4.5vw;
+    font-size: 4vw;
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 
 }
 
@@ -82,19 +90,20 @@ div.cr-viewport{
     float: left;
     background-color: #ffffff;
     border-radius: 8px;
-    height: 9vw;
-    width: 30%;
-    margin-top: 5.8%;
+    height: 11.5vw;
+    width: 32.5%;
+    margin-top: 5%;
     margin-left: 7.5%;
-    margin-right: 5%;
-    margin-bottom: 5.8%;
+    margin-right: 2.5%;
+    margin-bottom: 8.5%;
 }
 
 #rotateLeftBtn{
-    width: 25%;
+    width: 21%;
+    height: 50.8%;
     float: left;
-    margin-left: 14%;
-    margin-top: 5%;
+    margin-left: 15%;
+    margin-top: 11%;
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -102,25 +111,27 @@ div.cr-viewport{
 
 #rotateLeftBtn img{
     width: 100%;
+    height: 100%;
 }
 
 .rotationDiv div{
     position: absolute;
     width: 1%;
     
-    background-color: #9b9b9b;
+    background-color: #e8e8e8;
     left: 50%;
-    height: 7vw;
-    margin-top: 1vw;
-    
+    height: 6.2vw;
+    margin-top: 2.75vw;
+
     
 }
 
 #rotateRightBtn{
-    width: 25%;
+    width: 21%;
+    height: 50.8%;
     float: right;
-    margin-right: 14%;
-    margin-top: 5%;
+    margin-right: 15%;
+    margin-top: 11%;
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -128,6 +139,7 @@ div.cr-viewport{
 
 #rotateRightBtn img{
     width: 100%;
+    height: 100%;
 }
 
 .resetDiv{
@@ -136,19 +148,21 @@ div.cr-viewport{
     float: left;
     background-color: #ffffff;
     border-radius: 8px;
-    height: 9vw;
-    width: 45%;
-    margin-bottom: 5.8%;
-    margin-left: 5%;
+    height: 11.5vw;
+    width: 47.5%;
+    margin-bottom: 8.5%;
+    margin-left: 2.5%;
     margin-right: 7.5%;
-    margin-top: 5.8%;
+    margin-top: 5%;
 }
 
 #resetBtn{
     width: 100%;
     height: 100%;
-    color: #9b9b9b;
-    font-size: 4.5vw;
+    color: #c9c9c9;
+    font-size: 4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
     border: 0; 
     background-color: transparent;
 }
@@ -158,27 +172,34 @@ div.cr-viewport{
     height: 12vw;
     width: 85%;
     float: left;
-    margin-bottom: 9%;
+    margin-bottom: 20%;
     margin-left: 7.5%;
 }
 
 .nameInputDiv p{
-    
-    
     line-height: 6vw;
-    font-size: 4.5vw;
+    font-size: 4vw;
     color: #f38048;
     margin: 0;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
 .nameInputDiv input{
     height: 6vw;
-    width: 93%;
+    width: 45%;
     border: 0;
-    font-size: 4.5vw;
-
+    font-size: 4vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
+    margin-left: 4vw;
+    color: #c9c9c9;
+    padding-left: 2.5vw;
     
 }
+
+
 
 .uploadBtn{
     position: fixed;
