@@ -119,7 +119,7 @@ class Timer extends Component {
         }
 
         if (isExpired) {
-            return <div>콘테스트가 종료 되었습니다</div>
+            return <div className = "contestOverLabel">콘테스트가 종료 되었습니다</div>
         }
 
         
