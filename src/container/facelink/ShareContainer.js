@@ -217,7 +217,7 @@ class ShareContainer extends Component {
                     </a>
                 </div>
                 <div className="againButton">
-                    <button onClick={this.refresh}>다시하기</button>
+                    <button onClick={this.refresh}>다른 사진으로 해보기</button>
                 </div>
             </div>
         );
