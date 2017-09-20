@@ -252,10 +252,10 @@ class FaceLinkContainer extends Component {
         var uploadText = ''
         if (isImageExist) {
             if(face.length >= 2) {
-                inputText = '다른 사진으로 해보기'
+                inputText = '다른 사진으로 바꾸기'
                 uploadText = '완료! 두 얼굴간 일치율 확인하기'
             } else {
-                inputText = '다른 사진으로 해보기'
+                inputText = '다른 사진으로 바꾸기'
                 uploadText = '적용하기'
             }
         } else {

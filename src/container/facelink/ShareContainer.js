@@ -41,6 +41,7 @@ class ShareContainer extends Component {
         // const rightURL = contestImage
         const leftName = face[0].name //'보검보검'
         const rightName = face[1].name //'고마해라마이무따아이가'
+        const theseGuys = '위'
         const leftNim = '님과'
         const rightNim = '님은'
         const match = '일치!'
@@ -74,34 +75,36 @@ class ShareContainer extends Component {
                 var ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, 1200, 630);
                 
-                ctx.font = '500 32px Noto Sans KR';
+                ctx.font = 'Bold 45px Noto Sans KR';
                 ctx.fillStyle = '#f38048';
                 ctx.textAlign = "center"
-                ctx.fillText(leftNim, 346, 450);
-                ctx.fillText(rightNim, 583, 450);
+                
+                
+                ctx.fillText(leftNim, 396, 495);
+                ctx.fillText(rightNim, 613, 495);
 
                 ctx.textAlign = "left"
-                ctx.fillText(match, 435, 510);
+                ctx.fillText(match, 350, 575);
 
-                ctx.font = '500 45px Noto Sans KR';
+                ctx.font = 'Bold 60px Noto Sans KR';
                 ctx.textAlign = "right"
-                ctx.fillText(similarity + '%', 427, 510);
+                ctx.fillText(similarity + '%', 342, 575);
 
-                const leftNameSize = Math.min(38, 180 / leftName.length)
-                ctx.font = '500 ' + leftNameSize +'px Noto Sans KR';
+                const leftNameSize = Math.min(45, 150 / leftName.length)
+                ctx.font = 'Bold ' + leftNameSize +'px Noto Sans KR';
                 ctx.fillStyle = '#7d7d7d';
-                ctx.textAlign = "center"
-                ctx.fillText(leftName, 235, 450, 180);
+                ctx.fillText(leftName, 355, 495, 150);
 
-                const rightNameSize = Math.min(38, 180 / rightName.length)
-                ctx.font = '500 ' + rightNameSize +'px Noto Sans KR';
-                ctx.fillText(rightName, 475, 450, 180);
+                const rightNameSize = Math.min(45, 150 / rightName.length)
+                ctx.font = 'Bold ' + rightNameSize +'px Noto Sans KR';
+                ctx.fillText(rightName, 575, 495, 150);
+                
+                ctx.font = 'Bold 28px Noto Sans KR';
+                ctx.textAlign = "left"
+                ctx.fillText(resultText, 456, 575);
 
-                ctx.font = '500 32px Noto Sans KR';
-                ctx.fillText(resultText, 391, 565);
-
-                self.drawImage(ctx, leftURL, 268, 278, 102).then((ctx) => {
-                    self.drawImage(ctx, rightURL, 515, 278, 102).then((ctx) => {
+                self.drawImage(ctx, leftURL, 300, 289, 123).then((ctx) => {
+                    self.drawImage(ctx, rightURL, 601, 289, 123).then((ctx) => {
                         self.onImageDraw(canvas, ctx)
                     })
                 })
@@ -141,8 +144,12 @@ class ShareContainer extends Component {
             self.setState({shareImageBlob : blob})
         });
 
+
+        //자르는 코드
+        //ctx : 공유용
+        // showctx : 보여주기용
         const showCanvas = document.createElement('canvas')
-        showCanvas.width  = 785
+        showCanvas.width  = 913
         showCanvas.height = 630
         const showCtx = showCanvas.getContext('2d');
         showCtx.putImageData(ctx.getImageData(0,0,1200,630), 0, 0) 

@@ -7,7 +7,7 @@
     font-size: 5vw;
     line-height: 5vw;
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
+    font-weight: bold;
     margin-top: 5%;
 }
 
@@ -79,7 +79,7 @@ div.cr-viewport{
     font-size: 4vw;
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight: normal;
+    font-weight: 500;
 
 }
 
@@ -162,7 +162,7 @@ div.cr-viewport{
     color: #c9c9c9;
     font-size: 4vw;
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight: normal;
+    font-weight: 500;
     border: 0; 
     background-color: transparent;
 }
@@ -210,6 +210,9 @@ div.cr-viewport{
     color: #ffffff;
     bottom: 0;
     z-index: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
+    font-size : 12px;
 }
 
 
