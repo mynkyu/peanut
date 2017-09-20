@@ -10,7 +10,7 @@ import * as facelink from '../../api/FaceLink'
 import * as regex from '../../api/Regex'
 
 // 첫번째 두번째
-import userOffImage from '../../faceLink_Empty.png'
+import userOffImage from '../../facelink_Empty.png'
 
 
 import faceLinkLine from '../../facelink_line.png'
