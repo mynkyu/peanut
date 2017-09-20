@@ -1,5 +1,6 @@
 import * as firebase from 'firebase'
 import * as app from './App'
+import querystring from 'querystring'
 
 export function init() {
     window.fbAsyncInit = function() {
@@ -95,25 +96,30 @@ export function shareChallenger(challenger) {
 // }
 
 export function shareFaceLink(imageURL, face) {
-    // const path = app.getURL() + '?' + querystring.stringify({to : 'facelink', img : imageURL})
-    const path = app.getURL() + '?to=facelink'
+    const herf = 'https://peanut-5b51b.firebaseapp.com/shareFacelink' + '?' + querystring.stringify({img : imageURL})
+    const redirect_uri = app.getURL() + '?to=facelink'
 
     window.FB.ui({
         app_id: '114048632608756',
-        method: 'share_open_graph',
-        action_type: 'og.likes',
-        action_properties: JSON.stringify({
-          object: {
-                      'og:url': path,
-                      'og.type' : 'article',
-                      'og:title': '다른 사람과 얼마나 닮았는지 궁금하다면?',
-                      'og:description': '심심풀이 얼굴놀이 피넛!',
-                      'og:image:url': imageURL,
-                      'og:image:secure_url': imageURL,
-                      'og:image:type' : 'image/png',
-                      'og:image:width' : 1200,
-                      'og:image:height' : 630
-                  }
-        })
+        method: 'share',
+        href: herf
     }, response => {});
+
+    // window.FB.ui({
+    //     app_id: '114048632608756',
+    //     method: 'share_open_graph',
+    //     action_type: 'og.likes',
+    //     action_properties: JSON.stringify({
+    //       object: {
+    //                   'og:url': path,
+    //                   'og:title': '다른 사람과 얼마나 닮았는지 궁금하다면?',
+    //                   'og:description': '심심풀이 얼굴놀이 피넛!',
+    //                   'og:image:url': imageURL,
+    //                   'og:image:secure_url': imageURL,
+    //                   'og:image:type' : 'image/png',
+    //                   'og:image:width' : 1200,
+    //                   'og:image:height' : 630
+    //               }
+    //     })
+    // }, response => {});
 }
