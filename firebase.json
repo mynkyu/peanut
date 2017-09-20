@@ -13,6 +13,10 @@
     ],
     "rewrites": [
       {
+        "source": "/shareFacelink",
+        "function": "shareFacelink"
+      },
+      {
         "source": "/ranking/**",
         "function": "ranking"
       },

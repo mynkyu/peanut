@@ -175,3 +175,28 @@ exports.vote = functions.database.ref('/vote/{eventName}/{challengerId}/{uid}').
       });
     }
 });
+
+exports.shareFacelink = functions.https.onRequest((req, res) => {
+  const img = req.query.img
+  const url = 'https://us-central1-peanut-5b51b.cloudfunctions.net/shareFacelink?' + querystring.stringify({img : img})
+  const redirect_uri = appURL + '?' + querystring.stringify({to : 'facelink'})
+  res.status(200).send(`<!doctype html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="description" content="심심풀이 얼굴놀이 피넛!" />
+      <meta property="fb:app_id" content="114048632608756" />
+      <meta property="og:site_name" content="peanut" />
+      <meta property="og:description" content="다른 사람과 얼마나 닮았는지 궁금하다면?" />
+      <meta property="og:title" content="심심풀이 얼굴놀이 피넛!" />
+      <meta property="og:url" content= ${url} />
+      <meta property="og:image" content= ${img} />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:type" content="article" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:type" content="image/png" />
+      <meta http-equiv="refresh" content="1; url=${redirect_uri}"/>
+    </head>
+    <body>
+    </body>
+  </html>`);
+});

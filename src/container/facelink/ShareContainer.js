@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import querystring from 'querystring'
+import {Helmet} from "react-helmet";
 
 import * as app from '../../api/App'
 import * as firebase from '../../api/Firebase'
@@ -192,30 +193,6 @@ class ShareContainer extends Component {
 
         var facebookOGTag = <div></div>
         var shareImg = <div></div>
-
-        if (img) {
-            const path = app.getURL() + '?' + querystring.stringify({to : 'facelink', img : img})
-            facebookOGTag = <div>
-                <meta charset="utf-8" />
-                {/* <meta name="description" content='심심풀이 얼굴놀이 피넛!' /> */}
-                {/* <meta property="article:publisher" content="https://www.facebook.com/kr.vonvon.me" /> */}
-                {/* <meta property="article:tag" content="quiz" /> */}
-                {/* <meta property="article:published_time" content="2017-08-31T05:00:00+00:00" /> */}
-                {/* <meta property="article:author" content="https://www.facebook.com/kr.vonvon.me" /> */}
-                <meta property="fb:app_id" content="114048632608756" />
-                {/* <meta property="fb:pages" content="301348366728265" /> */}
-                {/* <meta property="og:site_name" content="vonvon" /> */}
-                <meta property="og:description" content="다른 사람과 얼마나 닮았는지 궁금하다면?" />
-                <meta property="og:title" content="심심풀이 얼굴놀이 피넛!" />
-                <meta property="og:url" content= {path} />
-                <meta property="og:image" content= {img} />
-                <meta property="og:image:height" content="630" />
-                <meta property="og:type" content="article" />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:type" content="image/png" />
-            </div>
-            shareImg = <img src={img}/>
-        }
 
         if (blob) {
             const url = URL.createObjectURL(blob)
