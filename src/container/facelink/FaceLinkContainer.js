@@ -128,8 +128,10 @@ class FaceLinkContainer extends Component {
                     if (facelink.checkFaceLinkResponse(response.data)) {
                         console.log("getFaceLink : success")
                         
+                        const similarity = Math.max(0.01, Math.floor(response.data.result.similarity * 100)/100)
+
                         self.setState({
-                            similarity: Math.floor(response.data.result.similarity * 100)/100
+                            similarity: similarity
                         })
                     } else {
                         console.log("getFaceLink : face error")
